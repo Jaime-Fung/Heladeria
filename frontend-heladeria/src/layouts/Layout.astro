@@ -1,6 +1,6 @@
 ---
-import General from "astro:components"
-import InstagramIcon from "../components/General/Icons/InstagramIcon.astro"
+import NavBar from "../components/General/NavBar.astro"
+import Footer from "../components/General/Footer.astro"
 ---
 
 <!doctype html>
@@ -13,10 +13,11 @@ import InstagramIcon from "../components/General/Icons/InstagramIcon.astro"
 		<title>Astro Basics</title>
 	</head>
 	<body>
-		<InstagramIcon />
-
+		<!---Acá se coloca "Navbar" -->
+		<NavBar />	
 		<slot />
-		
+		<!--- Acá se colaca "Footer" -->
+		<Footer />
 	</body>
 </html>
 
