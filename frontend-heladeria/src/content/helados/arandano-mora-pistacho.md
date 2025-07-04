@@ -7,7 +7,7 @@ img: /uploads/pedidos-ya-productos-03.png
 opinionProfesional: Es muy bueno
 datosNutricionales:
   calorias: "100"
-  grasas: 150g
+  grasas: 50g
   azucar: 100g
   proteinas: 80g
 ---
