@@ -10,7 +10,8 @@ collections:
     label: "Helados"         
     folder: "frontend-heladeria/src/content/helados"  
     create: true             
-    slug: "{{nombre}}"       
+    slug: "{{nombre}}"  
+    summary: "{{nombre}} — ![imagen]({{img}})"     
     fields:
       - { label: "Nombre", name: "nombre", widget: "string" }
       - { label: "Categoría", name: "categoria", widget: "string" }
