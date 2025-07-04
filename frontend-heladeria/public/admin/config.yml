@@ -16,7 +16,7 @@ collections:
       - { label: "Categoría", name: "categoria", widget: "string" }
       - { label: "Precio", name: "precio", widget: "number" }
       - { label: "Disponible", name: "disponible", widget: "boolean" }
-      - { label: "Imagen", name: "png", widget: "image" }
+      - { label: "Imagen", name: "thumbnail", widget: "image" }
       - { label: "Opinión Profesional", name: "opinionProfesional", widget: "text" }
       - label: "Datos Nutricionales"
         name: "datosNutricionales"
