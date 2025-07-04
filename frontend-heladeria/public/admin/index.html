@@ -1,16 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>A static website</title>
+  <meta charset="UTF-8">
+  <title>Heladería - Login</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <style>
+    body {
+      background: #f9fafb;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
 
+    #login-btn {
+      background-color: #38bdf8;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
 
-  <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    #login-btn:hover {
+      background-color: #0ea5e9;
+    }
+  </style>
 </head>
 <body>
 
-  <div data-netlify-identity-menu></div>
+  <button id="login-btn">Iniciar sesión</button>
 
+  <script>
+    const btn = document.getElementById('login-btn');
 
-  <div data-netlify-identity-button>Login with Netlify Identity</div>
+    btn.addEventListener('click', () => {
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.open(); // abre el modal
+      }
+    });
+
+    // Redirigir después de login
+    netlifyIdentity.on("login", () => {
+      document.location.href = "/admin/";
+    });
+  </script>
+
 </body>
 </html>
