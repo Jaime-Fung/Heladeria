@@ -3,7 +3,7 @@ backend:
   branch: develop
 
 media_folder: "frontend-heladeria/public/uploads"  
-public_folder: "frontend-heladeria/public/uploads"       
+public_folder: "/uploads"       
 
 collections:
   - name: "helados"          
@@ -16,7 +16,7 @@ collections:
       - { label: "Categoría", name: "categoria", widget: "string" }
       - { label: "Precio", name: "precio", widget: "number" }
       - { label: "Disponible", name: "disponible", widget: "boolean" }
-      - { label: "Imagen", name: "img", widget: "image" }
+      - { label: "Imagen", name: "png", widget: "image" }
       - { label: "Opinión Profesional", name: "opinionProfesional", widget: "text" }
       - label: "Datos Nutricionales"
         name: "datosNutricionales"
