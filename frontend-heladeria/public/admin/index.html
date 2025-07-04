@@ -1,54 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Heladería - Login</title>
+  <title>Login Netlify Identity</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <style>
     body {
-      background: #f9fafb;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: sans-serif;
       display: flex;
-      height: 100vh;
       justify-content: center;
       align-items: center;
+      height: 100vh;
+      flex-direction: column;
     }
 
     #login-btn {
-      background-color: #38bdf8;
-      color: white;
-      padding: 12px 24px;
+      padding: 10px 20px;
+      background: #38bdf8;
       border: none;
-      border-radius: 8px;
+      border-radius: 6px;
+      color: white;
       font-size: 16px;
       cursor: pointer;
-      transition: background-color 0.3s;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      margin-bottom: 10px;
     }
 
-    #login-btn:hover {
-      background-color: #0ea5e9;
+    #user-info {
+      font-size: 14px;
+      color: #333;
     }
   </style>
 </head>
 <body>
 
   <button id="login-btn">Iniciar sesión</button>
+  <div id="user-info"></div>
 
   <script>
-    const btn = document.getElementById('login-btn');
+    const loginBtn = document.getElementById('login-btn');
+    const userInfo = document.getElementById('user-info');
 
-    btn.addEventListener('click', () => {
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.open(); // abre el modal
+    loginBtn.addEventListener('click', () => {
+      netlifyIdentity.open();
+    });
+
+    netlifyIdentity.on("init", (user) => {
+      if (user) {
+        userInfo.textContent = "Sesión iniciada con: " + user.email;
+        loginBtn.textContent = "Cerrar sesión";
       }
     });
 
-    // Redirigir después de login
-    netlifyIdentity.on("login", () => {
-      document.location.href = "/admin/";
+    netlifyIdentity.on("login", (user) => {
+      userInfo.textContent = "Sesión iniciada con: " + user.email;
+      loginBtn.textContent = "Cerrar sesión";
+      if (!window.location.pathname.includes("/admin")) {
+        document.location.href = "/admin/";
+      }
     });
-  </script>
 
+    netlifyIdentity.on("logout", () => {
+      userInfo.textContent = "";
+      loginBtn.textContent = "Iniciar sesión";
+    });
+
+    loginBtn.addEventListener("click", () => {
+      const user = netlifyIdentity.currentUser();
+      if (user) {
+        netlifyIdentity.logout();
+      } else {
+        netlifyIdentity.open();
+      }
+    });
+
+    netlifyIdentity.init(); // importante para iniciar el estado actual
+  </script>
 </body>
 </html>
