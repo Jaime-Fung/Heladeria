@@ -4,6 +4,7 @@ categoria: Diabeticos
 precio: 2000
 disponible: true
 img: /uploads/pedidos-ya-productos-03.png
+thumbnail: /uploads/pedidos-ya-productos-03.png
 opinionProfesional: Es muy bueno
 datosNutricionales:
   calorias: "100"
