@@ -1,0 +1,31 @@
+backend:
+  name: github
+  repo: Jaime-Fung/Heladeria
+  branch: develop
+  site_domain: heladeriasazu.vercel.app
+
+media_folder: "public/uploads"  
+public_folder: "/uploads"       
+
+collections:
+  - name: "helados"          
+    label: "Helados"         
+    folder: "src/content/helados"  
+    create: true             
+    slug: "{{nombre}}"       
+    fields:
+      - { label: "Nombre", name: "nombre", widget: "string" }
+      - { label: "Categoría", name: "categoria", widget: "string" }
+      - { label: "Precio", name: "precio", widget: "number" }
+      - { label: "Disponible", name: "disponible", widget: "boolean" }
+      - { label: "Imagen", name: "img", widget: "image" }
+      - { label: "Opinión Profesional", name: "opinionProfesional", widget: "text" }
+      - label: "Datos Nutricionales"
+        name: "datosNutricionales"
+        widget: "object"
+        fields:
+          - { label: "Calorías", name: "calorias", widget: "string" }
+          - { label: "Grasas", name: "grasas", widget: "string" }
+          - { label: "Azúcar", name: "azucar", widget: "string" }
+          - { label: "Proteínas", name: "proteinas", widget: "string" }
+          - { label: "Sodio", name: "sodio", widget: "string", required: false }
