@@ -1,0 +1,16 @@
+---
+export async function getStaticPaths() {
+  // Aquí debes devolver una lista de rutas con los IDs que quieres generar.
+  // Ejemplo sencillo:
+
+  const helados = [
+    { params: { id: "maracuya" } },
+    { params: { id: "fresa" } },
+    { params: { id: "chocolate" } },
+  ];
+
+  return helados;
+}
+export const prerender = false;
+
+---
