@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   branch: develop
 
-media_folder: "public/uploads"  
+media_folder: "frontend-heladeria/public/uploads"  
 public_folder: "/uploads"       
 
 collections:
