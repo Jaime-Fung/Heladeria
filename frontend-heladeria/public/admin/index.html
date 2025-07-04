@@ -17,6 +17,18 @@
     </script>
   </head>
   <body>
+    <script>
+      CMS.registerPreviewTemplate("helados", ({ entry }) => {
+        const nombre = entry.getIn(["data", "nombre"]);
+        const img = entry.getIn(["data", "img"]);
+        return `
+      <div style="padding: 1rem; font-family: sans-serif;">
+        <h2>${nombre}</h2>
+        <img src="${img}" alt="${nombre}" style="max-width: 200px;" />
+      </div>
+    `;
+      });
+    </script>
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
   </body>
 </html>
