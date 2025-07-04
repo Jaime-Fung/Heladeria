@@ -17,6 +17,7 @@ collections:
       - { label: "Precio", name: "precio", widget: "number" }
       - { label: "Disponible", name: "disponible", widget: "boolean" }
       - { label: "Imagen", name: "thumbnail", widget: "image" }
+      - { label: "Imagen", name: "img", widget: "image" }
       - { label: "Opinión Profesional", name: "opinionProfesional", widget: "text" }
       - label: "Datos Nutricionales"
         name: "datosNutricionales"
