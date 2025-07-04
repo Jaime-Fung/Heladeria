@@ -3,15 +3,14 @@ backend:
   branch: develop
 
 media_folder: "frontend-heladeria/public/uploads"  
-public_folder: "/uploads"       
+public_folder: "frontend-heladeria/public/uploads"       
 
 collections:
   - name: "helados"          
     label: "Helados"         
     folder: "frontend-heladeria/src/content/helados"  
     create: true             
-    slug: "{{nombre}}"  
-    summary: "{{nombre}} — ![imagen]({{img}})"     
+    slug: "{{nombre}}"     
     fields:
       - { label: "Nombre", name: "nombre", widget: "string" }
       - { label: "Categoría", name: "categoria", widget: "string" }
