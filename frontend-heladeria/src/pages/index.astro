@@ -11,4 +11,22 @@ import "../styles/global.css";
 <!--- Acá se coloca desde el "Hero" hasta la imagen de "¡Felicidad sin Remordimiento!" -->
 <Layout>
 
+    
+    <script>
+			declare global {
+				interface Window {
+					netlifyIdentity: any;
+				}
+			}
+
+			if (window.netlifyIdentity) {
+			  window.netlifyIdentity.on("init", ((user: any) => {
+				if (!user) {
+				  window.netlifyIdentity.on("login", () => {
+					document.location.href = "/admin/";
+				  });
+				}
+			  }));
+			}
+		  </script>
 </Layout>
