@@ -18,17 +18,26 @@
 
     <style>
       [class*="CardImage"] {
-        width: 80px !important;
-        height: 80px !important;
+        width: 120px !important;
+        height: 120px !important;
+        margin: 0 auto !important;
         object-fit: cover !important;
         border-radius: 8px;
         display: block;
       }
+
       [class*="CardBody"] {
         padding-top: 0.5rem !important;
         padding-bottom: 0.5rem !important;
-        display: flex;
-        align-items: flex-start !important;
+        text-align: center;
+      }
+
+      [class*="CardRoot"] {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: start !important;
+        padding: 0.5rem !important;
+        min-height: 200px !important;
       }
     </style>
   </head>
