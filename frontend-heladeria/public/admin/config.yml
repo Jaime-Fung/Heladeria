@@ -8,7 +8,7 @@ public_folder: "/uploads"
 collections:
   - name: "helados"          
     label: "Helados"         
-    folder: "src/content/helados"  
+    folder: "frontend-heladeria/src/content/helados"  
     create: true             
     slug: "{{nombre}}"       
     fields:
