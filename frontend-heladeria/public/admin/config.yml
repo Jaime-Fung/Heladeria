@@ -1,8 +1,6 @@
 backend:
-  name: github
-  repo: Jaime-Fung/Heladeria
+  name: git-gateway
   branch: develop
-  site_domain: heladeriasazu.vercel.app
 
 media_folder: "public/uploads"  
 public_folder: "/uploads"       
