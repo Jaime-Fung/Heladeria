@@ -6,7 +6,7 @@ const helados = defineCollection({
     categoria: z.string(),
     precio: z.number(),
     disponible: z.boolean(),
-    img: z.string(),
+    thumbnail: z.string(),
     opinionProfesional: z.string(),
     datosNutricionales: z.object({
       calorias: z.string(),
