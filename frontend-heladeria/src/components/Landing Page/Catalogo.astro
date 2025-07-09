@@ -12,8 +12,7 @@ const helados = await getCollection("helados");
   </p>
 
   <div
-    class="grid mt-5 sm:grid-cols-2 md:grid-cols-3 
-    gap-x-4 gap-y-6 px-4 sm:px-25 md:px-15 lg:px-35 xl:px-80 2xl:px-140"
+    class="grid mt-5 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-8 max-w-[900px] mx-auto px-4 items-stretch"
   >
     {
       helados.map((helado) => {
@@ -28,14 +27,32 @@ const helados = await getCollection("helados");
         } = data;
 
         return (
-          <article class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition h-72">
-            <div class="flex flex-col justify-center">
+          <article class="bg-white p-4 rounded-xl shadow hover:shadow-lg transition flex h-full">
+            <div class="flex flex-col justify-center h-full">
               <img
                 transition:name={`thumbnail-${slug}`}
                 class="w-24 h-24 mx-auto mb-4  object-cover"
                 src={`${thumbnail}`}
                 alt={nombre}
               />
+              <h3 class="text-base sm:text-lg font-semibold text-center">
+                {nombre}
+              </h3>
+              <p class="text-xs sm:text-sm text-gray-600 text-center my-0.5">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt
+              </p>
+              <p class="text-center font-semibold text-gray-800 my-2">
+                ₡{precio}
+              </p>
+              <div class="text-center mt-auto">
+                <a
+                  href={`/catalogo/${slug}`}
+                  class="inline-block bg-[#FDCACA] hover:bg-[#EB9595] text-black px-3 sm:px-4 py-2 rounded-xl text-sm md:w-40 w-36"
+                >
+                  Ver más...
+                </a>
+              </div>
             </div>
           </article>
         );

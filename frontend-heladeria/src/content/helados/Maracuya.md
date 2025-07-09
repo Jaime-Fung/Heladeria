@@ -1,5 +1,5 @@
 ---
-nombre: Maracuyá
+nombre: Arandano Mora Pistacho
 categoria: Frutas
 precio: 2500
 disponible: true
