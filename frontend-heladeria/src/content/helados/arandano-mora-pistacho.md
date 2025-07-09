@@ -3,7 +3,7 @@ nombre: Arandano Mora Pistacho
 categoria: Diabeticos
 precio: 2000
 disponible: true
-thumbnail: /uploads/pedidos-ya-productos-03.png
+thumbnail: /uploads/Pedidos-ya-productos-211.jpg
 opinionProfesional: Es muy bueno
 datosNutricionales:
   calorias: "100"
