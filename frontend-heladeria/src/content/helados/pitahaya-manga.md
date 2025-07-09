@@ -3,7 +3,6 @@ nombre: Pitahaya Manga
 categoria: Pasteurizado y Homogenizado
 precio: 1000
 disponible: true
-img: /uploads/pedidos-ya-productos-12.png
 thumbnail: /uploads/pedidos-ya-productos-12.png
 opinionProfesional: Muy recomendable a nivel de salud
 datosNutricionales:

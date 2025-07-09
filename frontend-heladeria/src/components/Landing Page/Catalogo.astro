@@ -1,7 +1,45 @@
 ---
+import { getCollection } from "astro:content";
+
+const helados = await getCollection("helados");
 ---
 
-<section class="bg-amber-50 py-8">
-    <h2 class="text-3xl text-center">Mira Nuestro Catalogo</h2>
-    <p class="text-center max-w-xl mx-auto mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<section class="bg-[#FFF7EC] py-8">
+  <h2 class="text-5xl font-semibold text-center">Mira Nuestro Catálogo</h2>
+  <p class="text-center text-xl font-medium max-w-2xl mx-auto mt-4">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua.
+  </p>
+
+  <div
+    class="grid mt-5 sm:grid-cols-2 md:grid-cols-3 
+    gap-x-4 gap-y-6 px-4 sm:px-25 md:px-15 lg:px-35 xl:px-80 2xl:px-140"
+  >
+    {
+      helados.map((helado) => {
+        const { data, slug } = helado;
+        const {
+          nombre,
+          categoria,
+          precio,
+          thumbnail,
+          opinionProfesional,
+          datosNutricionales,
+        } = data;
+
+        return (
+          <article class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition h-72">
+            <div class="flex flex-col justify-center">
+              <img
+                transition:name={`thumbnail-${slug}`}
+                class="w-24 h-24 mx-auto mb-4  object-cover"
+                src={`${thumbnail}`}
+                alt={nombre}
+              />
+            </div>
+          </article>
+        );
+      })
+    }
+  </div>
 </section>
