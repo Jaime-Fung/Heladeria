@@ -5,7 +5,7 @@ precio: 1700
 disponible: true
 thumbnail: /uploads/pedidos-ya-productos-01.png
 img: /uploads/pedidos-ya-productos-01.png
-opinionProfesional: Es delicioso
+opinionProfesional: Es delicioso dasd
 datosNutricionales:
   calorias: 100g
   grasas: "0"
