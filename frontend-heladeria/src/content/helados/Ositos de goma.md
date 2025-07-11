@@ -1,9 +1,9 @@
 ---
-nombre: Arandano Mora Pistacho
+nombre: Ositos de goma
 categoria: Diabeticos
 precio: 2000
 disponible: true
-thumbnail: /uploads/Pedidos-ya-productos-211.jpg
+thumbnail: /uploads/OSITOS-DE-GOMA.jpg
 opinionProfesional: Es muy bueno
 datosNutricionales:
   calorias: "100"

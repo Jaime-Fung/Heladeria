@@ -5,17 +5,20 @@ const helados = await getCollection("helados");
 ---
 
 <section class="bg-[#FFF7EC] py-8">
-  <h2 class="text-5xl font-semibold text-center">Mira Nuestro Catálogo</h2>
-  <p class="text-center text-xl font-medium max-w-2xl mx-auto mt-4">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua.
+  <h2 class="text-5xl font-semibold text-center pb-3.5">
+    Mira Nuestro Catálogo
+  </h2>
+  <p class="text-center text-xl font-medium max-w-xl mx-auto mt-4">
+    Descubrí nuestra línea de helados saludables, elaborados con frutas reales y
+    libres de conservantes. Cada sabor está diseñado para que disfrutes sin
+    culpas, cuidando tu cuerpo y tu bienestar.
   </p>
 
   <div
-    class="grid mt-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-2 gap-y-4 max-w-[350px] sm:max-w-[900px] mx-auto px-4 items-stretch"
+    class="grid mt-5 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-x-2 gap-y-4 max-w-[750px] mx-auto px-4 items-stretch"
   >
     {
-      helados.map((helado) => {
+      helados.map((helado, index) => {
         const { data, slug } = helado;
         const {
           nombre,
@@ -26,36 +29,49 @@ const helados = await getCollection("helados");
           datosNutricionales,
         } = data;
 
-        return (
-          <article class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition flex flex-col sm:h-96 px-4">
-            <div class="flex flex-col justify-center h-full">
-              <img
-                transition:name={`thumbnail-${slug}`}
-                class="w-28 h-44 mx-auto mb-4 rounded-xl object-cover"
-                src={`${thumbnail}`}
-                alt={nombre}
-              />
+        const isLast = index === helados.length - 1;
+        const leavesOne = helados.length % 3 === 1;
 
-              <h3 class="text-base sm:text-lg font-semibold text-center">
-                {nombre}
-              </h3>
-              <div class="text-center mt-auto">
-                <p class="text-xs sm:text-sm text-gray-600 text-center my-0.5">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt
-                </p>
-                <p class="text-center font-semibold text-gray-800 my-2">
-                  ₡{precio}
-                </p>
-                <a
-                  href={`/catalogo/${slug}`}
-                  class="inline-block bg-[#FDCACA] hover:bg-[#EB9595] shadow hover:shadow-lg text-black px-3 sm:px-4 py-2 rounded-xl text-sm md:w-40 w-32"
-                >
-                  Ver más...
-                </a>
+        const isCenteredLast = isLast && leavesOne;
+        const wrapperClass = isCenteredLast
+          ? "md:col-span-3 sm:col-span-2 flex justify-center"
+          : "";
+        const articleClass = isCenteredLast
+          ? "bg-white p-4 rounded-xl shadow hover:shadow-lg transition flex h-full w-full max-w-[240px]"
+          : "bg-white p-4 rounded-xl shadow hover:shadow-lg transition flex h-full";
+
+        return (
+          <div class={wrapperClass}>
+            <article class={articleClass}>
+              <div class="flex flex-col justify-center h-full">
+                <img
+                  transition:name={`thumbnail-${slug}`}
+                  class="w-32 h-32 mx-auto mb-4 rounded-full object-cover"
+                  src={`${thumbnail}`}
+                  alt={nombre}
+                />
+
+                <h3 class="text-base sm:text-lg font-semibold text-center">
+                  {nombre}
+                </h3>
+                <div class="text-center mt-auto">
+                  <p class="text-xs sm:text-sm text-gray-600 text-center my-0.5">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt
+                  </p>
+                  <p class="text-center font-semibold text-gray-800 my-2">
+                    ₡{precio}
+                  </p>
+                  <a
+                    href={`/catalogo/${slug}`}
+                    class="inline-block bg-[#FDCACA] hover:bg-[#EB9595] shadow hover:shadow-lg text-black px-3 sm:px-4 py-2 rounded-xl text-sm md:w-40 w-32"
+                  >
+                    Ver más...
+                  </a>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
+          </div>
         );
       })
     }
