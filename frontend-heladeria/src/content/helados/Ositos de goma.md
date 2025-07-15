@@ -4,6 +4,7 @@ descripcion: Yogurt descremado con cultivo • Con gomitas sin azúcar • Paste
 categoria: Diabeticos
 precio: 2000
 thumbnail: /uploads/OSITOS-DE-GOMA.jpg
+img: /uploads/ImagenesFicha/OSITOS-DE-GOMA.png
 opinionProfesional: Es muy bueno
 InformacionNutricional:
   tamanoPorcion: 90g

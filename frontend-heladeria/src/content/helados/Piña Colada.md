@@ -5,6 +5,7 @@ categoria: Pasteurizado y Homogenizado
 precio: 1000
 disponible: true
 thumbnail: /uploads/PIÑA-COLADA.jpg
+img: /uploads/ImagenesFicha/PIÑA-COLADA.png
 opinionProfesional: Muy recomendable a nivel de salud
 InformacionNutricional:
   tamanoPorcion: 90g

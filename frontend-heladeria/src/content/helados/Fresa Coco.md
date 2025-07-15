@@ -5,6 +5,7 @@ categoria: Frutas
 precio: 2500
 disponible: true
 thumbnail: /uploads/FRESA-COCO.jpg
+img: /uploads/ImagenesFicha/FRESA-COCO.png
 opinionProfesional: Es un sabor refrescante con buen balance de acidez y dulzura.
 InformacionNutricional:
   tamanoPorcion: 90g

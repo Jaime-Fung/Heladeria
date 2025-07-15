@@ -5,6 +5,7 @@ categoria: Frutas
 precio: 2500
 disponible: true
 thumbnail: /uploads/CHOCOMENTA.jpg
+img: /uploads/ImagenesFicha/CHOCOMENTA.png
 opinionProfesional: Es un sabor refrescante con buen balance de acidez y dulzura.
 InformacionNutricional:
   tamanoPorcion: 90g
@@ -13,7 +14,7 @@ InformacionNutricional:
   calorias: 80 calorias
   grasas: 1 g
   azucar: 0 g
-  proteinas: 7g
+  proteinas: 5g
   sodio: 45 mg
   colesterol: <5 mg
   carbohidratos: 12 g

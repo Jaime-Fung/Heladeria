@@ -5,6 +5,7 @@ categoria: Frutas
 precio: 2500
 disponible: true
 thumbnail: /uploads/KIWI-MARACUYA.jpg
+img: /uploads/ImagenesFicha/KIWI-MARACUYA.png
 opinionProfesional: Es un sabor refrescante con buen balance de acidez y dulzura.
 InformacionNutricional:
   tamanoPorcion: 90g

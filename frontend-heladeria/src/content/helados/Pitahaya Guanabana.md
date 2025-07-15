@@ -5,6 +5,7 @@ categoria: Diabeticos
 precio: 2000
 disponible: true
 thumbnail: /uploads/PITAHAYA-GUANABANA.jpg
+img: /uploads/ImagenesFicha/PITAHAYA-GUANABANA.png
 opinionProfesional: Es muy bueno
 InformacionNutricional:
   tamanoPorcion: 90g
