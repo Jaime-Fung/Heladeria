@@ -8,10 +8,9 @@ const helados = await getCollection("helados");
   <h2 class="text-5xl font-semibold text-center pb-3.5">
     Mira Nuestro Catálogo
   </h2>
-  <p class="text-center text-xl font-medium max-w-xl mx-auto mt-4">
+  <p class="text-center text-lg sm:text-xl font-medium max-w-2xl mx-auto mt-4">
     Descubrí nuestra línea de helados saludables, elaborados con frutas reales y
-    libres de conservantes. Cada sabor está diseñado para que disfrutes sin
-    culpas, cuidando tu cuerpo y tu bienestar.
+    libres de conservantes.
   </p>
 
   <div
@@ -22,11 +21,9 @@ const helados = await getCollection("helados");
         const { data, slug } = helado;
         const {
           nombre,
-          categoria,
+          descripcion,
           precio,
           thumbnail,
-          opinionProfesional,
-          datosNutricionales,
         } = data;
 
         const isLast = index === helados.length - 1;
@@ -56,8 +53,7 @@ const helados = await getCollection("helados");
                 </h3>
                 <div class="text-center mt-auto">
                   <p class="text-xs sm:text-sm text-gray-600 text-center my-0.5">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt
+                    {descripcion}
                   </p>
                   <p class="text-center font-semibold text-gray-800 my-2">
                     ₡{precio}
