@@ -1,9 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import NavBar from "../components/General/NavBar.astro"
-import InstagramIcon from '../components/Icons/InstagramIcon.astro';
-import WhatsappIcon from '../components/Icons/WhatsappIcon.astro'; 
-import FacebookIcon from '../components/Icons/FacebookIcon.astro';
 import HeroSection from '../components/Landing Page/HeroSection.astro';
 import SobreNosotros from './sobre-nosotros.astro';
 import "../styles/global.css";
@@ -14,9 +10,8 @@ import Catalogo from '../components/Landing Page/Catalogo.astro';
 
 <!--- Acá se coloca desde el "Hero" hasta la imagen de "¡Felicidad sin Remordimiento!" -->
 
-</Layout>
-    <NavBar/>
-    <SobreNosotros/>
+<Layout>
+    <HeroSection/>
     <Catalogo/>
 </Layout>
 

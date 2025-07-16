@@ -72,7 +72,7 @@ const slides = [
     </div>
   </div>
 
-  <script client:load>
+  <script is:inline>
     let current = 0;
     const slidesEls = Array.from(document.querySelectorAll('[data-slide]'));
     const dots = Array.from(document.querySelectorAll('[data-dot]'));
