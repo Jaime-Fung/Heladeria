@@ -1,8 +1,8 @@
 ---
 import FacebookIcon from "../Icons/FacebookIcon.astro";
 import InstagramIcon from "../Icons/InstagramIcon.astro";
-import Socials from "./Socials.astro";
 import WhatsappIcon from "../Icons/WhatsappIcon.astro";
+import Socials from "./Socials.astro";
 ---
 
 <footer class="bg-gray-100 text-gray-800">
@@ -15,35 +15,36 @@ import WhatsappIcon from "../Icons/WhatsappIcon.astro";
         <img src="../../assets/logo-sazu.png" alt="Sazú Logo" class="h-12 w-auto mr-4" />
         <span class="text-3xl font-bold text-black">Sazú</span>
       </div>
-      <!-- Menú -->
-      <div class="flex space-x-8 text-sm">
-        <a href="/sobre-nosotros" class="hover:text-blue-600">Sobre Nosotros</a>
-        <a href="/catalogo" class="hover:text-blue-600">Catálogo</a>
-        <a href="/cuestionario" class="hover:text-blue-600">Cuestionario</a>
-        <a href="/faqs" class="hover:text-blue-600">FAQs</a>
-        <a href="/contacto" class="hover:text-blue-600">Contacto</a>
-      </div>
     </div>
 
     <!-- Título Menú -->
     <div class="text-xl font-bold mt-6 mb-4 text-center">Menú</div>
 
+    <!-- Menú de navegación debajo del título -->
+    <div class="flex justify-center space-x-8 mb-4">  <!-- Aquí se añadió un mb-4 para darle espacio -->
+      <a href="/sobre-nosotros" class="hover:text-blue-600">Sobre Nosotros</a>
+      <a href="/catalogo" class="hover:text-blue-600">Catálogo</a>
+      <a href="/cuestionario" class="hover:text-blue-600">Cuestionario</a>
+      <a href="/faqs" class="hover:text-blue-600">FAQs</a>
+      <a href="/contacto" class="hover:text-blue-600">Contacto</a>
+    </div>
+
     <!-- Redes Sociales debajo del menú -->
-    <div class="flex justify-center space-x-6">
+    <div class="flex justify-center space-x-2">
       <!-- Usando los componentes de redes sociales -->
       <a href="https://wa.me/">
         <Socials href="https://wa.me/">
-          <WhatsappIcon />
+          <WhatsappIcon class="w-6 h-6" />
         </Socials>
       </a>
       <a href="https://facebook.com">
         <Socials href="https://facebook.com">
-          <FacebookIcon />
+          <FacebookIcon class="w-6 h-6" />
         </Socials>
       </a>
       <a href="https://instagram.com">
         <Socials href="https://instagram.com">
-          <InstagramIcon />
+          <InstagramIcon class="w-6 h-6" />
         </Socials>
       </a>
     </div>
