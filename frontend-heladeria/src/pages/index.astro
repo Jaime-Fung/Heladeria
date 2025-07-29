@@ -1,13 +1,30 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HeroSection from '../components/Landing Page/HeroSection.astro';
+import SobreNosotros from '../components/Landing Page/Sobre-Nosotros.astro';
 import "../styles/global.css";
+
 import Contacto from '../components/Landing Page/Contacto.astro';
+
+import Catalogo from '../components/Landing Page/Catalogo.astro';
+import Sections from '../components/General/Sections.astro';
+
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <!--- Acá se coloca desde el "Hero" hasta la imagen de "¡Felicidad sin Remordimiento!" -->
+
 <Layout>
-    <Contacto/>
+    <Sections id ="heroSection">
+        <HeroSection/>
+    </Sections>
+    <Sections id ="sobreNosotros">
+        <SobreNosotros/>
+    </Sections>
+    <Sections class="pt-24" id ="catalogo">
+        <Catalogo/>
+    </Sections>
 </Layout>
+
+
