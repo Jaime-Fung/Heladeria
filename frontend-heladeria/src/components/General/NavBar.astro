@@ -3,6 +3,7 @@ import FacebookIcon from "../Icons/FacebookIcon.astro";
 import InstagramIcon from "../Icons/InstagramIcon.astro";
 import WhatsappIcon from "../Icons/WhatsappIcon.astro";
 import LogoSrc from "../../assets/logo-sazu.png";
+import Socials from "./Socials.astro";
 ---
 
 <header class="bg-transparent sticky top-5 z-50 font-normal">
@@ -42,9 +43,17 @@ import LogoSrc from "../../assets/logo-sazu.png";
 
     <!-- Redes sociales -->
     <div class="hidden lg:flex gap-4">
-      <WhatsappIcon />
-      <InstagramIcon />
-      <FacebookIcon />
+          <Socials href="https://api.whatsapp.com/send?phone=50661234421&text=Hola!%20Quiero%20más%20información." aria-label="WhatsApp" class="transition-transform hover:scale-110">  
+            <WhatsappIcon/>
+          </Socials>
+
+          <Socials href="https://www.facebook.com/hola.sazu" aria-label="Facebook" class="transition-transform hover:scale-110">
+            <FacebookIcon/>
+          </Socials>
+
+          <Socials href="https://www.instagram.com/hola.sazu/" aria-label="Instagram" class="transition-transform hover:scale-110">
+            <InstagramIcon/>
+          </Socials>
     </div>
 
     <!-- Menú móvil -->
