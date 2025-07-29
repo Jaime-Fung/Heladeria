@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HeroSection from '../components/Landing Page/HeroSection.astro';
-import SobreNosotros from './sobre-nosotros.astro';
+import SobreNosotros from '../components/Landing Page/Sobre-Nosotros.astro';
 import "../styles/global.css";
 import Catalogo from '../components/Landing Page/Catalogo.astro';
 import Sections from '../components/General/Sections.astro';
@@ -14,6 +14,9 @@ import Sections from '../components/General/Sections.astro';
 <Layout>
     <Sections id ="heroSection">
         <HeroSection/>
+    </Sections>
+    <Sections id ="sobreNosotros">
+        <SobreNosotros/>
     </Sections>
     <Sections class="pt-24" id ="catalogo">
         <Catalogo/>

@@ -19,13 +19,7 @@ const helados = await getCollection("helados");
     {
       helados.map((helado, index) => {
         const { data, slug } = helado;
-        const {
-          nombre,
-          descripcion,
-          precio,
-          thumbnail,
-          img
-        } = data;
+        const { nombre, descripcion, precio, thumbnail, img } = data;
 
         const isLast = index === helados.length - 1;
         const leavesOne = helados.length % 3 === 1;
@@ -40,7 +34,7 @@ const helados = await getCollection("helados");
 
         return (
           <div class={wrapperClass}>
-            <article class={articleClass} id={`catalogo-${slug}`} >
+            <article class={articleClass} id={`catalogo-${slug}`}>
               <div class="flex flex-col justify-center h-full">
                 <img
                   transition:name={`img-${slug}`}
@@ -52,10 +46,10 @@ const helados = await getCollection("helados");
                 <h3 class="text-base sm:text-lg font-semibold text-center">
                   {nombre}
                 </h3>
+                <p class="text-xs sm:text-sm text-gray-600 text-center my-0.5">
+                  {descripcion}
+                </p>
                 <div class="text-center mt-auto">
-                  <p class="text-xs sm:text-sm text-gray-600 text-center my-0.5">
-                    {descripcion}
-                  </p>
                   <p class="text-center font-semibold text-gray-800 my-2">
                     ₡{precio}
                   </p>

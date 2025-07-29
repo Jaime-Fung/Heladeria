@@ -28,7 +28,7 @@ const slides = [
 
 
 <section class="py-16">
-  <div class="container mx-auto sm:ml-56 px-4 flex flex-col md:flex-row items-center">
+  <div class="container mx-auto md:pl-20 px-6 max-w-7xl flex flex-col md:flex-row items-center gap-12">
     <!-- Texto e indicadores -->
     <div class="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0">
       <h1 id="slide-title" class="text-4xl font-bold mb-4">
@@ -65,7 +65,7 @@ const slides = [
             src={slide.image.src}
             alt={slide.alt}
             data-slide
-            class={`absolute inset-0 mx-auto my-auto max-h-96 object-contain transition-opacity duration-500 ${idx === 0 ? 'opacity-100' : 'opacity-0'}`}
+            class={`absolute inset-0 mx-auto md:ml-auto sm:mr-0 my-auto max-h-96 object-contain transition-opacity duration-500 ${idx === 0 ? 'opacity-100' : 'opacity-0'}`}
           />
         ))}
       </div>
