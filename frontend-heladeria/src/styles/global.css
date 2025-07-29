@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: 'Graviola Soft Regular';
+  src: url('/fonts/Graviola Soft Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}

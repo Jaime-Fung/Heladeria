@@ -4,6 +4,7 @@ import InstagramIcon from "../Icons/InstagramIcon.astro";
 import WhatsappIcon from "../Icons/WhatsappIcon.astro";
 import LogoSrc from "../../assets/logo-sazu.png";
 import Socials from "./Socials.astro";
+import { Image } from "astro:assets";
 ---
 
 <header class="bg-transparent sticky top-5 z-50 font-normal">
@@ -15,45 +16,70 @@ import Socials from "./Socials.astro";
       href="/"
       class="flex items-center gap-2 text-2xl font-bold text-purple-600"
     >
-      <img src={LogoSrc.src} alt="Logo Sazú" class="w-17 h-17 object-contain" />
+      <Image
+        src={LogoSrc}
+        alt="Logo Sazú"
+        loading="eager"
+        class="w-17 h-17 object-contain"
+      />
       <span class="font-display tracking-wide">Sazú</span>
     </a>
 
     <!-- Menú principal -->
     <ul
-      class="hidden lg:flex items-center gap-6 text-base font-medium text-gray-700"
+      class="hidden lg:flex items-center gap-6 text-base font-bold text-gray-700"
     >
       <li>
-        <a href="#" class="hover:text-purple-600 transition">Sobre Nosotros</a>
-      </li>
-      <li><a href="/#catalogo" class="hover:text-purple-600 transition">Catálogo</a></li>
-      <li>
-        <a href="#" class="hover:text-purple-600 transition">Cuestionario</a>
+        <a href="/#sobreNosotros" class="hover:text-purple-600 transition"
+          >Sobre Nosotros</a
+        >
       </li>
       <li>
-        <a href="#" class="hover:text-purple-600 transition">Ubicaciones</a>
+        <a href="/#catalogo" class="hover:text-purple-600 transition"
+          >Catálogo</a
+        >
       </li>
       <li>
-        <a href="#" class="hover:text-purple-600 transition"
+        <a href="/#" class="hover:text-purple-600 transition">Cuestionario</a>
+      </li>
+      <li>
+        <a href="/#" class="hover:text-purple-600 transition">Ubicaciones</a>
+      </li>
+      <li>
+        <a href="/#" class="hover:text-purple-600 transition"
           >Preguntas Frecuentes</a
         >
       </li>
-      <li><a href="#" class="hover:text-purple-600 transition">Contacto</a></li>
+      <li>
+        <a href="/#" class="hover:text-purple-600 transition">Contacto</a>
+      </li>
     </ul>
 
     <!-- Redes sociales -->
     <div class="hidden lg:flex gap-4">
-          <Socials href="https://api.whatsapp.com/send?phone=50661234421&text=Hola!%20Quiero%20más%20información." aria-label="WhatsApp" class="transition-transform hover:scale-110">  
-            <WhatsappIcon/>
-          </Socials>
+      <Socials
+        href="https://api.whatsapp.com/send?phone=50661234421&text=Hola!%20Quiero%20más%20información."
+        aria-label="WhatsApp"
+        class="transition-transform hover:scale-110"
+      >
+        <WhatsappIcon />
+      </Socials>
 
-          <Socials href="https://www.facebook.com/hola.sazu" aria-label="Facebook" class="transition-transform hover:scale-110">
-            <FacebookIcon/>
-          </Socials>
+      <Socials
+        href="https://www.facebook.com/hola.sazu"
+        aria-label="Facebook"
+        class="transition-transform hover:scale-110"
+      >
+        <FacebookIcon />
+      </Socials>
 
-          <Socials href="https://www.instagram.com/hola.sazu/" aria-label="Instagram" class="transition-transform hover:scale-110">
-            <InstagramIcon/>
-          </Socials>
+      <Socials
+        href="https://www.instagram.com/hola.sazu/"
+        aria-label="Instagram"
+        class="transition-transform hover:scale-110"
+      >
+        <InstagramIcon />
+      </Socials>
     </div>
 
     <!-- Menú móvil -->
@@ -62,9 +88,17 @@ import Socials from "./Socials.astro";
         id="menu-toggle"
         class="text-gray-700 p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-300"
       >
-        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16" />
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
 
@@ -73,19 +107,54 @@ import Socials from "./Socials.astro";
         class="hidden absolute top-full inset-x-0 mt-2 w-full bg-white rounded-lg shadow-lg z-50"
       >
         <!-- Enlaces -->
-        <ul class="flex flex-col p-4 space-y-2 text-gray-700 font-medium">
-          <li><a href="#" class="block hover:text-purple-600">Sobre Nosotros</a></li>
-          <li><a href="/#catalogo" class="block hover:text-purple-600">Catálogo</a></li>
-          <li><a href="#" class="block hover:text-purple-600">Cuestionario</a></li>
-          <li><a href="#" class="block hover:text-purple-600">Ubicaciones</a></li>
-          <li><a href="#" class="block hover:text-purple-600">Preguntas Frecuentes</a></li>
+        <ul class="flex flex-col p-4 space-y-2 text-gray-700 font-bold">
+          <li>
+            <a href="#" class="block hover:text-purple-600">Sobre Nosotros</a>
+          </li>
+          <li>
+            <a href="/#catalogo" class="block hover:text-purple-600">Catálogo</a
+            >
+          </li>
+          <li>
+            <a href="#" class="block hover:text-purple-600">Cuestionario</a>
+          </li>
+          <li>
+            <a href="#" class="block hover:text-purple-600">Ubicaciones</a>
+          </li>
+          <li>
+            <a href="#" class="block hover:text-purple-600"
+              >Preguntas Frecuentes</a
+            >
+          </li>
           <li><a href="#" class="block hover:text-purple-600">Contacto</a></li>
         </ul>
         <!-- Redes sociales -->
-        <div class="flex items-center justify-around p-4 border-t border-gray-200">
-          <WhatsappIcon />
-          <InstagramIcon />
-          <FacebookIcon /> 
+        <div
+          class="flex items-center justify-around p-4 border-t border-gray-200"
+        >
+          <Socials
+            href="https://api.whatsapp.com/send?phone=50661234421&text=Hola!%20Quiero%20más%20información."
+            aria-label="WhatsApp"
+            class="transition-transform hover:scale-110"
+          >
+            <WhatsappIcon />
+          </Socials>
+
+          <Socials
+            href="https://www.facebook.com/hola.sazu"
+            aria-label="Facebook"
+            class="transition-transform hover:scale-110"
+          >
+            <FacebookIcon />
+          </Socials>
+
+          <Socials
+            href="https://www.instagram.com/hola.sazu/"
+            aria-label="Instagram"
+            class="transition-transform hover:scale-110"
+          >
+            <InstagramIcon />
+          </Socials>
         </div>
       </div>
     </div>
@@ -93,13 +162,12 @@ import Socials from "./Socials.astro";
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-  const btn = document.getElementById("menu-toggle");
-  const menu = document.getElementById("mobile-menu");
+      const btn = document.getElementById("menu-toggle");
+      const menu = document.getElementById("mobile-menu");
 
-  if (btn && menu) {
-    btn.addEventListener("click", () => menu.classList.toggle("hidden"));
-  }
-});
+      if (btn && menu) {
+        btn.addEventListener("click", () => menu.classList.toggle("hidden"));
+      }
+    });
   </script>
-  </nav>
 </header>

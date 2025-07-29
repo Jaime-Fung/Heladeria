@@ -4,6 +4,7 @@ import InstagramIcon from "../Icons/InstagramIcon.astro";
 import WhatsappIcon from "../Icons/WhatsappIcon.astro";
 import Socials from "./Socials.astro";
 import logo from "../../assets/logo-sazu.png";
+import { Image } from "astro:assets";
 ---
 
 <footer class="bg-gray-100 text-gray-800">
@@ -13,16 +14,22 @@ import logo from "../../assets/logo-sazu.png";
     <div class="flex items-center justify-between mb-6">
       <div class="flex items-center">
         <!-- Ruta directa a la imagen del logo -->
-        <img src={logo.src} alt="Sazú Logo" class="h-40 w-auto mr-4" />
+        <Image
+          src={logo}
+          alt="Logo Sazú"
+          loading="lazy"
+          class="h-40 w-auto mr-4"
+        />
+
         <span class="text-3xl font-bold text-black">Sazú</span>
       </div>
     </div>
 
     <!-- Título Menú -->
-    <div class="text-xl font-bold  mt-6 mb-4 text-center">Menú</div>
+    <div class="text-xl font-bold mt-6 mb-4 text-center">Menú</div>
 
     <!-- Menú de navegación debajo del título -->
-    <div class="flex justify-center space-x-8 mb-4"> 
+    <div class="flex justify-center space-x-8 mb-4">
       <a href="/sobre-nosotros" class="hover:text-blue-600">Sobre Nosotros</a>
       <a href="/catalogo" class="hover:text-blue-600">Catálogo</a>
       <a href="/cuestionario" class="hover:text-blue-600">Cuestionario</a>
@@ -33,21 +40,29 @@ import logo from "../../assets/logo-sazu.png";
     <!-- Redes Sociales debajo del menú -->
     <div class="flex justify-center space-x-2">
       <!-- Usando los componentes de redes sociales -->
-      <a href="https://wa.me/">
-        <Socials href="https://wa.me/">
-          <WhatsappIcon class="w-6 h-6" />
-        </Socials>
-      </a>
-      <a href="https://facebook.com">
-        <Socials href="https://facebook.com">
-          <FacebookIcon class="w-6 h-6" />
-        </Socials>
-      </a>
-      <a href="https://instagram.com">
-        <Socials href="https://instagram.com">
-          <InstagramIcon class="w-6 h-6" />
-        </Socials>
-      </a>
+      <Socials
+        href="https://api.whatsapp.com/send?phone=50661234421&text=Hola!%20Quiero%20más%20información."
+        aria-label="WhatsApp"
+        class="transition-transform hover:scale-110"
+      >
+        <WhatsappIcon width="24" height="24" fill="#1E1E1E" />
+      </Socials>
+
+      <Socials
+        href="https://www.facebook.com/hola.sazu"
+        aria-label="Facebook"
+        class="transition-transform hover:scale-110"
+      >
+        <FacebookIcon width="24" height="24" fill="#1E1E1E" />
+      </Socials>
+
+      <Socials
+        href="https://www.instagram.com/hola.sazu/"
+        aria-label="Instagram"
+        class="transition-transform hover:scale-110"
+      >
+        <InstagramIcon width="24" height="24" fill="#1E1E1E" />
+      </Socials>
     </div>
 
     <!-- Línea horizontal y copyright -->
