@@ -1,0 +1,116 @@
+---
+import felicidadImg from '../../assets/background-contacto.png';
+import FacebookIcon from '../Icons/FacebookIcon.astro';
+import InstagramIcon from '../Icons/InstagramIcon.astro';
+import WhatsappIcon from '../Icons/WhatsappIcon.astro';
+import Socials from '../General/Socials.astro';
+---
+
+<section class="relative pt-10">
+  <!-- Fondo blob -->
+  <img
+    class="pointer-events-none absolute inset-0 w-full h-full object-cover opacity-25 bg-gradient-to-r from-gray-100 to-stone-400"
+  />
+
+  <div class="relative container mx-auto px-6 lg:px-16 grid grid-cols-1 md:grid-cols-2 gap-12">
+    <!-- IZQUIERDA: info de contacto -->
+    <div class="space-y-6">
+      <h2 class="text-4xl font-extrabold text-gray-800">Contacto</h2>
+      <p class="text-gray-700 text-lg max-w-md">
+        Si tienes alguna pregunta o deseas más información, no dudes en contactarnos. Estamos para ayudarte.
+      </p>
+
+      <div>
+        <h3 class="font-semibold text-lg">Teléfono</h3>
+        <p class="text-gray-800 text-lg">0000‑0000</p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-lg">Correo</h3>
+        <p class="text-gray-800 text-lg">ejemplo@gmail.com</p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-lg mb-2">Nuestras Redes Sociales</h3>
+        
+        <div class="flex space-x-6">
+          
+          <Socials href="https://api.whatsapp.com/send?phone=50661234421&text=Hola!%20Quiero%20más%20información." aria-label="WhatsApp" class="transition-transform hover:scale-110">  
+            <WhatsappIcon class="w-8 h-8 text-gray-800"/>
+          </Socials>
+
+          <Socials href="https://www.facebook.com/hola.sazu" aria-label="Facebook" class="transition-transform hover:scale-110">
+            <FacebookIcon class="w-8 h-8 text-gray-800"/>
+          </Socials>
+
+          <Socials href="https://www.instagram.com/hola.sazu/" aria-label="Instagram" class="transition-transform hover:scale-110">
+            <InstagramIcon class="w-8 h-8 text-gray-800"/>
+          </Socials>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DERECHA: formulario -->
+    <div>
+      <div class="bg-white border border-gray-300 rounded-lg shadow-xl p-8">
+        <h3 class="text-3xl font-semibold mb-4">¡Contáctanos!</h3>
+        <p class="text-gray-600 mb-6">Mandanos un correo, te responderemos lo más pronto posible.</p>
+
+        <form class="space-y-6">
+          <!-- Nombre / Apellido -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <input
+              type="text"
+              placeholder="Nombre"
+              class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            />
+            <input
+              type="text"
+              placeholder="Apellido"
+              class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            />
+          </div>
+
+          <!-- Correo con icono -->
+          <div class="relative">
+            <input
+              type="email"
+              placeholder="Correo"
+              class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            />
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12l-4-4m0 0l-4 4m4-4v8"/>
+              </svg>
+            </span>
+          </div>
+
+          <!-- Texto -->
+          <textarea
+            rows="5"
+            placeholder="Texto"
+            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
+          ></textarea>
+
+          <!-- Botón -->
+          <button
+            type="submit"
+            class="w-full text-center bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition"
+          >
+            Enviar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Imagen de felicidad sin remordimiento con texto encima -->
+  <div class="relative mt-16">
+    <img src={felicidadImg.src} alt="Felicidad sin remordimiento" class="w-full h-100 object-cover shadow-md"/>
+    <div class="absolute inset-0 flex items-center justify-center">
+      <h2 class="text-4xl font-extrabold text-white">¡Felicidad sin Remordimiento!</h2>
+    </div>
+  </div>
+</section>
