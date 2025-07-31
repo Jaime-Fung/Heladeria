@@ -25,7 +25,7 @@ const {
 } = data;
 ---
 
-<Layout bgClass="bg-[#FFF7EC]" title={`${nombre} - SAZÚ`}>
+<Layout bgClass="bg-[#FFF7EC]" title={`${nombre} - SAZÚ`} loading="eager">
   <div
     class="bg-[#FFF7EC] min-h-screen lg:min-h-[90vh] py-6 px-4 md:px-10 flex justify-center items-center mt-4"
   >
@@ -46,7 +46,7 @@ const {
           alt="Imagen Helado"
           width={1000}
           height={1000}
-          class="rounded-xl h-4/5 w-52 transition-opacity duration-500"
+          class="rounded-xl h-4/5 w-52 transition-opacity duration-500 delay-100"
           transition:name={`img-${slug}`}
           loading="eager"
           decoding="async"

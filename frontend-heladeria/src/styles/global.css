@@ -5,4 +5,5 @@
   src: url('/fonts/Graviola Soft Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
