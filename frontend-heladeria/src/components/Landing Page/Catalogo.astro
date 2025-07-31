@@ -38,13 +38,13 @@ const helados = await getCollection("helados");
               <div class="flex flex-col justify-center h-full">
                 <Image
                   transition:name={`img-${slug}`}
-                  width={128}
-                  height={128}
-                  class="w-32 h-32 mx-auto mb-4 rounded-full object-cover"
+                  width={208}
+                  height={208}
+                  class="w-32 h-32 mx-auto mb-4 rounded-full object-cover transition"
                   src={thumbnail}
                   alt={nombre}
                   loading="eager"
-                  decoding="async"
+                  
                 />
 
                 <h3 class="text-base sm:text-lg font-semibold text-center">
@@ -59,7 +59,7 @@ const helados = await getCollection("helados");
                   </p>
                   <a
                     href={`/helados/${slug}`}
-                    class="inline-block bg-[#FDCACA] hover:bg-[#EB9595] shadow hover:shadow-lg text-black px-3 sm:px-4 py-2 rounded-xl text-sm md:w-40 w-32"
+                    class="inline-block bg-[#FDCACA] hover:bg-[#EB9595] shadow hover:shadow-lg text-black px-3 sm:px-4 py-2 rounded-xl text-sm md:w-40 w-32 transition"
                   >
                     Ver más...
                   </a>
