@@ -45,6 +45,8 @@ const {
           src={img}
           class="rounded-xl w-52 md:w-80 lg:w-72 xl:w-80"
           transition:name={`img-${slug}`}
+          loading="eager"
+          decoding="async"
         />
       </div>
 
@@ -57,9 +59,7 @@ const {
         </div>
 
         <div class="space-y-2">
-          <h2 class="text-lg font-semibold">
-            Lo que dicen los profesionales
-          </h2>
+          <h2 class="text-lg font-semibold">Lo que dicen los profesionales</h2>
           <p class="text-gray-600 whitespace-pre-line">{opinionProfesional}</p>
         </div>
         <p class="border-t"></p>
@@ -71,7 +71,7 @@ const {
           >
             Comprar ahora
           </a>
-          
+
           <button
             id="btnFicha"
             onclick="
@@ -84,7 +84,7 @@ const {
                       btn.classList.toggle('hover:bg-gray-100', !isOpen);
                       btn.classList.toggle('border-transparent', isOpen);
                     "
-            class="border border-gray-500 text-gray-700  px-6 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition"
+            class="border border-gray-500 text-gray-700 px-6 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition"
           >
             Ver ficha nutricional
           </button>
@@ -113,11 +113,9 @@ const {
       &times;
     </button>
 
-    <h4 class="text-lg font-semibold mb-3">
-      Información Nutricional
-    </h4>
+    <h4 class="text-lg font-semibold mb-3">Información Nutricional</h4>
 
-    <ul class="list-disc list-inside space-y-1 text-base ">
+    <ul class="list-disc list-inside space-y-1 text-base">
       <li>Carbohidratos: {InformacionNutricional.carbohidratos}</li>
       <li>Proteínas: {InformacionNutricional.proteinas}</li>
       <li>Grasas: {InformacionNutricional.grasas}</li>
