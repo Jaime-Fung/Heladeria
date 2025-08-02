@@ -3,71 +3,91 @@ import FacebookIcon from "../Icons/FacebookIcon.astro";
 import InstagramIcon from "../Icons/InstagramIcon.astro";
 import WhatsappIcon from "../Icons/WhatsappIcon.astro";
 import Socials from "./Socials.astro";
-import logo from "../../assets/logo-sazu.png";
-import { Image } from "astro:assets";
 ---
 
-<footer class="bg-gray-100 text-gray-800">
-  <!-- Contenedor principal -->
-  <div class="max-w-7xl mx-auto py-8 px-6 sm:px-6 lg:px-8">
-    <!-- Logo y Nombre -->
-    <div class="flex items-center justify-between mb-6">
-      <div class="flex items-center">
-        <!-- Ruta directa a la imagen del logo -->
-        <Image
-          src={logo}
-          alt="Logo Sazú"
-          loading="lazy"
-          class="h-40 w-auto mr-4"
-        />
-
-        <span class="text-3xl font-bold text-black">Sazú</span>
+<section class="bg-gray-50 py-24 text-gray-800">
+  <footer class="container mx-auto px-6 sm:px-12 lg:px-24">
+    <!-- Contenedor de las tres columnas -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+      
+      <!-- Footer Left: Logo y Nombre -->
+      <div class="footer-left">
+        <h3 class="text-4xl font-semibold"><span class="text-teal-400">Sazú</span></h3>
+        <p class="footer-links mt-4 text-lg">
+          <a href="/inicio" class="link-1">Inicio</a> |
+          <a href="/catalogo">Catálogo</a> |
+          <a href="/ubicaciones">Ubicaciones</a> |
+          <a href="/faq">Preguntas Frecuentes</a> |
+          <a href="/contacto">Contacto</a>
+        </p>
+        <p class="footer-company-name mt-4 text-sm">Sazú © 2025</p>
       </div>
+
+      <!-- Footer Center: Detalles de Contacto -->
+      <div class="footer-center">
+        <div class="flex items-center mb-4">
+          <span class="text-2xl bg-purple-500 p-2 rounded-full mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" width="24" height="24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+              <circle cx="12" cy="9" r="2.5" fill="white"/>
+            </svg>
+          </span>
+          <p><span>San José | Heredia</span><br />PriceSmart</p>
+        </div>
+        <div class="flex items-center mb-4">
+          <span class="text-2xl bg-purple-500 p-2 rounded-full mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" width="24" height="24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm7 14h2m-2-4h2m-2-4h2" />
+            </svg>
+          </span>
+          <p>+506 6123-4421</p>
+        </div>
+        <div class="flex items-center mb-4">
+          <span class="text-2xl bg-purple-500 p-2 rounded-full mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" width="24" height="24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12v1a4 4 0 01-8 0v-1m8 0a4 4 0 01-8 0m8 0V8a4 4 0 00-8 0v4m8 0a4 4 0 01-8 0" />
+              <rect x="2" y="6" width="20" height="12" rx="2" fill="none" stroke="white" stroke-width="2"/>
+            </svg>
+          </span>
+          <p><a href="mailto:distribuidora@sazu.com" class="text-teal-400">distribuidora@sazu.com</a></p>
+        </div>
+      </div>
+
+      <!-- Footer Right: Sobre la Empresa y Redes Sociales -->
+      <div class="footer-right">
+        <p class="footer-company-about text-lg">
+          <span class="font-semibold text-gray-800">Acerca de Sazú</span> <br>
+          <br>
+          Lorem ipsum dolor sit amet, consectateur adipiscing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+        </p>
+
+        <div class="footer-icons mt-6 flex">
+          <Socials
+            href="https://api.whatsapp.com/send?phone=50661234421&text=Hola!%20Quiero%20más%20información."
+            aria-label="WhatsApp"
+            class="transition-transform hover:scale-110 p-2 bg-purple-500 rounded-full mr-4"
+          >
+            <WhatsappIcon width="24" height="24" fill="#AD46FF" />
+          </Socials>
+
+          <Socials
+            href="https://www.facebook.com/hola.sazu"
+            aria-label="Facebook"
+            class="transition-transform hover:scale-110 p-2 bg-purple-500 rounded-full mr-4"
+          >
+            <FacebookIcon width="24" height="24" fill="#AD46FF" />
+          </Socials>
+
+          <Socials
+            href="https://www.instagram.com/hola.sazu/"
+            aria-label="Instagram"
+            class="transition-transform hover:scale-110 p-2 bg-purple-500 rounded-full mr-4"
+          >
+            <InstagramIcon width="24" height="24" fill="#ffffff" />
+          </Socials>
+        </div>
+      </div>
+
     </div>
-
-    <!-- Título Menú -->
-    <div class="text-xl font-bold mt-6 mb-4 text-center">Menú</div>
-
-    <!-- Menú de navegación debajo del título -->
-    <div class="flex justify-center space-x-8 mb-4">
-      <a href="/sobre-nosotros" class="hover:text-blue-600">Sobre Nosotros</a>
-      <a href="/catalogo" class="hover:text-blue-600">Catálogo</a>
-      <a href="/cuestionario" class="hover:text-blue-600">Cuestionario</a>
-      <a href="/faqs" class="hover:text-blue-600">FAQs</a>
-      <a href="/contacto" class="hover:text-blue-600">Contacto</a>
-    </div>
-
-    <!-- Redes Sociales debajo del menú -->
-    <div class="flex justify-center space-x-2">
-      <!-- Usando los componentes de redes sociales -->
-      <Socials
-        href="https://api.whatsapp.com/send?phone=50661234421&text=Hola!%20Quiero%20más%20información."
-        aria-label="WhatsApp"
-        class="transition-transform hover:scale-110"
-      >
-        <WhatsappIcon width="24" height="24" fill="#1E1E1E" />
-      </Socials>
-
-      <Socials
-        href="https://www.facebook.com/hola.sazu"
-        aria-label="Facebook"
-        class="transition-transform hover:scale-110"
-      >
-        <FacebookIcon width="24" height="24" fill="#1E1E1E" />
-      </Socials>
-
-      <Socials
-        href="https://www.instagram.com/hola.sazu/"
-        aria-label="Instagram"
-        class="transition-transform hover:scale-110"
-      >
-        <InstagramIcon width="24" height="24" fill="#1E1E1E" />
-      </Socials>
-    </div>
-
-    <!-- Línea horizontal y copyright -->
-    <div class="border-t border-gray-300 py-4 text-center mt-8">
-      <p class="text-sm">&copy; 2025 Sazú. Todos los derechos reservados.</p>
-    </div>
-  </div>
-</footer>
+  </footer>
+</section>

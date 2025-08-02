@@ -21,48 +21,50 @@ import { Image } from "astro:assets";
   >
     <!-- IZQUIERDA: info de contacto -->
     <div class="space-y-6">
-      <h2 class="text-4xl font-extrabold text-gray-800">Contacto</h2>
+      <h2 class="text-4xl font-extrabold text-teal-500">Contacto</h2>
       <p class="text-gray-700 text-lg max-w-md">
         Si tienes alguna pregunta o deseas más información, no dudes en
         contactarnos. Estamos para ayudarte.
       </p>
 
       <div>
-        <h3 class="font-semibold text-lg">Teléfono</h3>
-        <p class="text-gray-800 text-lg">0000‑0000</p>
+        <h3 class="font-semibold text-lg text-teal-500">Teléfono</h3>
+        <p class="text-gray-800 text-lg">+506 6123‑4421</p>
       </div>
 
       <div>
-        <h3 class="font-semibold text-lg">Correo</h3>
-        <p class="text-gray-800 text-lg">ejemplo@gmail.com</p>
+        <h3 class="font-semibold text-lg text-teal-500">Correo</h3>
+        <div class="flex items-center space-x-3">
+          <p class="text-gray-800 text-lg">distribuidora@sazu.com</p>
+        </div>
       </div>
 
       <div>
-        <h3 class="font-semibold text-lg mb-2">Nuestras Redes Sociales</h3>
+        <h3 class="font-semibold text-lg text-teal-500 mb-2">Nuestras Redes Sociales</h3>
 
         <div class="flex space-x-6">
           <Socials
             href="https://api.whatsapp.com/send?phone=50661234421&text=Hola!%20Quiero%20más%20información."
             aria-label="WhatsApp"
-            class="transition-transform hover:scale-110"
+            class="transition-transform hover:scale-110 p-3 rounded-full bg-gradient-to-br from-purple-500 to-pink-500"
           >
-            <WhatsappIcon fill="#1E1E1E" />
+            <WhatsappIcon fill="#C94ADD" />
           </Socials>
 
           <Socials
             href="https://www.facebook.com/hola.sazu"
             aria-label="Facebook"
-            class="transition-transform hover:scale-110"
+            class="transition-transform hover:scale-110 p-3 rounded-full bg-gradient-to-br from-purple-500 to-pink-500"
           >
-            <FacebookIcon fill="#1E1E1E" />
+            <FacebookIcon fill="#C94ADD" />
           </Socials>
 
           <Socials
             href="https://www.instagram.com/hola.sazu/"
             aria-label="Instagram"
-            class="transition-transform hover:scale-110"
+            class="transition-transform hover:scale-110 p-3 rounded-full bg-gradient-to-br from-purple-500 to-pink-500"
           >
-            <InstagramIcon fill="#1E1E1E" />
+            <InstagramIcon fill="#ffffff" />
           </Socials>
         </div>
       </div>
@@ -71,7 +73,7 @@ import { Image } from "astro:assets";
     <!-- DERECHA: formulario -->
     <div>
       <div class="bg-white border border-gray-300 rounded-lg shadow-xl p-8">
-        <h3 class="text-3xl font-semibold mb-4">¡Contáctanos!</h3>
+        <h3 class="text-3xl font-semibold mb-4 text-teal-500">¡Contáctanos!</h3>
         <p class="text-gray-600 mb-6">
           Mandanos un correo, te responderemos lo más pronto posible.
         </p>
@@ -91,44 +93,26 @@ import { Image } from "astro:assets";
             />
           </div>
 
-          <!-- Correo con icono -->
+          <!-- Correo -->
           <div class="relative">
             <input
               type="email"
               placeholder="Correo"
-              class="w-full border border-gray-300 rounded-lg px-4 py-3 pl-10 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
-            <span
-              class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M16 12l-4-4m0 0l-4 4m4-4v8"></path>
-              </svg>
-            </span>
           </div>
 
           <!-- Texto -->
           <textarea
             rows="5"
-            placeholder="Texto"
+            placeholder="Mensaje"
             class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
           ></textarea>
 
           <!-- Botón -->
           <button
             type="submit"
-            class="w-full text-center bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition"
-          >
+            class="w-full text-center bg-gradient-to-br from-purple-500 to-pink-500 text-white font-semibold py-3 rounded-lg hover:bg-purple-700 transition">
             Enviar
           </button>
         </form>
@@ -136,17 +120,18 @@ import { Image } from "astro:assets";
     </div>
   </div>
 
-  <!-- Imagen de felicidad sin remordimiento con texto encima -->
-  <div class="relative mt-16">
-    <Image
-      src={felicidadImg}
-      alt="Felicidad sin remordimiento"
-      class="w-full h-100 object-cover shadow-md"
-    />
-    <div class="absolute inset-0 flex items-center justify-center">
-      <h2 class="text-4xl font-extrabold text-white">
-        ¡Felicidad sin Remordimiento!
-      </h2>
-    </div>
+  <!-- Imagen cerca del Footer -->
+<div class="relative mt-16 h-80 sm:h-96 md:h-120 lg:h-140">
+  <Image
+    src={felicidadImg}
+    alt="Felicidad sin remordimiento"
+    class="w-full h-full object-cover shadow-md"
+  />
+  <div class="absolute inset-0 flex items-center justify-center px-4">
+    <h2 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white text-center max-w-4xl mx-auto">
+      ¡Felicidad sin Remordimiento!
+    </h2>
   </div>
+</div>
+
 </section>
