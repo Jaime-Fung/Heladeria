@@ -15,6 +15,20 @@ const { bgClass = "" } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>Astro Basics</title>
     <ClientRouter />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CM67QTFB33"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CM67QTFB33");
+    </script>
+    
   </head>
   <body class={bgClass}>
     <!---Acá se coloca "Navbar" -->
@@ -28,13 +42,11 @@ const { bgClass = "" } = Astro.props;
 <style>
   html,
   body {
-    font-family: 'Graviola Soft Regular';
+    font-family: "Graviola Soft Regular";
     margin: 0;
     width: 100%;
     height: 100%;
     overflow-x: hidden;
     position: relative;
   }
-
-  
 </style>
