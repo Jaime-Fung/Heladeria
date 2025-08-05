@@ -1,8 +1,6 @@
 ---
-// Astro layout file
 import NavBar from "../components/General/NavBar.astro";
 import Footer from "../components/General/Footer.astro";
-import Analytics from "../components/Google Analytics/Analytics.astro";
 import { ClientRouter } from "astro:transitions";
 const { bgClass = "" } = Astro.props;
 ---
@@ -10,21 +8,26 @@ const { bgClass = "" } = Astro.props;
 <!doctype html>
 <html lang="es">
   <head>
-     <!-- Google Analytics code -->+
-    <Analytics />    
-  
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SAZÚ</title>
     <link rel="icon" type="image/png" href="/Logo-Sazú.png" />
-    <meta name="generator" content={Astro.generator} />
+    <meta name="generator" content="Astro" />
+    <title>Astro Basics</title>
     <ClientRouter />
 
+    <script>
+      document.documentElement.classList.add("loading");
+      document.fonts.ready.then(() => {
+        document.documentElement.classList.remove("loading");
+      });
+    </script>
   </head>
   <body class={bgClass}>
+    <!---Acá se coloca "Navbar" -->
     <NavBar />
+    
     <slot />
-    <Footer />
   </body>
 </html>
 
@@ -36,11 +39,10 @@ const { bgClass = "" } = Astro.props;
     width: 100%;
     height: 100%;
     overflow-x: hidden;
-    
   }
-  html.loading body {
-    visibility: hidden;
+  html {
+    overflow-y: scroll;
   }
-
+  
   
 </style>
