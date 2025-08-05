@@ -26,8 +26,8 @@ const { bgClass = "" } = Astro.props;
   <body class={bgClass}>
     <!---Acá se coloca "Navbar" -->
     <NavBar />
-    <slot />
     
+    <slot />
   </body>
 </html>
 
@@ -43,4 +43,6 @@ const { bgClass = "" } = Astro.props;
   html {
     overflow-y: scroll;
   }
+  
+  
 </style>

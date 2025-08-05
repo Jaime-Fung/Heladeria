@@ -108,20 +108,20 @@ const {
 
   <div
     id="sidebarNutricional"
-    class="bg-white fixed top-1/4 right-0 w-80 text-[#5b35f2] shadow-lg p-5 transition transform translate-x-full z-50 rounded-l-xl overflow-auto max-h-[80vh] border border-indigo-200"
+    class="bg-white fixed top-1/5 right-0 w-80 text-[#7b62fc] shadow-lg p-5 transition transform translate-x-full z-50 rounded-l-xl overflow-auto max-h-[80vh] border border-indigo-200"
   >
     <button
       onclick="document.getElementById('sidebarNutricional').classList.add('translate-x-full')"
-      class="absolute top-2 right-3 text-gray-500 hover:text-gray-800 text-xl font-bold"
+      class="absolute top-2 right-3 text-gray-500 hover:text-gray-800 text-2xl font-bold"
     >
       &times;
     </button>
 
-    <h4 class="text-xl font-extrabold mb-2">
+    <h4 class="text-xl font-['Graviola_Soft_Heavy'] mb-2">
       INFORMACIÓN NUTRICIONAL
     </h4>
     <hr class="my-2 border-3 border-[#bab0ff]" />
-    <div class="text-md">
+    <div class="text-lg">
       <p>
         <strong>Tamaño de Porción:</strong>
         {InformacionNutricional.tamanoPorcion}
@@ -140,7 +140,9 @@ const {
 
       <hr class="my-2 border-3 border-[#bab0ff]" />
 
-      <p class="font-semibold mb-1">% VALORES DIARIOS*</p>
+      <p class="font-['Graviola_Soft_Heavy'] text-xl mb-1">
+        % VALORES DIARIOS*
+      </p>
 
       <hr class="border-2 border-[#bab0ff]" />
 
@@ -182,11 +184,11 @@ const {
 
       <hr class="my-0.5 border-2 border-[#bab0ff]" />
 
-      <p class="text-xs text-[#836bfc]">
+      <p class="text-sm text-[#836bfc]">
         *Los Porcentajes de Valores Diarios están basados en una dieta de 2000
         calorías, según FDA. Sus valores diarios pueden ser mayores o menores
         dependiendo de las necesidades calóricas.
       </p>
     </div>
   </div>
-</LayoutGH>
+</LayoutHelado>
