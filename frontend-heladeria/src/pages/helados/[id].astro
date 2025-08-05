@@ -108,7 +108,7 @@ const {
 
   <div
     id="sidebarNutricional"
-    class="bg-white fixed top-1/5 right-0 w-80 text-[#7b62fc] shadow-lg p-5 transition transform translate-x-full z-50 rounded-l-xl overflow-auto max-h-[80vh] border border-indigo-200"
+    class="bg-white fixed md:top-1/5 top-10 right-0 w-[80vw] md:w-80 text-[#7b62fc] shadow-lg p-4 md:p-5 transition transform translate-x-full z-50 rounded-l-xl overflow-auto max-h-[80vh] border border-indigo-200"
   >
     <button
       onclick="document.getElementById('sidebarNutricional').classList.add('translate-x-full')"
@@ -117,11 +117,11 @@ const {
       &times;
     </button>
 
-    <h4 class="text-xl font-['Graviola_Soft_Heavy'] mb-2">
+    <h4 class="text-lg md:text-xl font-['Graviola_Soft_Heavy'] mb-2">
       INFORMACIÓN NUTRICIONAL
     </h4>
     <hr class="my-2 border-3 border-[#bab0ff]" />
-    <div class="text-lg">
+    <div class="text-sm md:text-lg">
       <p>
         <strong>Tamaño de Porción:</strong>
         {InformacionNutricional.tamanoPorcion}
@@ -140,16 +140,18 @@ const {
 
       <hr class="my-2 border-3 border-[#bab0ff]" />
 
-      <p class="font-['Graviola_Soft_Heavy'] text-xl mb-1">
+      <p class="font-['Graviola_Soft_Heavy'] text-base md:text-xl mb-1">
         % VALORES DIARIOS*
       </p>
 
       <hr class="border-2 border-[#bab0ff]" />
 
-      <ul class="list-none text-md">
+      <ul class="list-none text-sm md:text-base">
         <li><strong>Grasa total:</strong> {InformacionNutricional.grasas}</li>
-        <li class="ml-4 text-sm text-[#836bfc]">Grasa saturada: 0.2 g</li>
-        <li class="ml-4 text-sm text-[#836bfc]">Grasa trans: 0 g</li>
+        <li class="ml-4 text-xs md:text-base text-[#836bfc]">
+          Grasa saturada: 0.2 g
+        </li>
+        <li class="ml-4 text-xs md:text-base text-[#836bfc]">Grasa trans: 0 g</li>
 
         <hr class="my-0.5 border-2 border-[#bab0ff]" />
 
@@ -174,8 +176,10 @@ const {
 
         <hr class="my-0.5 border-2 border-[#bab0ff]" />
 
-        <li class="ml-4 text-sm text-[#836bfc]">Fibra dietética: 2 g</li>
-        <li class="ml-4 text-sm text-[#836bfc]">
+        <li class="ml-4 text-xs md:text-base text-[#836bfc]">
+          Fibra dietética: 2 g
+        </li>
+        <li class="ml-4 text-xs md:text-base text-[#836bfc]">
           Azúcar: {InformacionNutricional.azucar}
         </li>
         <hr class="my-0.5 border-2 border-[#bab0ff]" />
@@ -184,7 +188,7 @@ const {
 
       <hr class="my-0.5 border-2 border-[#bab0ff]" />
 
-      <p class="text-sm text-[#836bfc]">
+      <p class="text-xs md:text-sm text-[#836bfc] mt-2">
         *Los Porcentajes de Valores Diarios están basados en una dieta de 2000
         calorías, según FDA. Sus valores diarios pueden ser mayores o menores
         dependiendo de las necesidades calóricas.
