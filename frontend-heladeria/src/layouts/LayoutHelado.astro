@@ -1,5 +1,4 @@
 ---
-// Astro layout file
 import NavBar from "../components/General/NavBar.astro";
 import Footer from "../components/General/Footer.astro";
 import { ClientRouter } from "astro:transitions";
@@ -13,7 +12,8 @@ const { bgClass = "" } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SAZÚ</title>
     <link rel="icon" type="image/png" href="/Logo-Sazú.png" />
-    <meta name="generator" content={Astro.generator} />
+    <meta name="generator" content="Astro" />
+    <title>Astro Basics</title>
     <ClientRouter />
 
     <script>
@@ -22,11 +22,13 @@ const { bgClass = "" } = Astro.props;
         document.documentElement.classList.remove("loading");
       });
     </script>
+    
   </head>
   <body class={bgClass}>
+    <!---Acá se coloca "Navbar" -->
     <NavBar />
     <slot />
-    <Footer />
+    
   </body>
 </html>
 
@@ -42,4 +44,5 @@ const { bgClass = "" } = Astro.props;
   html.loading body {
     visibility: hidden;
   }
+  
 </style>
