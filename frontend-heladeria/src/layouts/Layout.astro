@@ -21,6 +21,7 @@ const { bgClass = "" } = Astro.props;
       document.fonts.ready.then(() => {
         document.documentElement.classList.remove("loading");
       });
+      
     </script>
   </head>
   <body class={bgClass}>
@@ -38,6 +39,7 @@ const { bgClass = "" } = Astro.props;
     width: 100%;
     height: 100%;
     overflow-x: hidden;
+    
   }
   html.loading body {
     visibility: hidden;
