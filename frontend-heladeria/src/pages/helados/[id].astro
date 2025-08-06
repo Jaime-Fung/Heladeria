@@ -28,7 +28,7 @@ const {
 
 <LayoutHelado bgClass="bg-[#FFF7EC]" title={`${nombre} - SAZÚ`} loading="eager">
   <section
-    class="bg-[#FFF7EC] max-w-8xl min-h-screen lg:min-h-[90vh] py-6 px-4 md:px-10 flex justify-center items-center mt-4"
+    class="bg-[#FFF7EC] max-w-8xl min-h-screen lg:min-h-[90vh] py-6 px-6 md:px-10 flex justify-center items-center mt-4"
   >
     <div
       class="relative bg-white rounded-2xl shadow-xl p-6 md:p-10 lg:max-h-[80vh] max-w-3xl w-full flex flex-col lg:flex-row gap-10 justify-center"
@@ -47,7 +47,7 @@ const {
           alt="Imagen Helado"
           width={200}
           height={500}
-          class="rounded-xl h-4/5 w-52 transition-opacity duration-500"
+          class="rounded-xl h-1/2 w-44 md:h-4/5 md:w-52 transition-opacity duration-500"
           transition:name={`img-${slug}`}
           loading="eager"
           decoding="async"
@@ -73,7 +73,7 @@ const {
           <a
             class="bg-[#9810fa] text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-[#5a5ee0] transition cursor-pointer"
           >
-            Comprar ahora
+            Donde Comprar
           </a>
 
           <button
@@ -108,19 +108,28 @@ const {
 
   <div
     id="sidebarNutricional"
-    class="bg-white fixed md:top-1/5 top-10 right-0 w-[80vw] md:w-80 text-[#7b62fc] shadow-lg p-4 md:p-5 transition transform translate-x-full z-50 rounded-l-xl overflow-auto max-h-[80vh] border border-indigo-200"
+    class="bg-white fixed md:top-1/5 top-2 right-0 w-[98vw] md:w-80 text-[#7b62fc] shadow-lg p-4 md:p-5 transition transform translate-x-full z-50 rounded-l-xl overflow-auto max-h-[85vh] border border-indigo-200"
   >
     <button
-      onclick="document.getElementById('sidebarNutricional').classList.add('translate-x-full')"
+      onclick="
+      const panel1 = document.getElementById('sidebarNutricional');
+      const btn1 = document.getElementById('btnFicha');
+
+      panel1.classList.add('translate-x-full'); // Cierra el panel
+      panel1.classList.remove('translate-x-0'); // Asegura quitar clase de abierto
+
+      btn1.classList.remove('bg-green-500', 'text-white', 'border-transparent');
+      btn1.classList.add('hover:bg-gray-100');
+    "
       class="absolute top-2 right-3 text-gray-500 hover:text-gray-800 text-2xl font-bold"
     >
       &times;
     </button>
 
-    <h4 class="text-lg md:text-xl font-['Graviola_Soft_Heavy'] mb-2">
+    <h4 class="text-base md:text-xl font-['Graviola_Soft_Heavy'] md:mb-2">
       INFORMACIÓN NUTRICIONAL
     </h4>
-    <hr class="my-2 border-3 border-[#bab0ff]" />
+    <hr class=" md:my-2 border-3 border-[#bab0ff]" />
     <div class="text-sm md:text-lg">
       <p>
         <strong>Tamaño de Porción:</strong>
@@ -130,7 +139,7 @@ const {
         <strong>Porciones por envase:</strong>
         {InformacionNutricional.porcionPorEnvase}
       </p>
-      <hr class="my-2 border-2 border-[#bab0ff]" />
+      <hr class="md:my-2 border-2 border-[#bab0ff]" />
       <p>
         <strong>Energía Total:</strong>
         {InformacionNutricional.energiaTotal} / {
@@ -138,9 +147,9 @@ const {
         } kcal
       </p>
 
-      <hr class="my-2 border-3 border-[#bab0ff]" />
+      <hr class="md:my-2 border-3 border-[#bab0ff]" />
 
-      <p class="font-['Graviola_Soft_Heavy'] text-base md:text-xl mb-1">
+      <p class="font-['Graviola_Soft_Heavy'] text-base md:text-xl md:mb-1">
         % VALORES DIARIOS*
       </p>
 
@@ -151,7 +160,9 @@ const {
         <li class="ml-4 text-xs md:text-base text-[#836bfc]">
           Grasa saturada: 0.2 g
         </li>
-        <li class="ml-4 text-xs md:text-base text-[#836bfc]">Grasa trans: 0 g</li>
+        <li class="ml-4 text-xs md:text-base text-[#836bfc]">
+          Grasa trans: 0 g
+        </li>
 
         <hr class="my-0.5 border-2 border-[#bab0ff]" />
 
@@ -188,7 +199,7 @@ const {
 
       <hr class="my-0.5 border-2 border-[#bab0ff]" />
 
-      <p class="text-xs md:text-sm text-[#836bfc] mt-2">
+      <p class="text-[8px] md:text-sm text-[#836bfc] md:mt-2">
         *Los Porcentajes de Valores Diarios están basados en una dieta de 2000
         calorías, según FDA. Sus valores diarios pueden ser mayores o menores
         dependiendo de las necesidades calóricas.
