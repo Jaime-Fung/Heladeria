@@ -3,12 +3,11 @@ import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 const helados = await getCollection("helados");
 ---
-
-<section class="bg-[#FFF7EC] py-8">
-  <h2 class="text-5xl font-semibold text-center pb-3.5">
+<section class="bg-gradient-to-b from-[#f8a4aa] to-[#F9C9FF] py-8">
+  <h2 class="text-5xl font-semibold text-center pb-3.5 text-white">
     Mira Nuestro Catálogo
   </h2>
-  <p class="text-center text-lg sm:text-xl font-medium max-w-2xl mx-auto mt-4">
+  <p class="text-center text-lg sm:text-xl font-medium max-w-2xl mx-auto mt-4 text-gray-700">
     Descubrí nuestra línea de helados saludables, elaborados con frutas reales y
     libres de conservantes.
   </p>
@@ -44,10 +43,9 @@ const helados = await getCollection("helados");
                   src={thumbnail}
                   alt={nombre}
                   loading="lazy"
-                  
                 />
 
-                <h3 class="text-base sm:text-lg font-semibold text-center">
+                <h3 class="text-base sm:text-lg font-semibold text-center text-[#aa53e9]">
                   {nombre}
                 </h3>
                 <p class="text-xs sm:text-sm text-gray-600 text-center my-0.5">
@@ -59,7 +57,7 @@ const helados = await getCollection("helados");
                   </p>
                   <a
                     href={`/helados/${slug}`}
-                    class="inline-block bg-[#FDCACA] hover:bg-[#EB9595] shadow hover:shadow-lg text-black px-3 sm:px-4 py-2 rounded-xl text-sm md:w-40 w-32 transition"
+                    class="inline-block bg-gradient-to-r from-[#FF8A91] to-[#F28DFF] shadow hover:shadow-lg text-white px-3 sm:px-4 py-2 rounded-xl text-sm md:w-40 w-32 transition"
                   >
                     Ver más...
                   </a>
@@ -71,13 +69,15 @@ const helados = await getCollection("helados");
       })
     }
   </div>
+
   <div class="flex flex-col items-center mt-7 gap-2.5">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p class="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     <a
       href="/#contacto"
-      class="border-1 rounded-2xl px-8 py-1.5 bg-gray-100 hover:bg-gray-200"
+      class="border-1 rounded-2xl px-8 py-1.5 bg-[#FF8A91] hover:bg-[#F28DFF] text-white transition"
     >
-      Ir a Contacto</a
-    >
+      Ir a Contacto
+    </a>
   </div>
 </section>
+
