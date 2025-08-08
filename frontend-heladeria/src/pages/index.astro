@@ -6,6 +6,7 @@ import "../styles/global.css";
 import Contacto from '../components/Landing Page/Contacto.astro';
 import Catalogo from '../components/Landing Page/Catalogo.astro';
 import Sections from '../components/General/Sections.astro';
+import FAQs from '../components/Ubicacion y FAQ/FAQs.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -15,21 +16,7 @@ import Sections from '../components/General/Sections.astro';
 
 <Layout>
 
-    <Sections id ="heroSection">
-        <HeroSection/>
-    </Sections>
-
-    <Sections id ="sobreNosotros">
-        <SobreNosotros/>
-    </Sections>
-
-    <Sections id ="catalogo">
-        <Catalogo/>
-    </Sections>
-
-    <Sections id ="contacto">
-        <Contacto/>
-    </Sections>
+    <FAQs/>
 
 </Layout>
 
