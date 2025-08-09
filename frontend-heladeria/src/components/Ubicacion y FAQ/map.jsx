@@ -9,165 +9,59 @@ export default function Map() {
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: "© OpenStreetMap contributors",
     }).addTo(map);
-    
 
-    
-    L.marker([10.019687860640232, -84.1306062816132]).addTo(map)
-      .bindPopup("Macro Lucem Barva")
-      ;
-    
-    L.marker([9.92897813972258, -84.04130137337182]).addTo(map)
-      .bindPopup("BIO SALUD	B.S Plaza del Sol")
-    ;
+    const locations = [
+      { lat: 10.019687860640232, lon: -84.1306062816132, popup: "Macro Lucem Barva" },
+      { lat: 9.92897813972258, lon: -84.04130137337182, popup: "BIO SALUD B.S Plaza del Sol" },
+      { lat: 9.93578876867833, lon: -84.18713271580155, popup: "BIO SALUD B.S Santa Ana" },
+      { lat: 9.939019283798636, lon: -84.14363902875013, popup: "BIO SALUD B.S Escazu" },
+      { lat: 9.939093378681338, lon: -84.14193439056697, popup: "MERCADO AVENIDA Escazu" },
+      { lat: 9.94651784127657, lon: -84.15062587785863, popup: "MERCADITO CENTRAL COMBAI Escazu" },
+      { lat: 10.07934474356002, lon: -84.46987003535628, popup: "VEGGY MARKET San Ramon" },
+      { lat: 9.930505403990422, lon: -84.14948785315826, popup: "GREEN CENTER Escazu" },
+      { lat: 9.997300591309871, lon: -84.11594482014529, popup: "Farmacia Provida Heredia" },
+      { lat: 9.9612380430726, lon: -84.04835334662695, popup: "MACRO ARMONIA NATURAL Moravia" },
+      { lat: 9.993307999649545, lon: -84.13204127161181, popup: "MACRO BIO NATURAL MARKET Mall Oxigeno" },
+      { lat: 9.933837211370301, lon: -84.09741065277929, popup: "Centro de Nutrición Larisa Páez" },
+      { lat: 9.934410349252575, lon: -84.06084813587194, popup: "Auto Mercado Yoses" },
+      { lat: 9.9290981707342, lon: -84.04110146173109, popup: "Auto Mercado Plaza del Sol" },
+      { lat: 9.945221911127268, lon: -84.11714293027316, popup: "Auto Mercado Plaza Mayor" },
+      { lat: 9.944563316486203, lon: -84.15195291569985, popup: "Auto Mercado Multiplaza Escazu" },
+      { lat: 9.961989230422567, lon: -84.06176100220752, popup: "Auto Mercado Moravia" },
+      { lat: 10.008283160503428, lon: -84.11648893701125, popup: "Auto Mercado Heredia" },
+      { lat: 9.933851317368779, lon: -84.19035949908296, popup: "Auto Mercado Santa Ana" },
+      { lat: 9.92792190719015, lon: -84.13397522065823, popup: "Auto Mercado Escazú" },
+      { lat: 9.664533999690683, lon: -84.64078480814595, popup: "Auto Mercado Herradura" },
+      { lat: 10.320039125974375, lon: -85.83464248529617, popup: "Auto Mercado Tamarindo" },
+      { lat: 10.551336244313553, lon: -85.69510411825804, popup: "Auto Mercado Coco" },
+      { lat: 10.029083428057458, lon: -84.21628801506624, popup: "Auto Mercado Alajuela" },
+      { lat: 9.909793822765149, lon: -84.00468599082403, popup: "Auto Mercado Tres Rios" },
+      { lat: 9.940300052426466, lon: -84.15576198871551, popup: "Auto Mercado Guachipelín" },
+      { lat: 9.956305957372912, lon: -84.26218000961369, popup: "Auto Mercado Guacima" },
+      { lat: 9.998634741953111, lon: -84.14600994823842, popup: "Auto Mercado San Francisco Heredia" },
+      { lat: 9.988713383234794, lon: -84.11198827522291, popup: "Auto Mercado Plaza Bratsi" },
+      { lat: 9.933809081930507, lon: -84.19032720405924, popup: "Auto Mercado Rio Oro" },
+      { lat: 9.988370057581202, lon: -84.07646809635406, popup: "Auto Mercado Santo Domingo" },
+      { lat: 9.951779068641539, lon: -84.04618600405907, popup: "Auto Mercado Guadalupe" },
+      { lat: 9.926066196149245, lon: -84.0229074635827, popup: "Auto Mercado Guayabos" },
+      { lat: 9.862221135734433, lon: -83.93040168690517, popup: "Auto Mercado Cartago" },
+      { lat: 9.983472803121384, lon: -84.18603137670083, popup: "Auto Mercado Belén" },
+    ];
+    locations.forEach((loc) => {
+      L.marker([loc.lat, loc.lon]).addTo(map).bindPopup(loc.popup);
+    });
 
-    L.marker([9.93578876867833, -84.18713271580155]).addTo(map)
-      .bindPopup("BIO SALUD	B.S Santa Ana")
-    ;
+    map.invalidateSize();
 
-    L.marker([9.939019283798636, -84.14363902875013]).addTo(map)
-      .bindPopup("BIO SALUD	B.S Escazu")
-    ;
-
-    L.marker([9.939093378681338, -84.14193439056697]).addTo(map)
-      .bindPopup("MERCADO AVENIDA	Escazu")
-    ;
-    
-    L.marker([9.94651784127657, -84.15062587785863]).addTo(map)
-      .bindPopup("MERCADITO CENTRAL COMBAI	Escazu")
-    ;
-      
-    L.marker([10.07934474356002, -84.46987003535628]).addTo(map)
-      .bindPopup("VEGGY MARKET	San Ramon")
-    ;
-
-    L.marker([9.930505403990422, -84.14948785315826]).addTo(map)
-      .bindPopup("GREEN CENTER Escazu")
-    ;
-
-    L.marker([9.997300591309871, -84.11594482014529]).addTo(map)
-      .bindPopup("Farmacia Provida	Heredia")
-    ;
-
-    L.marker([9.9612380430726, -84.04835334662695]).addTo(map)
-      .bindPopup("MACRO ARMONIA NATURAL	Moravia")
-    ;
-
-    L.marker([9.993307999649545, -84.13204127161181]).addTo(map)
-      .bindPopup("MACRO BIO NATURAL MARKET Mall Oxigeno")
-    ;
-
-      //No lo encontre
-      //NUTRIMARKET	Sabana
-
-      //No estoy seguro
-      //Auto Mercado	AM Centro
-
-
-    L.marker([9.934410349252575, -84.06084813587194]).addTo(map)
-      .bindPopup("Auto Mercado Yoses")
-    ;
-
-    L.marker([9.9290981707342, -84.04110146173109]).addTo(map)
-      .bindPopup("Auto Mercado Plaza del Sol")
-    ;
-
-    L.marker([9.945221911127268, -84.11714293027316]).addTo(map)
-      .bindPopup("Auto Mercado Plaza Mayor")
-    ;
-
-    L.marker([9.944563316486203, -84.15195291569985]).addTo(map)
-      .bindPopup("Auto Mercado Multiplaza Escazu")
-    ;
-
-    L.marker([9.961989230422567, -84.06176100220752]).addTo(map)
-      .bindPopup("Auto Mercado Moravia")
-    ;
-
-    L.marker([10.008283160503428, -84.11648893701125]).addTo(map)
-      .bindPopup("Auto Mercado Heredia")
-    ;
-
-    L.marker([9.933851317368779, -84.19035949908296]).addTo(map)
-      .bindPopup("Auto Mercado Santa Ana")
-    ;
-
-    L.marker([9.92792190719015, -84.13397522065823]).addTo(map)
-      .bindPopup("Auto Mercado Escazú")
-    ;
-    
-      //Hay que comprobar
-    L.marker([9.664533999690683, -84.64078480814595]).addTo(map)
-      .bindPopup("Auto Mercado Herradura")
-    ;
-
-    L.marker([10.320039125974375, -85.83464248529617]).addTo(map)
-      .bindPopup("Auto Mercado Tamarindo")
-    ;
-    
-    L.marker([10.551336244313553, -85.69510411825804]).addTo(map)
-      .bindPopup("Auto Mercado Coco")
-    ;
-
-
-
-
-
-
-    
-      //Hay que comprobar
-    L.marker([10.029083428057458, -84.21628801506624]).addTo(map)
-      .bindPopup("Auto Mercado Alajuela")
-    ;
-    
-    L.marker([9.909793822765149, -84.00468599082403]).addTo(map)
-      .bindPopup("Auto Mercado Tres Rios")
-    ;
-    
-    L.marker([9.940300052426466, -84.15576198871551]).addTo(map)
-      .bindPopup("Auto Mercado Guachipelín")
-    ;
-
-    L.marker([9.956305957372912, -84.26218000961369]).addTo(map)
-      .bindPopup("Auto Mercado Guacima")
-    ;
-
-    L.marker([9.998634741953111, -84.14600994823842]).addTo(map)
-      .bindPopup("Auto Mercado San Francisco Heredia")
-    ;
-
-    L.marker([9.988713383234794, -84.11198827522291]).addTo(map)
-      .bindPopup("Auto Mercado Plaza Bratsi")
-    ;
-
-    L.marker([9.933809081930507, -84.19032720405924]).addTo(map)
-      .bindPopup("Auto Mercado Rio Oro")
-    ;
-
-    L.marker([9.988370057581202, -84.07646809635406]).addTo(map)
-      .bindPopup("Auto Mercado Santo Domingo")
-    ;
-
-    L.marker([9.951779068641539, -84.04618600405907]).addTo(map)
-      .bindPopup("Auto Mercado Guadalupe")
-    ;
-
-    L.marker([9.926066196149245, -84.0229074635827]).addTo(map)
-      .bindPopup("Auto Mercado Guayabos")
-    ;
-
-    L.marker([9.862221135734433, -83.93040168690517]).addTo(map)
-      .bindPopup("Auto Mercado Cartago")
-    ;
-
-    L.marker([9.983472803121384, -84.18603137670083]).addTo(map)
-      .bindPopup("Auto Mercado Belén")
-    ;
+    map.on('load', () => {
+      map.resize();
+    });
   }, []);
 
   return (
     <div
       id="map"
-      className="w-full h-[400px] rounded-lg shadow-md"
+      className="w-300 aspect-square mr-auto ml-auto"
     ></div>
   );
 }
