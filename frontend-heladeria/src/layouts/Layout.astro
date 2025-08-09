@@ -2,7 +2,6 @@
 // Astro layout file
 import NavBar from "../components/General/NavBar.astro";
 import Footer from "../components/General/Footer.astro";
-import Analytics from "../components/Google Analytics/Analytics.astro";
 import { ClientRouter } from "astro:transitions";
 const { bgClass = "" } = Astro.props;
 ---
@@ -19,6 +18,24 @@ const { bgClass = "" } = Astro.props;
     <link rel="icon" type="image/png" href="/Logo-Sazú.png" />
     <meta name="generator" content={Astro.generator} />
     <ClientRouter />
+    
+
+     <!-- Google tag (gtag.js) -->
+    <script
+    type ="text/partytown"
+     async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CM67QTFB33"
+    ></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CM67QTFB33");
+    </script>
+    
     
   </head>
   <body class={bgClass}>

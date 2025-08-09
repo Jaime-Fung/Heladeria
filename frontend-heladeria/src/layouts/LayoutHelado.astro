@@ -22,6 +22,25 @@ const { bgClass = "" } = Astro.props;
         document.documentElement.classList.remove("loading");
       });
     </script>
+
+    
+     <!-- Google tag (gtag.js) -->
+    <script
+    type ="text/partytown"
+     async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CM67QTFB33"
+    ></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CM67QTFB33");
+    </script>
+    
+
   </head>
   <body class={bgClass}>
     <!---Acá se coloca "Navbar" -->
