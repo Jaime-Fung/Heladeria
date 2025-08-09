@@ -5,6 +5,7 @@ import SobreNosotros from '../components/Landing Page/Sobre-Nosotros.astro';
 import "../styles/global.css";
 import Contacto from '../components/Landing Page/Contacto.astro';
 import Catalogo from '../components/Landing Page/Catalogo.astro';
+import Mapa from '../components/Ubicacion y FAQ/map.jsx';
 import Sections from '../components/General/Sections.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -26,7 +27,9 @@ import Sections from '../components/General/Sections.astro';
     <Sections id ="catalogo">
         <Catalogo/>
     </Sections>
-
+    <Sections id="map">
+        <Mapa client:only="react" />
+    </Sections>
     <Sections id ="contacto">
         <Contacto/>
     </Sections>
