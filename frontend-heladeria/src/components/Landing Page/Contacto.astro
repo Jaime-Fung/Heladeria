@@ -83,16 +83,21 @@ import { Image } from "astro:assets";
           class="space-y-6"
           action="https://formsubmit.co/vladros9871@gmail.com"
           method="POST"
+          id="contactForm"
         >
           <input
             type="hidden"
             name="_subject"
             value="🍦 Nuevo mensaje desde la heladería"
+            id="emailSubject"
           />
           <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_next" value="#contacto" />
-          <input type="hidden"name="_autoresponse" value="Gracias por tu mensaje"
+          <input type="hidden" name="_template" value="basic" />
+          <input type="hidden" name="_next" value="http://localhost:4321/" />
+          <input
+            type="hidden"
+            name="_autoresponse"
+            value="Gracias por tu mensaje"
           />
           <!-- Nombre / Apellido -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -152,6 +157,21 @@ import { Image } from "astro:assets";
             Enviar
           </button>
         </form>
+
+        <!-- Script para agregar hora de Costa Rica al asunto -->
+        <script is:inline>
+          document.getElementById('contactForm').addEventListener('submit', function(e) {
+            const now = new Date();
+            const options = { 
+              timeZone: 'America/Costa_Rica',
+              hour: '2-digit', 
+              minute: '2-digit',
+              hour12: true
+            };
+            const horaCR = now.toLocaleString('es-CR', options);
+            document.getElementById('emailSubject').value += ` (${horaCR})`;
+          });
+        </script>
       </div>
     </div>
   </div>
