@@ -41,6 +41,6 @@ html.loading body {
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #5b35f2;
+    background: #d8d8d8;
   }
 }
