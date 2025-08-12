@@ -37,6 +37,7 @@ const {
         href={`/#catalogo-${slug}`}
         class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-3xl font-bold"
         title="Cerrar"
+        id="btnCerrar"
       >
         &times;
       </a>
@@ -71,7 +72,7 @@ const {
 
         <div class="flex flex-col sm:flex-row gap-4">
           <a
-            href="/#mapa" class="bg-[#9810fa] text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-[#b156f1] transition cursor-pointer text-center"
+            href="/#mapa" class="bg-[#9810fa] text-white px-5 py-3 rounded-lg text-lg font-semibold hover:bg-[#b156f1] transition cursor-pointer text-center"
           >
             ¿Dónde Comprar?
           </a>
@@ -115,8 +116,8 @@ const {
       const panel1 = document.getElementById('sidebarNutricional');
       const btn1 = document.getElementById('btnFicha');
 
-      panel1.classList.add('translate-x-full'); // Cierra el panel
-      panel1.classList.remove('translate-x-0'); // Asegura quitar clase de abierto
+      panel1.classList.add('translate-x-full'); 
+      panel1.classList.remove('translate-x-0'); 
 
       btn1.classList.remove('bg-green-500', 'text-white', 'border-transparent');
       btn1.classList.add('hover:bg-gray-100');
@@ -206,4 +207,6 @@ const {
       </p>
     </div>
   </div>
+
+  
 </LayoutHelado>
