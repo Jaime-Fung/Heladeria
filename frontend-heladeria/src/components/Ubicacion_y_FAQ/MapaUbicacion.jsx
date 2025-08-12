@@ -325,7 +325,7 @@ export default function MapaUbicacion() {
         </p>
 
         <div className="mt-6 grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-6 md:gap-8">
-          <div className="relative rounded-xl overflow-hidden w-full h-[300px] md:h-[450px] bg-white">
+          <div className="relative z-10 rounded-xl overflow-hidden w-full h-[300px] md:h-[450px] bg-white">
             <div ref={mapContainerRef} id="map" className="w-full h-full" />
           </div>
 
