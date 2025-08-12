@@ -3,6 +3,8 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import Select from "react-select";
 
+// 📌 Importamos las imágenes de Leaflet desde node_modules
+
 export default function MapaUbicacion() {
   const [mapInstance, setMapInstance] = useState(null);
 
@@ -225,7 +227,6 @@ export default function MapaUbicacion() {
     return acc;
   }, {});
 
-
   const orderedProvinces = [
     "San José",
     ...Object.keys(grouped).filter((p) => p !== "San José"),
@@ -240,6 +241,15 @@ export default function MapaUbicacion() {
   }));
 
   useEffect(() => {
+    delete L.Icon.Default.prototype._getIconUrl;
+
+    L.Icon.Default.mergeOptions({
+      iconRetinaUrl:
+        "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+      iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+      shadowUrl:
+        "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+    });
     const map = L.map("map").setView([9.9376, -84.1043], 9);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: "© OpenStreetMap contributors",
@@ -294,30 +304,27 @@ export default function MapaUbicacion() {
             <div id="map" className="w-full h-full"></div>
           </div>
 
-            <div className="flex flex-col space-y-6">
-              <div>
-                <label className="block text-[#1d1d1b] font-semibold mb-2">
-                  Selecciona ubicación
-                </label>
-                <Select
-                  options={[{ value: "all", label: "Todas" }, ...groupedOptions]}
-                  defaultValue={{label:"Todas"}}
-                  onChange={handleChange}
-                  styles={{
-                    menu: (provided) => ({
-                      ...provided,
-                      maxHeight: 300,
-                      overflowY: "auto",
-                    }),
-                  }}
-                />
-              </div>
+          <div className="flex flex-col space-y-6">
+            <div>
+              <label className="block text-[#1d1d1b] font-semibold mb-2">
+                Selecciona ubicación
+              </label>
+              <Select
+                options={[{ value: "all", label: "Todas" }, ...groupedOptions]}
+                defaultValue={{ label: "Todas" }}
+                onChange={handleChange}
+                styles={{
+                  menu: (provided) => ({
+                    ...provided,
+                    maxHeight: 300,
+                    overflowY: "auto",
+                  }),
+                }}
+              />
             </div>
           </div>
+        </div>
       </div>
     </section>
   );
 }
-
-
-
