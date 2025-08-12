@@ -9,8 +9,7 @@ const { bgClass = "" } = Astro.props;
 <!doctype html>
 <html lang="es">
   <head>
-     <!-- Google Analytics code -->
-    
+  
   
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -53,11 +52,13 @@ const { bgClass = "" } = Astro.props;
     width: 100%;
     height: 100%;
     overflow-x: hidden;
+    scroll-behavior: smooth;
     
   }
   html.loading body {
     visibility: hidden;
   }
+  
 
   
 </style>
