@@ -3,10 +3,13 @@ import Layout from "../layouts/Layout.astro";
 import HeroSection from "../components/Landing Page/HeroSection.astro";
 import SobreNosotros from "../components/Landing Page/Sobre-Nosotros.astro";
 import "../styles/global.css";
-import Contacto from "../components/Landing Page/Contacto.astro";
-import Catalogo from "../components/Landing Page/Catalogo.astro";
-import Sections from "../components/General/Sections.astro";
+
+import Contacto from '../components/Landing Page/Contacto.astro';
+import Catalogo from '../components/Landing Page/Catalogo.astro';
+import Sections from '../components/General/Sections.astro';
+import FAQs from '../components/Ubicacion y FAQ/FAQs.astro';
 import MapaUbicacion from "../components/Ubicacion_y_FAQ/MapaUbicacion";
+
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -17,6 +20,7 @@ import MapaUbicacion from "../components/Ubicacion_y_FAQ/MapaUbicacion";
   <Sections id="heroSection">
     <HeroSection />
   </Sections>
+
 
   <Sections id="sobreNosotros">
     <SobreNosotros />
@@ -33,6 +37,11 @@ import MapaUbicacion from "../components/Ubicacion_y_FAQ/MapaUbicacion";
   <Sections id="contacto">
     <Contacto />
   </Sections>
+   
+   <Sections id="FAQ">
+    <FAQs/>
+  </Sections>
+
 
   
 </Layout>
