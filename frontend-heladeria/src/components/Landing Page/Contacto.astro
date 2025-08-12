@@ -39,7 +39,9 @@ import { Image } from "astro:assets";
       </div>
 
       <div>
-        <h3 class="font-semibold text-lg text-teal-500 mb-2">Nuestras Redes Sociales</h3>
+        <h3 class="font-semibold text-lg text-teal-500 mb-2">
+          Nuestras Redes Sociales
+        </h3>
 
         <div class="flex space-x-2">
           <Socials
@@ -77,17 +79,50 @@ import { Image } from "astro:assets";
           Mandanos un correo, te responderemos lo más pronto posible.
         </p>
 
-        <form class="space-y-6">
+        <form
+          class="space-y-6"
+          action="https://formsubmit.co/vladros9871@gmail.com"
+          method="POST"
+          id="contactForm"
+        >
+          <input
+            type="hidden"
+            name="_subject"
+            value="🍦 Nuevo mensaje desde la heladería"
+            id="emailSubject"
+          />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="basic" />
+          <input type="hidden" name="_next" value="http://localhost:4321/" />
+          <input
+            type="hidden"
+            name="_autoresponse"
+            value="Gracias por tu mensaje"
+          />
           <!-- Nombre / Apellido -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <input
               type="text"
+              name="nombre"
               placeholder="Nombre"
+              required
+              minlength="2"
+              maxlength="50"
+              pattern="[A-Za-zÁ-ÿ\s']+"
+              oninvalid="this.setCustomValidity('Por favor ingresa al menos 2 letras (solo caracteres alfabéticos)')"
+              oninput="this.setCustomValidity('')"
               class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
             <input
               type="text"
+              name="apellido"
+              required
               placeholder="Apellido"
+              minlength="2"
+              maxlength="50"
+              pattern="[A-Za-zÁ-ÿ\s']+"
+              oninvalid="this.setCustomValidity('Por favor ingresa al menos 2 letras (solo caracteres alfabéticos)')"
+              oninput="this.setCustomValidity('')"
               class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
           </div>
@@ -96,6 +131,8 @@ import { Image } from "astro:assets";
           <div class="relative">
             <input
               type="email"
+              name="correo"
+              required
               placeholder="Correo"
               class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
@@ -104,6 +141,10 @@ import { Image } from "astro:assets";
           <!-- Texto -->
           <textarea
             rows="5"
+            name="mensaje"
+            required
+            minlength="15"
+            maxlength="500"
             placeholder="Mensaje"
             class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
           ></textarea>
@@ -111,26 +152,43 @@ import { Image } from "astro:assets";
           <!-- Botón -->
           <button
             type="submit"
-            class="w-full text-center bg-gradient-to-br from-purple-500 to-pink-500 text-white font-semibold py-3 rounded-lg hover:bg-purple-700 transition">
+            class="w-full text-center bg-gradient-to-br from-purple-500 to-pink-500 text-white font-semibold py-3 rounded-lg hover:bg-purple-700 transition"
+          >
             Enviar
           </button>
         </form>
+
+        <!-- Script para agregar hora de Costa Rica al asunto -->
+        <script is:inline>
+          document.getElementById('contactForm').addEventListener('submit', function(e) {
+            const now = new Date();
+            const options = { 
+              timeZone: 'America/Costa_Rica',
+              hour: '2-digit', 
+              minute: '2-digit',
+              hour12: true
+            };
+            const horaCR = now.toLocaleString('es-CR', options);
+            document.getElementById('emailSubject').value += ` (${horaCR})`;
+          });
+        </script>
       </div>
     </div>
   </div>
 
   <!-- Imagen cerca del Footer -->
-<div class="relative mt-16 h-80 sm:h-96 md:h-120 lg:h-140">
-  <Image
-    src={felicidadImg}
-    alt="Felicidad sin remordimiento"
-    class="w-full h-full object-cover shadow-md"
-  />
-  <div class="absolute inset-0 flex items-center justify-center px-4">
-    <h2 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white text-center max-w-4xl mx-auto">
-      ¡Felicidad sin Remordimiento!
-    </h2>
+  <div class="relative mt-16 h-80 sm:h-96 md:h-120 lg:h-140">
+    <Image
+      src={felicidadImg}
+      alt="Felicidad sin remordimiento"
+      class="w-full h-full object-cover shadow-md"
+    />
+    <div class="absolute inset-0 flex items-center justify-center px-4">
+      <h2
+        class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white text-center max-w-4xl mx-auto"
+      >
+        ¡Felicidad sin Remordimiento!
+      </h2>
+    </div>
   </div>
-</div>
-
 </section>
