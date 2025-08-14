@@ -256,11 +256,16 @@ export default function MapaUbicacion() {
 
       delete L.Icon.Default.prototype._getIconUrl;
       L.Icon.Default.mergeOptions({
-        iconRetinaUrl:
-          "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
-        iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
-        shadowUrl:
-          "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+        iconRetinaUrl: "uploads/leaflet/marker-icon-2x.png",
+        iconUrl: "uploads/leaflet/marker-icon.png",
+        shadowUrl: "uploads/leaflet/marker-shadow.png",
+      });
+
+      const lazyIcon = L.divIcon({
+        html: `<img src="uploads/leaflet/marker-icon.png" loading="lazy" alt="marker" width="25" height="41" />`,
+        className: "",
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
       });
 
       map = L.map(el).setView([9.9376, -84.1043], 9);
@@ -272,7 +277,7 @@ export default function MapaUbicacion() {
       markersGroupRef.current = markersGroup;
 
       locations.forEach((loc) => {
-        L.marker([loc.lat, loc.lon]).addTo(markersGroup).bindPopup(loc.popup);
+        L.marker([loc.lat, loc.lon], { icon: lazyIcon }).addTo(markersGroup);
       });
 
       setMapInstance(map);
@@ -320,9 +325,7 @@ export default function MapaUbicacion() {
         <h2 className="text-2xl md:text-3xl font-extrabold text-teal-500">
           Ubicaciones
         </h2>
-        <p className="mt-3 text-gray-700 text-base">
-          Nos puedes encontrar en:
-        </p>
+        <p className="mt-3 text-gray-700 text-base">Nos puedes encontrar en:</p>
 
         <div className="mt-6 grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-6 md:gap-8">
           <div className="relative z-10 rounded-xl overflow-hidden w-full h-[300px] md:h-[450px] bg-white border border-gray-300 shadow-xl">

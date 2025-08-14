@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: develop
+  branch: test
 
 media_folder: "frontend-heladeria/public/uploads"  
 public_folder: "/uploads"       
@@ -13,16 +13,23 @@ collections:
     slug: "{{nombre}}"     
     fields:
       - { label: "Nombre", name: "nombre", widget: "string" }
+      - { label: "Descripción", name: "descripcion", widget: "string" }
       - { label: "Categoría", name: "categoria", widget: "string" }
       - { label: "Precio", name: "precio", widget: "number" }
-      - { label: "Imagen", name: "thumbnail", widget: "image" }
+      - { label: "Imagen Miniatura", name: "thumbnail", widget: "image" }
+      - { label: "Imagen Principal", name: "img", widget: "image" }
       - { label: "Opinión Profesional", name: "opinionProfesional", widget: "text" }
-      - label: "Datos Nutricionales"
-        name: "datosNutricionales"
+      - label: "Información Nutricional"
+        name: "InformacionNutricional"
         widget: "object"
         fields:
+          - { label: "Tamaño de Porción", name: "tamanoPorcion", widget: "string" }
+          - { label: "Porciones por Envase", name: "porcionPorEnvase", widget: "number" }
+          - { label: "Energía Total", name: "energiaTotal", widget: "string" }
           - { label: "Calorías", name: "calorias", widget: "string" }
           - { label: "Grasas", name: "grasas", widget: "string" }
           - { label: "Azúcar", name: "azucar", widget: "string" }
           - { label: "Proteínas", name: "proteinas", widget: "string" }
           - { label: "Sodio", name: "sodio", widget: "string", required: false }
+          - { label: "Colesterol", name: "colesterol", widget: "string" }
+          - { label: "Carbohidratos", name: "carbohidratos", widget:

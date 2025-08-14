@@ -26,18 +26,23 @@ const {
 } = data;
 ---
 
-<LayoutHelado bgClass="bg-gradient-to-b from-[#f8a4aa] to-[#F9C9FF]" title={`${nombre} - SAZÚ`} loading="eager">
+<LayoutHelado
+  bgClass="bg-gradient-to-b from-[#f8a4aa] to-[#F9C9FF]"
+  title={`${nombre} - SAZÚ`}
+  loading="eager"
+>
   <section
-    class="bg-gradient-to-b from-[#f8a4aa] to-[#F9C9FF] max-w-8xl min-h-screen lg:min-h-[90vh] py-6 px-6 md:px-10 flex justify-center items-center mt-4"
+    class="bg-gradient-to-b from-[#f8a4aa] to-[#F9C9FF] max-w-8xl min-h-screen lg:min-h-[90vh] py-6 px-6 md:px-10 flex justify-center items-center mt-16"
   >
     <div
       class="relative bg-white rounded-2xl shadow-xl p-6 md:p-10 lg:max-h-[80vh] max-w-3xl w-full flex flex-col lg:flex-row gap-10 justify-center"
     >
       <a
-        href={`/#catalogo-${slug}`}
+        href="/#catalogo"
         class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-3xl font-bold"
         title="Cerrar"
         id="btnCerrar"
+        onclick="sessionStorage.setItem('scrollPos', window.scrollY)"
       >
         &times;
       </a>
@@ -72,7 +77,8 @@ const {
 
         <div class="flex flex-col sm:flex-row gap-4">
           <a
-            href="/#mapa" class="bg-[#9810fa] text-white px-5 py-3 rounded-lg text-lg font-semibold hover:bg-[#b156f1] transition cursor-pointer text-center"
+            href="/#mapa"
+            class="bg-[#9810fa] text-white px-5 py-3 rounded-lg text-lg font-semibold hover:bg-[#b156f1] transition cursor-pointer text-center"
           >
             ¿Dónde Comprar?
           </a>
@@ -130,7 +136,7 @@ const {
     <h4 class="text-base md:text-xl font-['Graviola_Soft_Heavy'] md:mb-2">
       INFORMACIÓN NUTRICIONAL
     </h4>
-    <hr class=" md:my-2 border-3 border-[#bab0ff]" />
+    <hr class="md:my-2 border-3 border-[#bab0ff]" />
     <div class="text-sm md:text-lg">
       <p>
         <strong>Tamaño de Porción:</strong>
@@ -207,6 +213,4 @@ const {
       </p>
     </div>
   </div>
-
-  
 </LayoutHelado>

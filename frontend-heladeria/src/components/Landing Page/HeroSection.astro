@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import coco from "../../assets/coco-organico-sabor.png";
 import frutos from "../../assets/frutos-rojos-sabor.png";
 import gomitas from "../../assets/ositos-de-goma-sabor.png";
@@ -25,7 +26,7 @@ const slides = [
 ];
 ---
 
-<section class="py-12">
+<section class="py-24">
   <div
     class="container mx-auto md:pl-20 px-6 max-w-7xl flex flex-col md:flex-row items-center gap-12"
   >
@@ -64,63 +65,64 @@ const slides = [
 
     <!-- Carrusel de imágenes -->
     <div class="w-full md:w-1/2">
-      <div
-        class="relative w-full h-64 md:h-96"
-      >
+      <div class="relative w-full h-64 md:h-96">
         {
           slides.map((slide, idx) => (
-            <img
-              src={slide.image.src}
+            <Image
+              src={slide.image}
               alt={slide.alt}
               data-slide
+              loading="eager"
               class={`absolute inset-0 mx-auto md:ml-auto sm:mr-0 my-auto max-h-96 object-contain transition-opacity duration-500 ${idx === 0 ? "opacity-100" : "opacity-0"}`}
             />
           ))
         }
       </div>
     </div>
-  </div>
 
-  <script is:inline>
-    let current = 0;
-    const slidesEls = Array.from(document.querySelectorAll("[data-slide]"));
-    const dots = Array.from(document.querySelectorAll("[data-dot]"));
-    const titleEl = document.getElementById("slide-title");
-    const descEl = document.getElementById("slide-desc");
+    <script is:inline>
+      let current = 0;
+      const slidesEls = Array.from(document.querySelectorAll("[data-slide]"));
+      const dots = Array.from(document.querySelectorAll("[data-dot]"));
+      const titleEl = document.getElementById("slide-title");
+      const descEl = document.getElementById("slide-desc");
 
-    function showSlide(n) {
-      current = n;
-      slidesEls.forEach((el, idx) => {
-        el.style.opacity = idx === n ? "1" : "0";
-      });
-      dots.forEach((dot, idx) => {
-        dot.classList.toggle("bg-purple-500", idx === n);
-        dot.classList.toggle("scale-125", idx === n);
-      });
-      titleEl.textContent = `Helado sabor: ${dots[n].dataset.title}`;
-      descEl.textContent = dots[n].dataset.desc;
-    }
+      function showSlide(n) {
+        current = n;
+        slidesEls.forEach((el, idx) => {
+          el.style.opacity = idx === n ? "1" : "0";
+        });
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle("bg-purple-500", idx === n);
+          dot.classList.toggle("scale-125", idx === n);
+        });
+        titleEl.textContent = `Helado sabor: ${dots[n].dataset.title}`;
+        descEl.textContent = dots[n].dataset.desc;
+      }
 
-    dots.forEach((dot) =>
-      dot.addEventListener("click", () => showSlide(Number(dot.dataset.index)))
-    );
+      dots.forEach((dot) =>
+        dot.addEventListener("click", () =>
+          showSlide(Number(dot.dataset.index))
+        )
+      );
 
-    // Slide inicial
-    showSlide(0);
+      // Slide inicial
+      showSlide(0);
 
-    // Autoplay + pausa al hover
-    let timer = setInterval(
-      () => showSlide((current + 1) % slidesEls.length),
-      5000
-    );
-
-    const dotsContainer = document.getElementById("dots-container");
-    dotsContainer.addEventListener("mouseenter", () => clearInterval(timer));
-    dotsContainer.addEventListener("mouseleave", () => {
-      timer = setInterval(
+      // Autoplay + pausa al hover
+      let timer = setInterval(
         () => showSlide((current + 1) % slidesEls.length),
         5000
       );
-    });
-  </script>
+
+      const dotsContainer = document.getElementById("dots-container");
+      dotsContainer.addEventListener("mouseenter", () => clearInterval(timer));
+      dotsContainer.addEventListener("mouseleave", () => {
+        timer = setInterval(
+          () => showSlide((current + 1) % slidesEls.length),
+          5000
+        );
+      });
+    </script>
+  </div>
 </section>
