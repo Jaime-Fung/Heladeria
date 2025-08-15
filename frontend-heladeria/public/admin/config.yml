@@ -23,13 +23,16 @@ collections:
         name: "InformacionNutricional"
         widget: "object"
         fields:
-          - { label: "Tamaño de Porción", name: "tamanoPorcion", widget: "string" }
+          - { label: "Tamaño de Porción", name: "tamanoPorcion", widget: "number" }
           - { label: "Porciones por Envase", name: "porcionPorEnvase", widget: "number" }
-          - { label: "Energía Total", name: "energiaTotal", widget: "string" }
-          - { label: "Calorías", name: "calorias", widget: "string" }
-          - { label: "Grasas", name: "grasas", widget: "string" }
-          - { label: "Azúcar", name: "azucar", widget: "string" }
-          - { label: "Proteínas", name: "proteinas", widget: "string" }
-          - { label: "Sodio", name: "sodio", widget: "string", required: false }
-          - { label: "Colesterol", name: "colesterol", widget: "string" }
-          - { label: "Carbohidratos", name: "carbohidratos", widget:}
+          - { label: "Energía Total", name: "energiaTotal", widget: "number" }
+          - { label: "Calorías", name: "calorias", widget: "number" }
+          - { label: "Grasas", name: "grasas", widget: "number" }
+          - { label: "Grasas Saturadas", name: "grasasSaturadas", widget: "number" }
+          - { label: "Grasas Trans", name: "grasasTrans", widget: "number" }
+          - { label: "Azúcar", name: "azucar", widget: "number" }
+          - { label: "Proteínas", name: "proteinas", widget: "number" }
+          - { label: "Sodio", name: "sodio", widget: "number" }
+          - { label: "Colesterol", name: "colesterol", widget: "number" }
+          - { label: "Carbohidratos", name: "carbohidratos", widget: "number"}
+          - { label: "Fibra dietetica", name: "fibraDietetica", widget: "number"}
