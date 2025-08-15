@@ -28,9 +28,9 @@ const helados = await getCollection("helados");
           ? "md:col-span-3 sm:col-span-2 flex justify-center"
           : "";
         const articleClass = isCenteredLast
-          ? "bg-white p-4 scroll-mt-28 rounded-xl shadow hover:shadow-lg transition flex h-full w-full max-w-[240px]"
-          : "bg-white p-4 scroll-mt-28 rounded-xl shadow hover:shadow-lg transition flex h-full";
-
+          ? "bg-white p-4 scroll-mt-28 rounded-xl shadow hover:shadow-lg transition text-center h-full w-full max-w-[240px]"
+          : "bg-white p-4 scroll-mt-28 rounded-xl shadow hover:shadow-lg transition h-full";
+ 
         return (
           <div class={wrapperClass}>
             <article class={articleClass} id={`catalogo-${slug}`}>
