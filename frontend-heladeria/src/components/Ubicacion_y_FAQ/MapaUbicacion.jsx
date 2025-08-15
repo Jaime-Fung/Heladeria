@@ -256,16 +256,11 @@ export default function MapaUbicacion() {
 
       delete L.Icon.Default.prototype._getIconUrl;
       L.Icon.Default.mergeOptions({
-        iconRetinaUrl: "uploads/leaflet/marker-icon-2x.png",
-        iconUrl: "uploads/leaflet/marker-icon.png",
-        shadowUrl: "uploads/leaflet/marker-shadow.png",
-      });
-
-      const lazyIcon = L.divIcon({
-        html: `<img src="uploads/leaflet/marker-icon.png" loading="lazy" alt="marker" width="25" height="41" />`,
-        className: "",
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
+        iconRetinaUrl:
+          "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+        iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+        shadowUrl:
+          "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
       });
 
       map = L.map(el).setView([9.9376, -84.1043], 9);
@@ -277,7 +272,7 @@ export default function MapaUbicacion() {
       markersGroupRef.current = markersGroup;
 
       locations.forEach((loc) => {
-        L.marker([loc.lat, loc.lon], { icon: lazyIcon }).addTo(markersGroup);
+        L.marker([loc.lat, loc.lon]).addTo(markersGroup).bindPopup(loc.popup);
       });
 
       setMapInstance(map);
