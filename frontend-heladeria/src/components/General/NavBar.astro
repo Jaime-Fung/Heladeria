@@ -8,9 +8,8 @@ import { Image } from "astro:assets";
 ---
 
 <header class="bg-transparent fixed top-1 md:top-3 z-50 font-normal w-full">
-
   <nav
-    class="max-w-7xl mx-auto flex items-center justify-between gap-4  px-6 py-1 rounded-2xl shadow-md border border-gray-100 bg-white backdrop-blur-lg"
+    class="max-w-7xl mx-auto flex items-center justify-between gap-4 px-6 py-1 rounded-2xl shadow-md border border-gray-100 bg-white backdrop-blur-lg"
   >
     <!-- Logo y nombre -->
     <a
@@ -35,22 +34,25 @@ import { Image } from "astro:assets";
           >Sobre Nosotros</a
         >
       </li>
-      
+
       <li>
         <a href="/#catalogoo" class="hover:text-purple-600 transition"
           >Catálogo</a
         >
       </li>
       <li>
-        <a href="/#mapa" class="hover:text-purple-600 transition">Ubicaciones</a>
+        <a href="/#mapa" class="hover:text-purple-600 transition">Ubicaciones</a
+        >
       </li>
       <li>
-        <a href="/#" class="hover:text-purple-600 transition"
+        <a href="/#FAQ" class="hover:text-purple-600 transition"
           >Preguntas Frecuentes</a
         >
       </li>
       <li>
-        <a href="/#contacto" class="hover:text-purple-600 transition">Contacto</a>
+        <a href="/#contacto" class="hover:text-purple-600 transition"
+          >Contacto</a
+        >
       </li>
     </ul>
 
@@ -108,24 +110,27 @@ import { Image } from "astro:assets";
         <!-- Enlaces -->
         <ul class="flex flex-col p-4 space-y-2 text-gray-700 font-bold">
           <li>
-            <a href="#" class="block hover:text-purple-600">Sobre Nosotros</a>
-          </li>
-          <li>
-            <a href="/#catalogo" class="block hover:text-purple-600">Catálogo</a
+            <a href="/#sobreNosotros" class="block hover:text-purple-600"
+              >Sobre Nosotros</a
             >
           </li>
           <li>
-            <a href="#" class="block hover:text-purple-600">Cuestionario</a>
+            <a href="/#catalogoo" class="block hover:text-purple-600"
+              >Catálogo</a
+            >
           </li>
           <li>
-            <a href="#" class="block hover:text-purple-600">Ubicaciones</a>
+            <a href="/#mapa" class="block hover:text-purple-600">Ubicaciones</a>
           </li>
           <li>
-            <a href="#" class="block hover:text-purple-600"
+            <a href="/#FAQ" class="block hover:text-purple-600"
               >Preguntas Frecuentes</a
             >
           </li>
-          <li><a href="#" class="block hover:text-purple-600">Contacto</a></li>
+          <li>
+            <a href="/#contacto" class="block hover:text-purple-600">Contacto</a
+            >
+          </li>
         </ul>
         <!-- Redes sociales -->
         <div
@@ -165,7 +170,19 @@ import { Image } from "astro:assets";
       const menu = document.getElementById("mobile-menu");
 
       if (btn && menu) {
-        btn.addEventListener("click", () => menu.classList.toggle("hidden"));
+        const links = menu.querySelectorAll("a");
+
+       
+        btn.addEventListener("click", () => {
+          menu.classList.toggle("hidden");
+        });
+
+        
+        links.forEach((link) => {
+          link.addEventListener("click", () => {
+            menu.classList.add("hidden");
+          });
+        });
       }
     });
   </script>

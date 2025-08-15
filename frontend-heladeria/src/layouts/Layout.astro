@@ -153,7 +153,7 @@ const { bgClass = "" } = Astro.props;
           e.preventDefault();
 
           isNavigatingBack = true;
-
+          
           if (window.astro && window.astro.navigate) {
             window.astro.navigate("/");
           } else {
