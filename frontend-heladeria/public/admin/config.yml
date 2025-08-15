@@ -32,4 +32,4 @@ collections:
           - { label: "Proteínas", name: "proteinas", widget: "string" }
           - { label: "Sodio", name: "sodio", widget: "string", required: false }
           - { label: "Colesterol", name: "colesterol", widget: "string" }
-          - { label: "Carbohidratos", name: "carbohidratos", widget:
+          - { label: "Carbohidratos", name: "carbohidratos", widget:}
