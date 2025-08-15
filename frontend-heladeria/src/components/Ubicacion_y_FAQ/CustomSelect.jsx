@@ -126,7 +126,7 @@
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Buscar..."
-                className="w-full border border-gray-200 rounded-md px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#2684FF]"
+                className="w-full border border-gray-200 rounded-md px-2 py-1.5 text-base md:text-sm focus:outline-none focus:ring-2 focus:ring-[#2684FF]"
               />
             </div>
 
@@ -143,7 +143,7 @@
                 filtered.map((g, gi) => (
                   <div key={gi} className="pb-2">
                     {g.label !== "Todas" && (
-                      <div className="px-3 py-1 text-xs font-semibold text-gray-500">
+                      <div className="px-3 py-1.5 text-xs font-semibold text-gray-500">
                         {g.label}
                       </div>
                     )}
