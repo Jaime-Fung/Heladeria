@@ -28,7 +28,7 @@ collections:
           - { label: "Energía Total", name: "energiaTotal", widget: "number" }
           - { label: "Calorías", name: "calorias", widget: "number" }
           - { label: "Grasas", name: "grasas", widget: "number" }
-          - { label: "Grasas Saturadas", name: "grasasSaturadas", widget: "number" }
+          - { label: "Grasas Saturadas", name: "grasasSaturadas", widget: "number", value_type: "float", step: 0.01, min: 0 }
           - { label: "Grasas Trans", name: "grasasTrans", widget: "number" }
           - { label: "Azúcar", name: "azucar", widget: "number" }
           - { label: "Proteínas", name: "proteinas", widget: "number" }
