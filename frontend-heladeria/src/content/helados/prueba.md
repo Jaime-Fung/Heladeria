@@ -9,7 +9,7 @@ opinionProfesional: prueba
 InformacionNutricional:
   porcionPorEnvase: 1
   carbohidratos: 7
-  grasasSaturadas: 4
+  grasasSaturadas: 0.4
   calorias: 80
   sodio: 50
   grasas: 2
