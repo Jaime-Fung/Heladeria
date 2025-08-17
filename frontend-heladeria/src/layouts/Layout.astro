@@ -51,7 +51,6 @@ const { bgClass = "" } = Astro.props;
 
       function saveScrollPosition() {
         const position = getCurrentScrollPosition();
-
         sessionStorage.setItem("scrollPosition", position.toString());
         sessionStorage.setItem("shouldRestore", "true");
       }
@@ -106,6 +105,7 @@ const { bgClass = "" } = Astro.props;
         }
       }
 
+      
       document.addEventListener("click", function (e) {
         let targetElement = e.target;
         let link = null;
@@ -129,6 +129,7 @@ const { bgClass = "" } = Astro.props;
         }
       });
 
+      
       document.addEventListener("click", function (e) {
         let targetElement = e.target;
         let closeBtn = null;
@@ -136,11 +137,19 @@ const { bgClass = "" } = Astro.props;
         for (let i = 0; i < 5; i++) {
           if (!targetElement) break;
 
+          
+          if (
+            targetElement.tagName === "A" &&
+            targetElement.getAttribute("href") === "/#mapa"
+          ) {
+            
+            return;
+          }
+
           if (
             targetElement.id === "btnCerrar" ||
             (targetElement.tagName === "A" &&
-              (targetElement.getAttribute("href") === "/" ||
-                targetElement.getAttribute("href") === "/#catalogo"))
+              targetElement.getAttribute("href") === "/")
           ) {
             closeBtn = targetElement;
             break;
@@ -153,7 +162,7 @@ const { bgClass = "" } = Astro.props;
           e.preventDefault();
 
           isNavigatingBack = true;
-          
+
           if (window.astro && window.astro.navigate) {
             window.astro.navigate("/");
           } else {
