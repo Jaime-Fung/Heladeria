@@ -2,7 +2,7 @@
 nombre: Arándano Mora Pistacho
 descripcion: Yogurt descremado con cultivo • Con fruta natural • Pasteurizado y homogenizado
 categoria: Frutas
-precio: 1.75
+precio: "1.750"
 thumbnail: /uploads/ARANDANO-MORA-PISTACHO.jpg
 img: /uploads/ImagenesFicha/ARANDANO-MORA-PISTACHO.png
 opinionProfesional: Es un sabor refrescante con buen balance de acidez y dulzura.
