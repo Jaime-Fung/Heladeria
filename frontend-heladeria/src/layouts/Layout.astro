@@ -56,19 +56,6 @@ const { bgClass = "" } = Astro.props;
         sessionStorage.setItem("shouldRestore", "true");
       }
 
-      function navigateToMapViaCatalog() {
-        const catalogoElement = document.getElementById("catalogo");
-        const mapaElement = document.getElementById("mapa");
-
-        if (!catalogoElement || !mapaElement) return;
-
-        catalogoElement.scrollIntoView({ behavior: "auto", block: "start" });
-
-        setTimeout(() => {
-          mapaElement.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 100);
-      }
-
       function restoreScrollPosition() {
         if (
           window.location.pathname !== "/" &&
@@ -81,15 +68,15 @@ const { bgClass = "" } = Astro.props;
           return;
         }
 
-        const navigateToMapFromCatalog = sessionStorage.getItem(
-          "navigateToMapFromCatalog"
-        );
-        if (navigateToMapFromCatalog === "true") {
-          sessionStorage.removeItem("navigateToMapFromCatalog");
+        const navigateToMap = sessionStorage.getItem("navigateToMap");
+        if (navigateToMap === "true") {
+          sessionStorage.removeItem("navigateToMap");
           setTimeout(() => {
-            navigateToMapViaCatalog();
+            const mapaElement = document.getElementById("mapa");
+            if (mapaElement) {
+              mapaElement.scrollIntoView({ behavior: "smooth" });
+            }
           }, 100);
-          hasRestored = true;
           return;
         }
 

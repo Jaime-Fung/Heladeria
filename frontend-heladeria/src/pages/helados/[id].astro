@@ -79,6 +79,7 @@ const {
           <a
             href="/#mapa"
             data-astro-prefetch="false"
+            onclick="navigateToMap(event)"
             class="bg-[#9810fa] text-white px-5 py-3 rounded-lg text-lg font-semibold hover:bg-[#b156f1] transition cursor-pointer text-center"
           >
             ¿Dónde Comprar?
@@ -328,5 +329,20 @@ const {
     </div>
   </div>
 
-  
+  <script is:inline>
+    function navigateToMap(event) {
+      event.preventDefault();
+
+      sessionStorage.removeItem("shouldRestore");
+      sessionStorage.removeItem("scrollPosition");
+
+      sessionStorage.setItem("navigateToMap", "true");
+
+      if (window.astro && window.astro.navigate) {
+        window.astro.navigate("/");
+      } else {
+        window.location.href = "/";
+      }
+    }
+  </script>
 </LayoutHelado>
