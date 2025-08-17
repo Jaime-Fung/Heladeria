@@ -101,7 +101,7 @@ const { bgClass = "" } = Astro.props;
               bodyElement.style.scrollBehavior =
                 originalBodyScrollBehavior || "smooth";
               htmlElement.classList.remove("restoring-scroll");
-            }, 50);
+            }, 200);
           });
         }
       }
