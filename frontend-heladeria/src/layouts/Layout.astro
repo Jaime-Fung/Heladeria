@@ -51,6 +51,7 @@ const { bgClass = "" } = Astro.props;
 
       function saveScrollPosition() {
         const position = getCurrentScrollPosition();
+
         sessionStorage.setItem("scrollPosition", position.toString());
         sessionStorage.setItem("shouldRestore", "true");
       }
@@ -100,87 +101,75 @@ const { bgClass = "" } = Astro.props;
               bodyElement.style.scrollBehavior =
                 originalBodyScrollBehavior || "smooth";
               htmlElement.classList.remove("restoring-scroll");
-            }, 200);
+            }, 50);
           });
         }
       }
 
       document.addEventListener("click", function (e) {
         let targetElement = e.target;
-
-        
-        console.log("🔍 CLICK INICIAL en:", {
-          tagName: targetElement.tagName,
-          id: targetElement.id,
-          href: targetElement.getAttribute
-            ? targetElement.getAttribute("href")
-            : "no-href",
-          className: targetElement.className,
-          textContent: targetElement.textContent?.trim().substring(0, 50),
-        });
+        let link = null;
 
         for (let i = 0; i < 5; i++) {
           if (!targetElement) break;
 
-          console.log(`🔍 NIVEL ${i}:`, {
-            tagName: targetElement.tagName,
-            id: targetElement.id,
-            href: targetElement.getAttribute
-              ? targetElement.getAttribute("href")
-              : "no-href",
-            className: targetElement.className,
-          });
-
           if (targetElement.tagName === "A") {
             const href =
               targetElement.getAttribute("href") || targetElement.href;
-
-            console.log("🔍 ENLACE ENCONTRADO:", href);
-
             if (href && href.includes("/helados/")) {
-              console.log("✅ ENLACE HELADO - Guardando posición");
-              saveScrollPosition();
-              return;
-            }
-
-            if (href === "/#mapa") {
-              console.log("✅ BOTÓN MAPA - Permitiendo navegación normal");
-
-              isNavigatingBack = false;
-              return;
-            }
-
-            if (href === "/" || href === "/#catalogo") {
-              console.log("🔄 NAVEGACIÓN DE REGRESO - Interceptando");
-              e.preventDefault();
-              isNavigatingBack = true;
-
-              if (window.astro && window.astro.navigate) {
-                window.astro.navigate("/");
-              } else {
-                window.location.href = "/";
-              }
-              return false;
+              link = targetElement;
+              break;
             }
           }
+          targetElement = targetElement.parentElement;
+        }
 
-          if (targetElement.id === "btnCerrar") {
-            console.log("❌ BOTÓN CERRAR - Interceptando");
-            e.preventDefault();
-            isNavigatingBack = true;
+        if (link) {
+          saveScrollPosition();
+        }
+      });
 
-            if (window.astro && window.astro.navigate) {
-              window.astro.navigate("/");
-            } else {
-              window.location.href = "/";
-            }
-            return false;
+      document.addEventListener("click", function (e) {
+        let targetElement = e.target;
+        let closeBtn = null;
+
+        for (let i = 0; i < 5; i++) {
+          if (!targetElement) break;
+
+          if (
+            targetElement.id === "btnCerrar" ||
+            (targetElement.tagName === "A" &&
+              targetElement.getAttribute("href") === "/")
+          ) {
+            closeBtn = targetElement;
+            break;
+          }
+
+          
+          if (
+            targetElement.id === "mapa" ||
+            targetElement.tagName === "A" &&
+            targetElement.getAttribute("href") === "/#mapa"
+          ) {
+            
+            return;
           }
 
           targetElement = targetElement.parentElement;
         }
 
-        console.log("🔍 CLICK NO MANEJADO - Permitiendo comportamiento normal");
+        if (closeBtn) {
+          e.preventDefault();
+
+          isNavigatingBack = true;
+
+          if (window.astro && window.astro.navigate) {
+            window.astro.navigate("/");
+          } else {
+            window.location.href = "/";
+          }
+          return false;
+        }
       });
 
       function preventAutoScroll() {
