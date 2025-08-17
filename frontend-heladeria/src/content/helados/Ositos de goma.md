@@ -2,7 +2,7 @@
 nombre: Ositos de goma
 descripcion: Yogurt descremado con cultivo • Con gomitas sin azúcar • Pasteurizado y homogenizado • Con colágeno hidrolizado
 categoria: Diabeticos
-precio: 2000
+precio: "1.750"
 thumbnail: /uploads/OSITOS-DE-GOMA.jpg
 img: /uploads/ImagenesFicha/OSITOS-DE-GOMA.png
 opinionProfesional: Es muy bueno

@@ -2,7 +2,7 @@
 nombre: Pitahaya Manga
 descripcion: Yogurt descremado con cultivo • Con fruta natural • Pasteurizado y homogenizado
 categoria: Frutas
-precio: 2500
+precio: "1.750"
 disponible: true
 thumbnail: /uploads/PITAHAYA-MANGA.jpg
 img: /uploads/ImagenesFicha/PITAHAYA-MANGA.png

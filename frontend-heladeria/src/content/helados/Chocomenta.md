@@ -3,7 +3,7 @@ nombre: Chocomenta
 descripcion: Yogurt descremado con cultivo • Con cacao orgánico • Pasteurizado y
   homogenizado
 categoria: Frutas
-precio: 1.75
+precio: "1.750"
 thumbnail: /uploads/CHOCOMENTA.jpg
 img: /uploads/ImagenesFicha/CHOCOMENTA.png
 opinionProfesional: Es un sabor refrescante con buen balance de acidez y dulzura.

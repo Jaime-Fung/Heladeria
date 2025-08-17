@@ -2,7 +2,7 @@
 nombre: Prueba
 descripcion: prueba
 categoria: prueba
-precio: 1000
+precio: "1.750"
 thumbnail: /uploads/CHOCOMENTA.jpg
 img: /uploads/piña-colada.png
 opinionProfesional: prueba

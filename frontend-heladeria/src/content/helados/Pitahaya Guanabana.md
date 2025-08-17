@@ -2,7 +2,7 @@
 nombre: Pitahaya Guanábana
 descripcion: Yogurt descremado con cultivo • Con fruta natural • Pasteurizado y homogenizado
 categoria: Diabeticos
-precio: 2000
+precio: "1.750"
 disponible: true
 thumbnail: /uploads/PITAHAYA-GUANABANA.jpg
 img: /uploads/ImagenesFicha/PITAHAYA-GUANABANA.png

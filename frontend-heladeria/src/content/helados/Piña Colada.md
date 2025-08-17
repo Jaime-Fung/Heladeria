@@ -2,7 +2,7 @@
 nombre: Piña Colada
 descripcion: Yogurt descremado con cultivo • Con fruta natural • Pasteurizado y homogenizado
 categoria: Pasteurizado y Homogenizado
-precio: 1000
+precio: "1.750"
 disponible: true
 thumbnail: /uploads/PIÑA-COLADA.jpg
 img: /uploads/ImagenesFicha/PIÑA-COLADA.png

@@ -2,7 +2,7 @@
 nombre: Frutos Rojos
 descripcion: Yogurt descremado con cultivo • Con fruta natural • Pasteurizado y homogenizado
 categoria: Frutas
-precio: 2500
+precio: "1.750"
 disponible: true
 thumbnail: /uploads/FRUTOS-ROJOS.jpg
 img: /uploads/ImagenesFicha/FRUTOS-ROJOS.png

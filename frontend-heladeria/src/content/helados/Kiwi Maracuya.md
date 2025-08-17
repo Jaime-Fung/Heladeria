@@ -2,7 +2,7 @@
 nombre: Kiwi Maracuyá
 descripcion: Yogurt descremado con cultivo • Con fruta natural • Pasteurizado y homogenizado
 categoria: Frutas
-precio: 2500
+precio: "1.750"
 disponible: true
 thumbnail: /uploads/KIWI-MARACUYA.jpg
 img: /uploads/ImagenesFicha/KIWI-MARACUYA.png

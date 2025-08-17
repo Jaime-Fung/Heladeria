@@ -2,7 +2,7 @@
 nombre: Fresa Coco
 descripcion: Yogurt descremado con cultivo • Con fruta natural • Pasteurizado y homogenizado
 categoria: Frutas
-precio: 2500
+precio: "1.750"
 disponible: true
 thumbnail: /uploads/FRESA-COCO.jpg
 img: /uploads/ImagenesFicha/FRESA-COCO.png
