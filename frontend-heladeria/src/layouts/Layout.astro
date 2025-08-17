@@ -139,20 +139,11 @@ const { bgClass = "" } = Astro.props;
           if (
             targetElement.id === "btnCerrar" ||
             (targetElement.tagName === "A" &&
-              targetElement.getAttribute("href") === "/")
+              (targetElement.getAttribute("href") === "/" ||
+                targetElement.getAttribute("href") === "/#catalogo"))
           ) {
             closeBtn = targetElement;
             break;
-          }
-
-          
-          if (
-            targetElement.id === "mapa" ||
-            targetElement.tagName === "A" &&
-            targetElement.getAttribute("href") === "/#mapa"
-          ) {
-            
-            return;
           }
 
           targetElement = targetElement.parentElement;
@@ -173,7 +164,9 @@ const { bgClass = "" } = Astro.props;
       });
 
       function preventAutoScroll() {
-        if (window.location.hash) {
+        // Solo limpiar el hash si estamos navegando hacia atrás desde el botón cerrar
+        // NO cuando venimos del botón "¿Dónde Comprar?"
+        if (window.location.hash && isNavigatingBack) {
           const url = new URL(window.location);
           url.hash = "";
           window.history.replaceState(null, "", url.toString());
