@@ -42,7 +42,6 @@ const {
         class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-3xl font-bold"
         title="Cerrar"
         id="btnCerrar"
-        onclick="sessionStorage.setItem('scrollPos', window.scrollY)"
       >
         &times;
       </a>
@@ -79,6 +78,19 @@ const {
           <a
             href="/#mapa"
             class="bg-[#9810fa] text-white px-5 py-3 rounded-lg text-lg font-semibold hover:bg-[#b156f1] transition cursor-pointer text-center"
+            onclick="
+           
+            window.isNavigatingBack = false;
+            
+           
+            if (window.astro && window.astro.navigate) {
+              event.preventDefault();
+              window.astro.navigate('/#mapa');
+              return false;
+            }
+            
+            
+          "
           >
             ¿Dónde Comprar?
           </a>
