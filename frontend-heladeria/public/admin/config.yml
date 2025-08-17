@@ -15,7 +15,7 @@ collections:
       - { label: "Nombre", name: "nombre", widget: "string" }
       - { label: "Descripción", name: "descripcion", widget: "string" }
       - { label: "Categoría", name: "categoria", widget: "string" }
-      - { label: "Precio", name: "precio", widget: "number", value_type: "float", step: 0.01, min: 0 }
+      - { label: "Precio", name: "precio", widget: "string", pattern: ['^\d+(\.\d{2,3})$', "Debe ser un número con 2 o 3 decimales"] }
       - { label: "Imagen Miniatura", name: "thumbnail", widget: "image" }
       - { label: "Imagen Principal", name: "img", widget: "image" }
       - { label: "Opinión Profesional", name: "opinionProfesional", widget: "text" }
