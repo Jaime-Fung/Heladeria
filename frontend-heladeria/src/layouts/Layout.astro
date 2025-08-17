@@ -51,6 +51,7 @@ const { bgClass = "" } = Astro.props;
 
       function saveScrollPosition() {
         const position = getCurrentScrollPosition();
+
         sessionStorage.setItem("scrollPosition", position.toString());
         sessionStorage.setItem("shouldRestore", "true");
       }
@@ -100,12 +101,11 @@ const { bgClass = "" } = Astro.props;
               bodyElement.style.scrollBehavior =
                 originalBodyScrollBehavior || "smooth";
               htmlElement.classList.remove("restoring-scroll");
-            }, 200);
+            }, 50);
           });
         }
       }
 
-      
       document.addEventListener("click", function (e) {
         let targetElement = e.target;
         let link = null;
@@ -129,22 +129,12 @@ const { bgClass = "" } = Astro.props;
         }
       });
 
-      
       document.addEventListener("click", function (e) {
         let targetElement = e.target;
         let closeBtn = null;
 
         for (let i = 0; i < 5; i++) {
           if (!targetElement) break;
-
-          
-          if (
-            targetElement.tagName === "A" &&
-            targetElement.getAttribute("href") === "/#mapa"
-          ) {
-            
-            return;
-          }
 
           if (
             targetElement.id === "btnCerrar" ||
@@ -153,6 +143,15 @@ const { bgClass = "" } = Astro.props;
           ) {
             closeBtn = targetElement;
             break;
+          }
+
+          // Específicamente excluir el botón "¿Dónde Comprar?" que va a /#mapa
+          if (
+            targetElement.tagName === "A" &&
+            targetElement.getAttribute("href") === "/#mapa"
+          ) {
+            // Permitir navegación normal, no interceptar
+            return;
           }
 
           targetElement = targetElement.parentElement;
