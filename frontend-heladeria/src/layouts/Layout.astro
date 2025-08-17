@@ -106,33 +106,52 @@ const { bgClass = "" } = Astro.props;
       }
 
       document.addEventListener("click", function (e) {
-        
-        console.log(
-          "Click detectado en:",
-          targetElement.tagName,
-          targetElement.getAttribute("href"),
-          targetElement.id
-        );
         let targetElement = e.target;
+
+        
+        console.log("🔍 CLICK INICIAL en:", {
+          tagName: targetElement.tagName,
+          id: targetElement.id,
+          href: targetElement.getAttribute
+            ? targetElement.getAttribute("href")
+            : "no-href",
+          className: targetElement.className,
+          textContent: targetElement.textContent?.trim().substring(0, 50),
+        });
 
         for (let i = 0; i < 5; i++) {
           if (!targetElement) break;
+
+          console.log(`🔍 NIVEL ${i}:`, {
+            tagName: targetElement.tagName,
+            id: targetElement.id,
+            href: targetElement.getAttribute
+              ? targetElement.getAttribute("href")
+              : "no-href",
+            className: targetElement.className,
+          });
 
           if (targetElement.tagName === "A") {
             const href =
               targetElement.getAttribute("href") || targetElement.href;
 
+            console.log("🔍 ENLACE ENCONTRADO:", href);
+
             if (href && href.includes("/helados/")) {
+              console.log("✅ ENLACE HELADO - Guardando posición");
               saveScrollPosition();
               return;
             }
 
             if (href === "/#mapa") {
+              console.log("✅ BOTÓN MAPA - Permitiendo navegación normal");
+
               isNavigatingBack = false;
               return;
             }
 
             if (href === "/" || href === "/#catalogo") {
+              console.log("🔄 NAVEGACIÓN DE REGRESO - Interceptando");
               e.preventDefault();
               isNavigatingBack = true;
 
@@ -146,6 +165,7 @@ const { bgClass = "" } = Astro.props;
           }
 
           if (targetElement.id === "btnCerrar") {
+            console.log("❌ BOTÓN CERRAR - Interceptando");
             e.preventDefault();
             isNavigatingBack = true;
 
@@ -159,6 +179,8 @@ const { bgClass = "" } = Astro.props;
 
           targetElement = targetElement.parentElement;
         }
+
+        console.log("🔍 CLICK NO MANEJADO - Permitiendo comportamiento normal");
       });
 
       function preventAutoScroll() {
