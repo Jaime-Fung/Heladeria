@@ -38,10 +38,11 @@ const {
       class="relative bg-white rounded-2xl shadow-xl p-6 md:p-10 lg:max-h-[80vh] max-w-3xl w-full flex flex-col lg:flex-row gap-10 justify-center"
     >
       <a
-        href="/"
+        href="/#catalogo"
         class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-3xl font-bold"
         title="Cerrar"
         id="btnCerrar"
+        onclick="sessionStorage.setItem('scrollPos', window.scrollY)"
       >
         &times;
       </a>
@@ -77,8 +78,9 @@ const {
         <div class="flex flex-col sm:flex-row gap-4">
           <a
             href="/#mapa"
+            data-astro-prefetch="false"
+            onclick="navigateToMap(event)"
             class="bg-[#9810fa] text-white px-5 py-3 rounded-lg text-lg font-semibold hover:bg-[#b156f1] transition cursor-pointer text-center"
-            id="mapa"
           >
             ¿Dónde Comprar?
           </a>
@@ -328,61 +330,20 @@ const {
   </div>
 
   <script is:inline>
-    function handleMapNavigation(e) {
-      e.preventDefault();
-      e.stopPropagation();
+    function navigateToMap(event) {
+      event.preventDefault();
 
-      console.log("🗺️ Manejando navegación al mapa");
-      console.log("📍 Ubicación actual:", window.location.pathname);
+      
+      sessionStorage.removeItem("shouldRestore");
+      sessionStorage.removeItem("scrollPosition");
 
-      // Limpiar flags
-      window.isNavigatingBack = false;
+      
+      sessionStorage.setItem("navigateToMap", "true");
 
-      // Función para hacer scroll al mapa
-      function scrollToMap() {
-        setTimeout(function () {
-          const mapaElement = document.getElementById("mapa");
-          console.log("📍 Buscando elemento mapa:", !!mapaElement);
-
-          if (mapaElement) {
-            console.log("✅ Elemento mapa encontrado - haciendo scroll");
-            mapaElement.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          } else {
-            console.log("❌ Elemento mapa NO encontrado - intentando con hash");
-            window.location.hash = "mapa";
-          }
-        }, 200);
-      }
-
-      // Si estamos en página de helado
-      if (window.location.pathname.includes("/helados/")) {
-        console.log("📍 Desde página de helado");
-
-        // Método 1: Intentar con Astro Router
-        if (window.astro && window.astro.navigate) {
-          console.log("📍 Usando Astro Router");
-          window.astro
-            .navigate("/")
-            .then(function () {
-              console.log("✅ Navegación Astro completada");
-              scrollToMap();
-            })
-            .catch(function (error) {
-              console.log("❌ Error Astro Router:", error);
-              // Fallback
-              window.location.href = "/#mapa";
-            });
-        } else {
-          console.log("📍 Sin Astro Router - navegación directa");
-          window.location.href = "/#mapa";
-        }
+      if (window.astro && window.astro.navigate) {
+        window.astro.navigate("/");
       } else {
-        // Ya estamos en home
-        console.log("📍 Ya en home - scroll directo");
-        scrollToMap();
+        window.location.href = "/";
       }
     }
   </script>

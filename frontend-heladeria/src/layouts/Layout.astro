@@ -68,6 +68,18 @@ const { bgClass = "" } = Astro.props;
           return;
         }
 
+        const navigateToMap = sessionStorage.getItem("navigateToMap");
+        if (navigateToMap === "true") {
+          sessionStorage.removeItem("navigateToMap");
+          setTimeout(() => {
+            const mapaElement = document.getElementById("mapa");
+            if (mapaElement) {
+              mapaElement.scrollIntoView({ behavior: "smooth" });
+            }
+          }, 100);
+          return;
+        }
+
         const shouldRestore = sessionStorage.getItem("shouldRestore");
         const savedPosition = sessionStorage.getItem("scrollPosition");
 
@@ -164,8 +176,6 @@ const { bgClass = "" } = Astro.props;
       });
 
       function preventAutoScroll() {
-        // Solo limpiar el hash si estamos navegando hacia atrás desde el botón cerrar
-        // NO cuando venimos del botón "¿Dónde Comprar?"
         if (window.location.hash && isNavigatingBack) {
           const url = new URL(window.location);
           url.hash = "";
