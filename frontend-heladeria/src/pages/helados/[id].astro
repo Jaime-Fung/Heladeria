@@ -78,11 +78,7 @@ const {
           <a
             href="/#mapa"
             class="bg-[#9810fa] text-white px-5 py-3 rounded-lg text-lg font-semibold hover:bg-[#b156f1] transition cursor-pointer text-center"
-            data-navigation-type="map"
-            onclick="
-            console.log('Navegando al mapa...');
-            window.isNavigatingBack = false;
-          "
+            
           >
             ¿Dónde Comprar?
           </a>
@@ -330,4 +326,64 @@ const {
       </p>
     </div>
   </div>
+
+  <script is:inline>
+    function handleMapNavigation(e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      console.log("🗺️ Manejando navegación al mapa");
+      console.log("📍 Ubicación actual:", window.location.pathname);
+
+      // Limpiar flags
+      window.isNavigatingBack = false;
+
+      // Función para hacer scroll al mapa
+      function scrollToMap() {
+        setTimeout(function () {
+          const mapaElement = document.getElementById("mapa");
+          console.log("📍 Buscando elemento mapa:", !!mapaElement);
+
+          if (mapaElement) {
+            console.log("✅ Elemento mapa encontrado - haciendo scroll");
+            mapaElement.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          } else {
+            console.log("❌ Elemento mapa NO encontrado - intentando con hash");
+            window.location.hash = "mapa";
+          }
+        }, 200);
+      }
+
+      // Si estamos en página de helado
+      if (window.location.pathname.includes("/helados/")) {
+        console.log("📍 Desde página de helado");
+
+        // Método 1: Intentar con Astro Router
+        if (window.astro && window.astro.navigate) {
+          console.log("📍 Usando Astro Router");
+          window.astro
+            .navigate("/")
+            .then(function () {
+              console.log("✅ Navegación Astro completada");
+              scrollToMap();
+            })
+            .catch(function (error) {
+              console.log("❌ Error Astro Router:", error);
+              // Fallback
+              window.location.href = "/#mapa";
+            });
+        } else {
+          console.log("📍 Sin Astro Router - navegación directa");
+          window.location.href = "/#mapa";
+        }
+      } else {
+        // Ya estamos en home
+        console.log("📍 Ya en home - scroll directo");
+        scrollToMap();
+      }
+    }
+  </script>
 </LayoutHelado>
