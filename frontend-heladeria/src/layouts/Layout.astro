@@ -51,7 +51,6 @@ const { bgClass = "" } = Astro.props;
 
       function saveScrollPosition() {
         const position = getCurrentScrollPosition();
-
         sessionStorage.setItem("scrollPosition", position.toString());
         sessionStorage.setItem("shouldRestore", "true");
       }
@@ -101,73 +100,64 @@ const { bgClass = "" } = Astro.props;
               bodyElement.style.scrollBehavior =
                 originalBodyScrollBehavior || "smooth";
               htmlElement.classList.remove("restoring-scroll");
-            }, 50);
+            }, 200);
           });
         }
       }
 
+      
       document.addEventListener("click", function (e) {
         let targetElement = e.target;
-        let link = null;
 
+        
         for (let i = 0; i < 5; i++) {
           if (!targetElement) break;
 
           if (targetElement.tagName === "A") {
             const href =
               targetElement.getAttribute("href") || targetElement.href;
+
+            
             if (href && href.includes("/helados/")) {
-              link = targetElement;
-              break;
+              saveScrollPosition();
+              return; 
+            }
+
+            
+            if (href === "/#mapa") {
+              
+              isNavigatingBack = false;
+              return;
+            }
+
+            
+            if (href === "/" || href === "/#catalogo") {
+              e.preventDefault();
+              isNavigatingBack = true;
+
+              if (window.astro && window.astro.navigate) {
+                window.astro.navigate("/");
+              } else {
+                window.location.href = "/";
+              }
+              return false;
             }
           }
-          targetElement = targetElement.parentElement;
-        }
 
-        if (link) {
-          saveScrollPosition();
-        }
-      });
+          
+          if (targetElement.id === "btnCerrar") {
+            e.preventDefault();
+            isNavigatingBack = true;
 
-      document.addEventListener("click", function (e) {
-        let targetElement = e.target;
-        let closeBtn = null;
-
-        for (let i = 0; i < 5; i++) {
-          if (!targetElement) break;
-
-          if (
-            targetElement.id === "btnCerrar" ||
-            (targetElement.tagName === "A" &&
-              targetElement.getAttribute("href") === "/")
-          ) {
-            closeBtn = targetElement;
-            break;
-          }
-
-          // Específicamente excluir el botón "¿Dónde Comprar?" que va a /#mapa
-          if (
-            targetElement.tagName === "A" &&
-            targetElement.getAttribute("href") === "/#mapa"
-          ) {
-            // Permitir navegación normal, no interceptar
-            return;
+            if (window.astro && window.astro.navigate) {
+              window.astro.navigate("/");
+            } else {
+              window.location.href = "/";
+            }
+            return false;
           }
 
           targetElement = targetElement.parentElement;
-        }
-
-        if (closeBtn) {
-          e.preventDefault();
-
-          isNavigatingBack = true;
-
-          if (window.astro && window.astro.navigate) {
-            window.astro.navigate("/");
-          } else {
-            window.location.href = "/";
-          }
-          return false;
         }
       });
 
