@@ -105,11 +105,16 @@ const { bgClass = "" } = Astro.props;
         }
       }
 
-      
       document.addEventListener("click", function (e) {
+        
+        console.log(
+          "Click detectado en:",
+          targetElement.tagName,
+          targetElement.getAttribute("href"),
+          targetElement.id
+        );
         let targetElement = e.target;
 
-        
         for (let i = 0; i < 5; i++) {
           if (!targetElement) break;
 
@@ -117,20 +122,16 @@ const { bgClass = "" } = Astro.props;
             const href =
               targetElement.getAttribute("href") || targetElement.href;
 
-            
             if (href && href.includes("/helados/")) {
               saveScrollPosition();
-              return; 
+              return;
             }
 
-            
             if (href === "/#mapa") {
-              
               isNavigatingBack = false;
               return;
             }
 
-            
             if (href === "/" || href === "/#catalogo") {
               e.preventDefault();
               isNavigatingBack = true;
@@ -144,7 +145,6 @@ const { bgClass = "" } = Astro.props;
             }
           }
 
-          
           if (targetElement.id === "btnCerrar") {
             e.preventDefault();
             isNavigatingBack = true;
