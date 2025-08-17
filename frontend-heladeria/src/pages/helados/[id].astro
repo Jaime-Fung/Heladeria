@@ -86,15 +86,34 @@ const {
           <button
             id="btnFicha"
             onclick="
-                      const panel = document.getElementById('sidebarNutricional');
-                      const btn = document.getElementById('btnFicha');
-                      const isOpen = panel.classList.toggle('translate-x-full') === false;
-                      panel.classList.toggle('translate-x-0', isOpen);
-                      btn.classList.toggle('bg-green-500', isOpen);
-                      btn.classList.toggle('text-white', isOpen);
-                      btn.classList.toggle('hover:bg-gray-100', !isOpen);
-                      btn.classList.toggle('border-transparent', isOpen);
-                    "
+              
+              if (window.innerWidth < 768) {
+                const panel = document.getElementById('fichaMovil');
+                const btn = document.getElementById('btnFicha');
+                const isOpen = panel.classList.toggle('hidden') === false;
+                btn.classList.toggle('bg-green-500', isOpen);
+                btn.classList.toggle('text-white', isOpen);
+                btn.classList.toggle('hover:bg-gray-100', !isOpen);
+                btn.classList.toggle('border-transparent', isOpen);
+                btn.textContent = isOpen ? 'Ocultar ficha nutricional' : 'Ver ficha nutricional';
+                if (isOpen) {
+                  setTimeout(() => {
+                    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }, 100);
+                }
+              } else {
+                
+                const panel = document.getElementById('sidebarNutricional');
+                const btn = document.getElementById('btnFicha');
+                const isOpen = panel.classList.toggle('translate-x-full') === false;
+                panel.classList.toggle('translate-x-0', isOpen);
+                btn.classList.toggle('bg-green-500', isOpen);
+                btn.classList.toggle('text-white', isOpen);
+                btn.classList.toggle('hover:bg-gray-100', !isOpen);
+                btn.classList.toggle('border-transparent', isOpen);
+                btn.textContent = isOpen ? 'Ocultar ficha' : 'Ver ficha nutricional';
+              }
+            "
             class="border border-gray-500 text-gray-700 px-6 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition"
           >
             Ver ficha nutricional
@@ -109,13 +128,107 @@ const {
             <li>✔ Buena Calidad</li>
           </ul>
         </div>
+
+        <div
+          id="fichaMovil"
+          class="hidden md:hidden mt-6 p-2 text-[#7b62fc] bg-gray-50 rounded-lg border border-indigo-200"
+        >
+          <h4
+            class="text-lg font-bold text-[#7b62fc] font-['Graviola_Soft_Heavy']"
+          >
+            INFORMACIÓN NUTRICIONAL
+          </h4>
+          <hr class="my-1 border-3 border-[#bab0ff]" />
+          <div class="text-sm">
+            <p>
+              <strong>Tamaño de Porción:</strong>
+              {InformacionNutricional.tamanoPorcion} g
+            </p>
+            <p>
+              <strong>Porciones por envase:</strong>
+              {InformacionNutricional.porcionPorEnvase}
+            </p>
+            <hr class="my-1 border-2 border-[#bab0ff]" />
+            <p>
+              <strong>Energía Total:</strong>
+              {InformacionNutricional.energiaTotal} KJ / {
+                InformacionNutricional.calorias
+              } kcal
+            </p>
+
+            <hr class="my-1 border-3 border-[#bab0ff]" />
+
+            <p class="font-bold text-base font-['Graviola_Soft_Heavy']">
+              % VALORES DIARIOS*
+            </p>
+
+            <hr class="my-0.5 border-2 border-[#bab0ff]" />
+
+            <div class="space-y-1">
+              <p>
+                <strong>Grasa total:</strong>
+                {InformacionNutricional.grasas} g
+              </p>
+              <p class="ml-4 text-xs text-[#836bfc]">
+                Grasa Saturada: {InformacionNutricional.grasasSaturadas} g
+              </p>
+              <p class="ml-4 text-xs text-[#836bfc]">
+                Trans: {InformacionNutricional.grasasTrans} g
+              </p>
+
+              <hr class="my-0.5 border-2 border-[#bab0ff]" />
+
+              <p>
+                <strong>Colesterol:</strong>
+                {"<"}{InformacionNutricional.colesterol} mg
+              </p>
+
+              <hr class="my-0.5 border-2 border-[#bab0ff]" />
+
+              <p>
+                <strong>Sodio:</strong>
+                {InformacionNutricional.sodio ?? "0"} mg
+              </p>
+
+              <hr class="my-0.5 border-2 border-[#bab0ff]" />
+
+              <p>
+                <strong>Carbohidratos:</strong>
+                {InformacionNutricional.carbohidratos} g
+              </p>
+
+              <hr class="my-0.5 border-2 border-[#bab0ff]" />
+
+              <p class="ml-4 text-xs text-[#836bfc]">
+                Fibra dietética: {InformacionNutricional.fibraDietetica} g
+              </p>
+              <p class="ml-4 text-xs text-[#836bfc]">
+                Azúcar: {InformacionNutricional.azucar} g
+              </p>
+              <hr class="my-0.5 border-2 border-[#bab0ff]" />
+              <p>
+                <strong>Proteína:</strong>
+                {InformacionNutricional.proteinas} g
+              </p>
+            </div>
+
+            <hr class="my-1 border-2 border-[#bab0ff]" />
+
+            <p class="text-xs text-[#836bfc] mt-3">
+              *Los Porcentajes de Valores Diarios están basados en una dieta de
+              2000 calorías, según FDA. Sus valores diarios pueden ser mayores o
+              menores dependiendo de las necesidades calóricas.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Sidebar nutricional para desktop - se mantiene igual -->
   <div
     id="sidebarNutricional"
-    class="bg-white fixed md:top-1/5 top-2 right-0 w-[98vw] md:w-80 text-[#7b62fc] shadow-lg p-4 md:p-5 transition transform translate-x-full z-50 rounded-l-xl overflow-auto max-h-[85vh] border border-indigo-200"
+    class="hidden md:block bg-white fixed top-1/5 right-0 w-80 text-[#7b62fc] shadow-lg p-5 transition transform translate-x-full z-50 rounded-l-xl overflow-auto max-h-[85vh] border border-indigo-200"
   >
     <button
       onclick="
@@ -133,11 +246,11 @@ const {
       &times;
     </button>
 
-    <h4 class="text-base md:text-xl font-['Graviola_Soft_Heavy'] md:mb-2">
+    <h4 class="text-xl font-['Graviola_Soft_Heavy'] mb-2">
       INFORMACIÓN NUTRICIONAL
     </h4>
-    <hr class="md:my-2 border-3 border-[#bab0ff]" />
-    <div class="text-sm md:text-lg">
+    <hr class="my-2 border-3 border-[#bab0ff]" />
+    <div class="text-lg">
       <p>
         <strong>Tamaño de Porción:</strong>
         {InformacionNutricional.tamanoPorcion} g
@@ -146,7 +259,7 @@ const {
         <strong>Porciones por envase:</strong>
         {InformacionNutricional.porcionPorEnvase}
       </p>
-      <hr class="md:my-2 border-2 border-[#bab0ff]" />
+      <hr class="my-2 border-2 border-[#bab0ff]" />
       <p>
         <strong>Energía Total:</strong>
         {InformacionNutricional.energiaTotal} KJ / {
@@ -154,20 +267,20 @@ const {
         } kcal
       </p>
 
-      <hr class="md:my-2 border-3 border-[#bab0ff]" />
+      <hr class="my-2 border-3 border-[#bab0ff]" />
 
-      <p class="font-['Graviola_Soft_Heavy'] text-base md:text-xl md:mb-1">
+      <p class="font-['Graviola_Soft_Heavy'] text-xl mb-1">
         % VALORES DIARIOS*
       </p>
 
       <hr class="border-2 border-[#bab0ff]" />
 
-      <ul class="list-none text-sm md:text-base">
+      <ul class="list-none text-base">
         <li><strong>Grasa total:</strong> {InformacionNutricional.grasas} g</li>
-        <li class="ml-4 text-xs md:text-base text-[#836bfc]">
+        <li class="ml-4 text-base text-[#836bfc]">
           Grasa Saturada: {InformacionNutricional.grasasSaturadas} g
         </li>
-        <li class="ml-4 text-xs md:text-base text-[#836bfc]">
+        <li class="ml-4 text-base text-[#836bfc]">
           Trans: {InformacionNutricional.grasasTrans} g
         </li>
 
@@ -194,10 +307,10 @@ const {
 
         <hr class="my-0.5 border-2 border-[#bab0ff]" />
 
-        <li class="ml-4 text-xs md:text-base text-[#836bfc]">
+        <li class="ml-4 text-base text-[#836bfc]">
           Fibra dietética: {InformacionNutricional.fibraDietetica} g
         </li>
-        <li class="ml-4 text-xs md:text-base text-[#836bfc]">
+        <li class="ml-4 text-base text-[#836bfc]">
           Azúcar: {InformacionNutricional.azucar} g
         </li>
         <hr class="my-0.5 border-2 border-[#bab0ff]" />
@@ -206,7 +319,7 @@ const {
 
       <hr class="my-0.5 border-2 border-[#bab0ff]" />
 
-      <p class="text-[8px] md:text-sm text-[#836bfc] md:mt-2">
+      <p class="text-sm text-[#836bfc] mt-2">
         *Los Porcentajes de Valores Diarios están basados en una dieta de 2000
         calorías, según FDA. Sus valores diarios pueden ser mayores o menores
         dependiendo de las necesidades calóricas.
