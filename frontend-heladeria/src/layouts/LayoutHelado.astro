@@ -42,10 +42,198 @@ const { bgClass = "" } = Astro.props;
 
   </head>
   <body class={bgClass}>
-    
     <NavBar />
-    
     <slot />
+
+    <script is:inline>
+      let hasRestored = false;
+      let isNavigatingBack = false;
+
+      function getCurrentScrollPosition() {
+        return (
+          window.pageYOffset ||
+          document.documentElement.scrollTop ||
+          document.body.scrollTop ||
+          0
+        );
+      }
+
+      function saveScrollPosition() {
+        const position = getCurrentScrollPosition();
+        sessionStorage.setItem("scrollPosition", position.toString());
+        sessionStorage.setItem("shouldRestore", "true");
+      }
+
+      function restoreScrollPosition() {
+        if (
+          window.location.pathname !== "/" &&
+          window.location.pathname !== "/index.html"
+        ) {
+          return;
+        }
+
+        if (hasRestored) {
+          return;
+        }
+
+        const shouldRestore = sessionStorage.getItem("shouldRestore");
+        const savedPosition = sessionStorage.getItem("scrollPosition");
+
+        if (shouldRestore === "true" && savedPosition !== null) {
+          const position = parseInt(savedPosition);
+
+          hasRestored = true;
+
+          sessionStorage.removeItem("shouldRestore");
+          sessionStorage.removeItem("scrollPosition");
+
+          const htmlElement = document.documentElement;
+          const bodyElement = document.body;
+
+          const originalHtmlScrollBehavior = htmlElement.style.scrollBehavior;
+          const originalBodyScrollBehavior = bodyElement.style.scrollBehavior;
+
+          htmlElement.style.scrollBehavior = "auto";
+          bodyElement.style.scrollBehavior = "auto";
+          htmlElement.classList.add("restoring-scroll");
+
+          requestAnimationFrame(() => {
+            window.scrollTo({
+              top: position,
+              behavior: "auto",
+            });
+
+            setTimeout(() => {
+              htmlElement.style.scrollBehavior =
+                originalHtmlScrollBehavior || "smooth";
+              bodyElement.style.scrollBehavior =
+                originalBodyScrollBehavior || "smooth";
+              htmlElement.classList.remove("restoring-scroll");
+            }, 200);
+          });
+        }
+      }
+
+      
+      document.addEventListener("click", function (e) {
+        let targetElement = e.target;
+        let link = null;
+
+        for (let i = 0; i < 5; i++) {
+          if (!targetElement) break;
+
+          if (targetElement.tagName === "A") {
+            const href =
+              targetElement.getAttribute("href") || targetElement.href;
+            if (href && href.includes("/helados/")) {
+              link = targetElement;
+              break;
+            }
+          }
+          targetElement = targetElement.parentElement;
+        }
+
+        if (link) {
+          saveScrollPosition();
+        }
+      });
+
+      
+      document.addEventListener("click", function (e) {
+        let targetElement = e.target;
+        let closeBtn = null;
+
+        for (let i = 0; i < 5; i++) {
+          if (!targetElement) break;
+
+          
+          if (
+            targetElement.tagName === "A" &&
+            targetElement.getAttribute("href") === "/#mapa"
+          ) {
+            
+            return;
+          }
+
+          if (
+            targetElement.id === "btnCerrar" ||
+            (targetElement.tagName === "A" &&
+              targetElement.getAttribute("href") === "/")
+          ) {
+            closeBtn = targetElement;
+            break;
+          }
+
+          targetElement = targetElement.parentElement;
+        }
+
+        if (closeBtn) {
+          e.preventDefault();
+
+          isNavigatingBack = true;
+
+          if (window.astro && window.astro.navigate) {
+            window.astro.navigate("/");
+          } else {
+            window.location.href = "/";
+          }
+          return false;
+        }
+      });
+
+      function preventAutoScroll() {
+        if (window.location.hash) {
+          const url = new URL(window.location);
+          url.hash = "";
+          window.history.replaceState(null, "", url.toString());
+        }
+
+        const originalScrollIntoView = Element.prototype.scrollIntoView;
+        Element.prototype.scrollIntoView = function () {
+          if (isNavigatingBack) {
+            return;
+          }
+          return originalScrollIntoView.apply(this, arguments);
+        };
+
+        setTimeout(() => {
+          Element.prototype.scrollIntoView = originalScrollIntoView;
+          isNavigatingBack = false;
+        }, 1000);
+      }
+
+      document.addEventListener("astro:page-load", function () {
+        if (
+          window.location.pathname === "/" ||
+          window.location.pathname === "/index.html"
+        ) {
+          preventAutoScroll();
+          restoreScrollPosition();
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        if (
+          (window.location.pathname === "/" ||
+            window.location.pathname === "/index.html") &&
+          !hasRestored
+        ) {
+          preventAutoScroll();
+          restoreScrollPosition();
+        }
+      });
+
+      window.addEventListener("load", function () {
+        if (
+          (window.location.pathname === "/" ||
+            window.location.pathname === "/index.html") &&
+          !hasRestored
+        ) {
+          preventAutoScroll();
+          restoreScrollPosition();
+        }
+      });
+    </script>
   </body>
 </html>
 
