@@ -93,7 +93,6 @@ import { Image } from "astro:assets";
           />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="basic" />
-          <input type="hidden" name="_next" value="http://localhost:4321/" />
           <input
             type="hidden"
             name="_autoresponse"
@@ -156,8 +155,26 @@ import { Image } from "astro:assets";
           >
             Enviar
           </button>
+          
         </form>
+        <p id="formMsg" style="display:none; color:green; margin-top:10px;">
+  ✅ Gracias por tu mensaje. Te responderemos pronto.
+</p>
+<script is:inline>
+  const form = document.getElementById("contactForm");
+  const msg = document.getElementById("formMsg");
 
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form)
+    }).then(() => {
+      msg.style.display = "block";
+      form.reset();
+    });
+  });
+</script>
         <!-- Script para agregar hora de Costa Rica al asunto -->
         <script is:inline>
           document.getElementById('contactForm').addEventListener('submit', function(e) {
