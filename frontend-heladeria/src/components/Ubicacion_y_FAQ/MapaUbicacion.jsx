@@ -315,7 +315,7 @@ export default function MapaUbicacion() {
   ];
 
   return (
-    <section className="w-full bg-gradient-to-r from-gray-50 to-stone-200">
+    <section className="w-full bg-[#F9FAFB]">
       <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
         <h2 className="text-2xl md:text-3xl font-extrabold text-teal-500">
           Ubicaciones
@@ -330,13 +330,14 @@ export default function MapaUbicacion() {
           <div className="flex flex-col space-y-6">
             <div>
               <p className="block text-gray-800 font-semibold mb-2">
-                Selecciona ubicación
+                Selecciona una ubicación:
               </p>
               <CustomSelect options={selectOptions} onChange={handleChange} />
             </div>
           </div>
         </div>
       </div>
+      <hr className="w-6xl border-t-1 border-gray-300 mx-auto" />
     </section>
   );
 }
