@@ -1,5 +1,5 @@
 ---
-nombre: Prueba
+nombre: Pruebaaa
 descripcion: prueba
 categoria: prueba
 precio: "1.750"
