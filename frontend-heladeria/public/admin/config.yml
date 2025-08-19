@@ -1,0 +1,38 @@
+backend:
+  name: git-gateway
+  branch: test
+
+media_folder: "frontend-heladeria/public/uploads"  
+public_folder: "/uploads"       
+
+collections:
+  - name: "helados"          
+    label: "Helados"         
+    folder: "frontend-heladeria/src/content/helados"  
+    create: true             
+    slug: "{{nombre}}"     
+    fields:
+      - { label: "Nombre", name: "nombre", widget: "string" }
+      - { label: "Descripción", name: "descripcion", widget: "string" }
+      - { label: "Categoría", name: "categoria", widget: "string" }
+      - { label: "Precio", name: "precio", widget: "string", pattern: ['^\d+(\.\d{2,3})$', "Debe ser un número con 2 o 3 decimales"] }
+      - { label: "Imagen Miniatura", name: "thumbnail", widget: "image" }
+      - { label: "Imagen Principal", name: "img", widget: "image" }
+      - { label: "Opinión Profesional", name: "opinionProfesional", widget: "text" }
+      - label: "Información Nutricional"
+        name: "InformacionNutricional"
+        widget: "object"
+        fields:
+          - { label: "Tamaño de Porción", name: "tamanoPorcion", widget: "number" }
+          - { label: "Porciones por Envase", name: "porcionPorEnvase", widget: "number" }
+          - { label: "Energía Total", name: "energiaTotal", widget: "number" }
+          - { label: "Calorías", name: "calorias", widget: "number" }
+          - { label: "Grasas", name: "grasas", widget: "number" }
+          - { label: "Grasas Saturadas", name: "grasasSaturadas", widget: "number", value_type: "float", step: 0.01, min: 0 }
+          - { label: "Grasas Trans", name: "grasasTrans", widget: "number", value_type: "float", step: 0.01, min: 0 }
+          - { label: "Azúcar", name: "azucar", widget: "number" }
+          - { label: "Proteínas", name: "proteinas", widget: "number" }
+          - { label: "Sodio", name: "sodio", widget: "number" }
+          - { label: "Colesterol", name: "colesterol", widget: "number" }
+          - { label: "Carbohidratos", name: "carbohidratos", widget: "number"}
+          - { label: "Fibra dietetica", name: "fibraDietetica", widget: "number"}

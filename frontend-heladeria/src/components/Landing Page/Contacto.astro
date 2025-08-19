@@ -1,0 +1,198 @@
+---
+import felicidadImg from "../../assets/background-contacto.png";
+import FacebookIcon from "../Icons/FacebookIcon.astro";
+import InstagramIcon from "../Icons/InstagramIcon.astro";
+import WhatsappIcon from "../Icons/WhatsappIcon.astro";
+import Socials from "../General/Socials.astro";
+import { Image } from "astro:assets";
+---
+
+<section class="relative pt-10">
+  <!-- Fondo blob -->
+  <img
+    class="pointer-events-none absolute inset-0 w-full h-full object-cover opacity-25 bg-gradient-to-r from-gray-50 to-stone-200"
+    loading="lazy"
+    alt=""
+    aria-hidden="true"
+  />
+
+  <div
+    class="relative container mx-auto px-6 lg:px-16 grid grid-cols-1 md:grid-cols-2 gap-12"
+  >
+    <!-- IZQUIERDA: info de contacto -->
+    <div class="space-y-6">
+      <h2 class="text-4xl font-extrabold text-teal-500">Contacto</h2>
+      <p class="text-gray-700 text-lg max-w-md">
+        Si tienes alguna pregunta o deseas más información, no dudes en
+        contactarnos. Estamos para ayudarte.
+      </p>
+
+      <div>
+        <h3 class="font-semibold text-lg text-teal-500">Teléfono</h3>
+        <p class="text-gray-800 text-lg"><span class="font-bold">Oficina Sazú: </span>+506 2260-6686</p>
+        <p class="text-gray-800 text-lg"><span class="font-bold">WhatsApp: </span>+506 6123‑4421</p>
+        <p class="text-gray-800 text-lg"><span class="font-bold">Ventas: </span>+506 7274-7677</p>
+        <p class="text-gray-800 text-lg"><span class="font-bold">Logística: </span>+506 8971-1390</p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-lg text-teal-500">Correo</h3>
+        <div class="flex items-center space-x-3">
+          <p class="text-gray-800 text-lg">hola.sazu@gmail.com</p>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-lg text-teal-500 mb-2">
+          Nuestras Redes Sociales
+        </h3>
+
+        <div class="flex space-x-2">
+          <Socials
+            href="https://api.whatsapp.com/send?phone=50661234421&text=Hola!%20Quiero%20más%20información."
+            aria-label="WhatsApp"
+            class="transition-transform hover:scale-110 p-2.5 rounded-full bg-gradient-to-br from-purple-500 to-pink-500"
+          >
+            <WhatsappIcon fill="#C94ADD" />
+          </Socials>
+
+          <Socials
+            href="https://www.facebook.com/hola.sazu"
+            aria-label="Facebook"
+            class="transition-transform hover:scale-110 p-2.5 rounded-full bg-gradient-to-br from-purple-500 to-pink-500"
+          >
+            <FacebookIcon fill="#C94ADD" />
+          </Socials>
+
+          <Socials
+            href="https://www.instagram.com/hola.sazu/"
+            aria-label="Instagram"
+            class="transition-transform hover:scale-110 p-2.5 rounded-full bg-gradient-to-br from-purple-500 to-pink-500"
+          >
+            <InstagramIcon fill="#ffffff" />
+          </Socials>
+        </div>
+      </div>
+    </div>
+
+    <!-- DERECHA: formulario -->
+    <div>
+      <div class="bg-white border border-gray-300 rounded-lg shadow-xl p-8">
+        <h3 class="text-3xl font-semibold mb-4 text-teal-500">¡Contáctanos!</h3>
+        <p class="text-gray-600 mb-6">
+          Mandanos un correo, te responderemos lo más pronto posible.
+        </p>
+
+        <form
+          class="space-y-6"
+          action="https://formsubmit.co/vladros9871@gmail.com"
+          method="POST"
+          id="contactForm"
+        >
+          <input
+            type="hidden"
+            name="_subject"
+            value="🍦 Nuevo mensaje desde la heladería"
+            id="emailSubject"
+          />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="basic" />
+          <input type="hidden" name="_next" value="http://localhost:4321/" /> 
+          <input
+            type="hidden"
+            name="_autoresponse"
+            value="Gracias por tu mensaje"
+          />
+          <!-- Nombre / Apellido -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <input
+              type="text"
+              name="nombre"
+              placeholder="Nombre"
+              required
+              minlength="2"
+              maxlength="50"
+              pattern="[A-Za-zÁ-ÿ\s']+"
+              oninvalid="this.setCustomValidity('Por favor ingresa al menos 2 letras (solo caracteres alfabéticos)')"
+              oninput="this.setCustomValidity('')"
+              class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            />
+            <input
+              type="text"
+              name="apellido"
+              required
+              placeholder="Apellido"
+              minlength="2"
+              maxlength="50"
+              pattern="[A-Za-zÁ-ÿ\s']+"
+              oninvalid="this.setCustomValidity('Por favor ingresa al menos 2 letras (solo caracteres alfabéticos)')"
+              oninput="this.setCustomValidity('')"
+              class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            />
+          </div>
+
+          <!-- Correo -->
+          <div class="relative">
+            <input
+              type="email"
+              name="correo"
+              required
+              placeholder="Correo"
+              class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            />
+          </div>
+
+          <!-- Texto -->
+          <textarea
+            rows="5"
+            name="mensaje"
+            required
+            minlength="15"
+            maxlength="500"
+            placeholder="Mensaje"
+            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
+          ></textarea>
+
+          <!-- Botón -->
+          <button
+            type="submit"
+            class="cursor-pointer w-full text-center bg-gradient-to-br from-purple-500 to-pink-500 text-white font-semibold py-3 rounded-lg hover:bg-purple-700 transition"
+          >
+            Enviar
+          </button>
+        </form>
+
+        <!-- Script para agregar hora de Costa Rica al asunto -->
+        <script is:inline>
+          document.getElementById('contactForm').addEventListener('submit', function(e) {
+            const now = new Date();
+            const options = { 
+              timeZone: 'America/Costa_Rica',
+              hour: '2-digit', 
+              minute: '2-digit',
+              hour12: true
+            };
+            const horaCR = now.toLocaleString('es-CR', options);
+            document.getElementById('emailSubject').value += ` (${horaCR})`;
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <!-- Imagen cerca del Footer -->
+  <div class="relative mt-16 h-80 sm:h-96 md:h-120 lg:h-140">
+    <Image
+      src={felicidadImg}
+      alt="Felicidad sin remordimiento"
+      class="w-full h-full object-cover shadow-md"
+    />
+    <div class="absolute inset-0 flex items-center justify-center px-4">
+      <h2
+        class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white text-center max-w-4xl mx-auto"
+      >
+        Snack Premium que da Felicidad sin Remordimiento
+      </h2>
+    </div>
+  </div>
+</section>

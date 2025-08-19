@@ -1,0 +1,93 @@
+---
+import FacebookIcon from "../Icons/FacebookIcon.astro";
+import InstagramIcon from "../Icons/InstagramIcon.astro";
+import WhatsappIcon from "../Icons/WhatsappIcon.astro";
+import Socials from "./Socials.astro";
+---
+
+<section class="bg-gray-50 py-24 text-gray-800">
+  <footer class="container mx-auto px-6 sm:px-12 lg:px-24">
+    <!-- Contenedor de las tres columnas -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+      
+      <!-- Footer Left: Logo y Nombre -->
+      <div class="footer-left">
+        <h3 class="text-4xl font-semibold"><span class="text-teal-400">Sazú</span></h3>
+        <p class="footer-links mt-4 text-lg">
+          <a href="/#heroSection" class="link-1">Inicio</a> |
+          <a href="/#catalogoo">Catálogo</a> |
+          <a href="/#mapa">Ubicaciones</a> |
+          <a href="/#FAQ">Preguntas Frecuentes</a> |
+          <a href="/#contacto">Contacto</a>
+        </p>
+        <p class="footer-company-name mt-4 text-sm">Sazú © 2025</p>
+      </div>
+
+      <!-- Footer Center: Detalles de Contacto -->
+      <div class="footer-center">
+        <div class="flex items-center mb-4">
+          <span class="text-2xl bg-purple-500 p-2 rounded-full mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" width="24" height="24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+              <circle cx="12" cy="9" r="2.5" fill="white"/>
+            </svg>
+          </span>
+          <p><span>Heredia,</span><br />San Francisco</p>
+        </div>
+        <div class="flex items-center mb-4">
+          <span class="text-2xl bg-purple-500 p-2 rounded-full mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" width="24" height="24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm7 14h2m-2-4h2m-2-4h2" />
+            </svg>
+          </span>
+          <p>+506 6123-4421</p>
+        </div>
+        <div class="flex items-center mb-4">
+          <span class="text-2xl bg-purple-500 p-2 rounded-full mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" width="24" height="24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12v1a4 4 0 01-8 0v-1m8 0a4 4 0 01-8 0m8 0V8a4 4 0 00-8 0v4m8 0a4 4 0 01-8 0" />
+              <rect x="2" y="6" width="20" height="12" rx="2" fill="none" stroke="white" stroke-width="2"/>
+            </svg>
+          </span>
+          <p><a href="mailto:distribuidora@sazu.com" class="text-teal-400">hola.sazu@gmail.com</a></p>
+        </div>
+      </div>
+
+      <!-- Footer Right: Sobre la Empresa y Redes Sociales -->
+      <div class="footer-right">
+        <p class="footer-company-about text-lg">
+          <span class="font-semibold text-gray-800">Acerca de Sazú</span> <br>
+          <br>
+          Somos una pyme familiar costarricense. Nos dedicamos a fabricar "Alimentos Funcionales" en forma de helados.
+        </p>
+
+        <div class="footer-icons mt-6 flex">
+          <Socials
+            href="https://api.whatsapp.com/send?phone=50661234421&text=Hola!%20Quiero%20más%20información."
+            aria-label="WhatsApp"
+            class="transition-transform hover:scale-110 p-2 bg-purple-500 rounded-full mr-4"
+          >
+            <WhatsappIcon width="24" height="24" fill="#AD46FF" />
+          </Socials>
+
+          <Socials
+            href="https://www.facebook.com/hola.sazu"
+            aria-label="Facebook"
+            class="transition-transform hover:scale-110 p-2 bg-purple-500 rounded-full mr-4"
+          >
+            <FacebookIcon width="24" height="24" fill="#AD46FF" />
+          </Socials>
+
+          <Socials
+            href="https://www.instagram.com/hola.sazu/"
+            aria-label="Instagram"
+            class="transition-transform hover:scale-110 p-2 bg-purple-500 rounded-full mr-4"
+          >
+            <InstagramIcon width="24" height="24" fill="#ffffff" />
+          </Socials>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+</section>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Panel de administración</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+
+    <style>
+     
+      [class*="CardImage"] {
+        width: 180px !important;
+        height: 180px !important;
+        margin: 0 auto !important;
+        object-fit: cover !important;
+        border-radius: 8px;
+        display: block;
+      }
+
+     
+      [class*="CardBody"] {
+        padding-top: 0.3rem !important;
+        padding-bottom: 0.3rem !important;
+        height: 50px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+      }
+
+      
+      [class*="CardTitle"] {
+        font-size: 1rem !important; 
+        margin-bottom: 0.2rem !important; 
+        line-height: 1.2 !important;
+        text-align: center !important;
+      }
+
+      
+      [class*="CardRoot"] {
+        padding: 0.5rem !important;
+        min-height: 220px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: start !important;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  </body>
+</html>

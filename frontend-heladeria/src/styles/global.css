@@ -1,1 +1,54 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Graviola Soft Regular";
+  src: url("/fonts/Graviola Soft Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Graviola Soft Heavy";
+  src: url("/fonts/Graviola Soft Heavy.otf") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Graviola Soft Medium";
+  src: url("/fonts/Graviola Soft Medium.otf") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html.loading body {
+  visibility: hidden;
+}
+
+@layer utilities {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f0f0f0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #d8d8d8;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #d8d8d8;
+  }
+  input,
+  textarea,
+  select {
+    
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+}
