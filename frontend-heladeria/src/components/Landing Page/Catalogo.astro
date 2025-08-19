@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 const helados = await getCollection("helados");
 ---
-<section class="bg-gradient-to-b from-[#f8a4aa] to-[#F9C9FF] py-8">
+<section class="bg-gradient-to-b from-[#f8a4aa] to-[#F9C9FF] py-6">
   <h2 class="text-5xl font-semibold text-center pb-3.5 text-white">
     Mira Nuestro Catálogo
   </h2>
@@ -71,7 +71,7 @@ const helados = await getCollection("helados");
   </div>
 
   <div class="flex flex-col items-center mt-7 gap-2.5">
-    <p class="text-gray-700">Si quieres descubrir más sobre nuestros deliciosos helados, no dudes en contactarnos. ¡Estamos para ayudarte!</p>
+    <p class="text-gray-700 text-center">Si quieres descubrir más sobre nuestros deliciosos helados, no dudes en contactarnos. ¡Estamos para ayudarte!</p>
     <a
       href="/#contacto"
       class="rounded-2xl px-8 py-1.5 bg-[#FF8A91] hover:bg-[#F28DFF] text-white transition"
