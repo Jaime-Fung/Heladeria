@@ -29,10 +29,18 @@ import { Image } from "astro:assets";
 
       <div>
         <h3 class="font-semibold text-lg text-teal-500">Teléfono</h3>
-        <p class="text-gray-800 text-lg"><span class="font-bold">Oficina Sazú: </span>+506 2260-6686</p>
-        <p class="text-gray-800 text-lg"><span class="font-bold">WhatsApp: </span>+506 6123‑4421</p>
-        <p class="text-gray-800 text-lg"><span class="font-bold">Ventas: </span>+506 7274-7677</p>
-        <p class="text-gray-800 text-lg"><span class="font-bold">Logística: </span>+506 8971-1390</p>
+        <p class="text-gray-800 text-lg">
+          <span class="font-bold">Oficina Sazú: </span>+506 2260-6686
+        </p>
+        <p class="text-gray-800 text-lg">
+          <span class="font-bold">WhatsApp: </span>+506 6123‑4421
+        </p>
+        <p class="text-gray-800 text-lg">
+          <span class="font-bold">Ventas: </span>+506 7274-7677
+        </p>
+        <p class="text-gray-800 text-lg">
+          <span class="font-bold">Logística: </span>+506 8971-1390
+        </p>
       </div>
 
       <div>
@@ -138,7 +146,7 @@ import { Image } from "astro:assets";
               required
               placeholder="Correo"
               pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com)$"
-            title="Ingresa un correo válido de Gmail, Yahoo o Outlook"
+              title="Ingresa un correo válido de Gmail, Yahoo o Outlook"
               class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
           </div>
@@ -161,59 +169,62 @@ import { Image } from "astro:assets";
           >
             Enviar
           </button>
-          
         </form>
         <p id="formMsg" style="display:none; color:green; margin-top:10px;">
-  ✅ Gracias por tu mensaje. Te responderemos pronto.
-</p>
-<script is:inline>
-  const form = document.getElementById("contactForm");
-  const msg = document.getElementById("formMsg");
-  const emailInput = form.querySelector('input[name="correo"]');
-  const emailSubject = document.getElementById("emailSubject");
+          Gracias por tu mensaje. Te responderemos pronto.
+        </p>
+        <script is:inline>
+          const form = document.getElementById("contactForm");
+          const msg = document.getElementById("formMsg");
+          const emailInput = form.querySelector('input[name="correo"]');
+          const emailSubject = document.getElementById("emailSubject");
 
-  form.addEventListener("submit", function(e) {
-    e.preventDefault(); // Evita recarga
+          form.addEventListener("submit", function (e) {
+            e.preventDefault(); // Evita recarga
 
-    // Validación de correo
-const emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail|yahoo|outlook|hotmail)\.(com|net)$/;
-    if (!emailRegex.test(emailInput.value)) {
-      alert("Por favor, ingresa un correo válido de Gmail, Yahoo , Outlook o hotmail.");
-      emailInput.focus();
-      return;
-    }
+            // Validación de correo
+            const emailRegex =
+              /^[a-zA-Z0-9._%+-]+@(gmail|yahoo|outlook|hotmail)\.(com|net)$/;
+            if (!emailRegex.test(emailInput.value)) {
+              alert(
+                "Por favor, ingresa un correo válido de Gmail, Yahoo , Outlook o hotmail."
+              );
+              emailInput.focus();
+              return;
+            }
 
-    // Agregar hora de Costa Rica al asunto
-    const now = new Date();
-    const options = { 
-      timeZone: 'America/Costa_Rica',
-      hour: '2-digit', 
-      minute: '2-digit',
-      hour12: true
-    };
-    const horaCR = now.toLocaleString('es-CR', options);
-    emailSubject.value = `🍦 Nuevo mensaje desde la heladería (${horaCR})`;
+            // Agregar hora de Costa Rica al asunto
+            const now = new Date();
+            const options = {
+              timeZone: "America/Costa_Rica",
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: true,
+            };
+            const horaCR = now.toLocaleString("es-CR", options);
+            emailSubject.value = `🍦 Nuevo mensaje desde la heladería (${horaCR})`;
 
-    // Enviar formulario
-    fetch(form.action, {
-      method: form.method,
-      body: new FormData(form)
-    })
-    .then((response) => {
-      if (response.ok) {
-        msg.style.display = "block";
-        form.reset();
-        setTimeout(() => { msg.style.display = "none"; }, 5000);
-      } else {
-        alert("Ocurrió un error, intenta de nuevo.");
-      }
-    })
-    .catch(() => {
-      alert("Ocurrió un error, intenta de nuevo.");
-    });
-  });
-</script>
-
+            // Enviar formulario
+            fetch(form.action, {
+              method: form.method,
+              body: new FormData(form),
+            })
+              .then((response) => {
+                if (response.ok) {
+                  msg.style.display = "block";
+                  form.reset();
+                  setTimeout(() => {
+                    msg.style.display = "none";
+                  }, 5000);
+                } else {
+                  alert("Ocurrió un error, intenta de nuevo.");
+                }
+              })
+              .catch(() => {
+                alert("Ocurrió un error, intenta de nuevo.");
+              });
+          });
+        </script>
       </div>
     </div>
   </div>
