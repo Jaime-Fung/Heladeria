@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: test
+  branch: main
 
 media_folder: "frontend-heladeria/public/uploads"  
 public_folder: "/uploads"       
