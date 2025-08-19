@@ -9,16 +9,34 @@
 
     <div class="mt-6 grid grid-cols-1 md:grid-cols-[1fr_auto_1.25fr] gap-6 md:gap-8">
       <!-- Columna izquierda: Formulario -->
-      <form class="rounded-xl">
-        <div class="space-y-4">
+     
+      <form
+        id="simpleForm"
+        action="https://formsubmit.co/vladros9871@gmail.com"
+        method="POST"
+      >
+        <!-- Configuración FormSubmit -->
+        <input type="hidden" name="_subject" value="🍦 Pregunta frecuente" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="basic" />
+
+        
+         <div class="space-y-4">
           <input
             type="email"
+            name="correo"
             placeholder="ejemplo@gmail.com"
+            required
+            pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com)$"
+            title="Ingresa un correo válido de Gmail, Yahoo o Outlook"
             class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-800 placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-300 transition"
           />
           <textarea
-            rows={7}
-            placeholder="Pregunta"
+            name="mensaje"
+            rows="7"
+            required
+            minlength="10"
+            placeholder="Texto ejemplo"
             class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-800 placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-300 transition resize-none"
           ></textarea>
 
@@ -27,7 +45,15 @@
             class="cursor-pointer w-full rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 px-4 py-3 text-white font-semibold hover:opacity-95 transition"
           >Enviar
           </button>
+          <!--  Mensaje de confirmación -->
+           <p
+            id="simpleMsg"
+            class="hidden text-green-600 text-sm font-medium mt-2"
+          >
+             Gracias por tu mensaje. Te responderemos pronto.
+          </p>
         </div>
+        
       </form>
 
       <!-- Separador vertical -->
@@ -140,3 +166,48 @@
     </div>
   </div>
 </section>
+<script>
+  const form = document.getElementById("simpleForm") as HTMLFormElement | null;
+  const mensaje = document.getElementById("simpleMsg");
+
+  if (form) {
+    const emailInput = form.querySelector('input[name="correo"]');
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // Evita recarga
+
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com)$/;
+
+      // Validación del correo
+      if (
+        !emailInput ||
+        !emailRegex.test((emailInput as HTMLInputElement).value)
+      ) {
+        alert("Por favor, ingresa un correo válido de Gmail, Yahoo o Outlook.");
+        if (emailInput) (emailInput as HTMLInputElement).focus();
+        return;
+      }
+
+      // Envío del formulario
+      const data = new FormData(form);
+      fetch(form.action, {
+        method: form.method,
+        body: data,
+      })
+        .then((response) => {
+          if (response.ok) {
+            if (mensaje) {
+              mensaje.classList.remove("hidden");
+              setTimeout(() => mensaje.classList.add("hidden"), 5000);
+            }
+            form.reset();
+          } else {
+            alert("Ocurrió un error, intenta de nuevo.");
+          }
+        })
+        .catch(() => {
+          alert("Ocurrió un error, intenta de nuevo.");
+        });
+    });
+  }
+</script>
