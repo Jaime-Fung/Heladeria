@@ -9,22 +9,18 @@ const { bgClass = "" } = Astro.props;
 <!doctype html>
 <html lang="es">
   <head>
-  
-  
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SAZÚ</title>
     <link rel="icon" type="image/png" href="/Logo-Sazú.png" />
     <meta name="generator" content={Astro.generator} />
     <ClientRouter />
-    
 
-     <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
     <script
-    type ="text/partytown"
-     async
-      src="https://www.googletagmanager.com/gtag/js?id=G-CM67QTFB33"
-    ></script>
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CM67QTFB33"></script>
     <script type="text/partytown">
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -34,13 +30,204 @@ const { bgClass = "" } = Astro.props;
 
       gtag("config", "G-CM67QTFB33");
     </script>
-    
-    
   </head>
   <body class={bgClass}>
     <NavBar />
     <slot />
     <Footer />
+
+    <script is:inline>
+      let hasRestored = false;
+      let isNavigatingBack = false;
+
+      function getCurrentScrollPosition() {
+        return (
+          window.pageYOffset ||
+          document.documentElement.scrollTop ||
+          document.body.scrollTop ||
+          0
+        );
+      }
+
+      function saveScrollPosition() {
+        const position = getCurrentScrollPosition();
+
+        sessionStorage.setItem("scrollPosition", position.toString());
+        sessionStorage.setItem("shouldRestore", "true");
+      }
+
+      function restoreScrollPosition() {
+        if (
+          window.location.pathname !== "/" &&
+          window.location.pathname !== "/index.html"
+        ) {
+          return;
+        }
+
+        if (hasRestored) {
+          return;
+        }
+
+        const navigateToMap = sessionStorage.getItem("navigateToMap");
+        if (navigateToMap === "true") {
+          sessionStorage.removeItem("navigateToMap");
+          setTimeout(() => {
+            const mapaElement = document.getElementById("mapa");
+            if (mapaElement) {
+              mapaElement.scrollIntoView({ behavior: "smooth" });
+            }
+          }, 100);
+          return;
+        }
+
+        const shouldRestore = sessionStorage.getItem("shouldRestore");
+        const savedPosition = sessionStorage.getItem("scrollPosition");
+
+        if (shouldRestore === "true" && savedPosition !== null) {
+          const position = parseInt(savedPosition);
+
+          hasRestored = true;
+
+          sessionStorage.removeItem("shouldRestore");
+          sessionStorage.removeItem("scrollPosition");
+
+          const htmlElement = document.documentElement;
+          const bodyElement = document.body;
+
+          const originalHtmlScrollBehavior = htmlElement.style.scrollBehavior;
+          const originalBodyScrollBehavior = bodyElement.style.scrollBehavior;
+
+          htmlElement.style.scrollBehavior = "auto";
+          bodyElement.style.scrollBehavior = "auto";
+          htmlElement.classList.add("restoring-scroll");
+
+          requestAnimationFrame(() => {
+            window.scrollTo({
+              top: position,
+              behavior: "auto",
+            });
+
+            setTimeout(() => {
+              htmlElement.style.scrollBehavior =
+                originalHtmlScrollBehavior || "smooth";
+              bodyElement.style.scrollBehavior =
+                originalBodyScrollBehavior || "smooth";
+              htmlElement.classList.remove("restoring-scroll");
+            }, 50);
+          });
+        }
+      }
+
+      document.addEventListener("click", function (e) {
+        let targetElement = e.target;
+        let link = null;
+
+        for (let i = 0; i < 5; i++) {
+          if (!targetElement) break;
+
+          if (targetElement.tagName === "A") {
+            const href =
+              targetElement.getAttribute("href") || targetElement.href;
+            if (href && href.includes("/helados/")) {
+              link = targetElement;
+              break;
+            }
+          }
+          targetElement = targetElement.parentElement;
+        }
+
+        if (link) {
+          saveScrollPosition();
+        }
+      });
+
+      document.addEventListener("click", function (e) {
+        let targetElement = e.target;
+        let closeBtn = null;
+
+        for (let i = 0; i < 5; i++) {
+          if (!targetElement) break;
+
+          if (
+            targetElement.id === "btnCerrar" ||
+            (targetElement.tagName === "A" &&
+              (targetElement.getAttribute("href") === "/" ||
+                targetElement.getAttribute("href") === "/#catalogo"))
+          ) {
+            closeBtn = targetElement;
+            break;
+          }
+
+          targetElement = targetElement.parentElement;
+        }
+
+        if (closeBtn) {
+          e.preventDefault();
+
+          isNavigatingBack = true;
+
+          if (window.astro && window.astro.navigate) {
+            window.astro.navigate("/");
+          } else {
+            window.location.href = "/";
+          }
+          return false;
+        }
+      });
+
+      function preventAutoScroll() {
+        if (window.location.hash && isNavigatingBack) {
+          const url = new URL(window.location);
+          url.hash = "";
+          window.history.replaceState(null, "", url.toString());
+        }
+
+        const originalScrollIntoView = Element.prototype.scrollIntoView;
+        Element.prototype.scrollIntoView = function () {
+          if (isNavigatingBack) {
+            return;
+          }
+          return originalScrollIntoView.apply(this, arguments);
+        };
+
+        setTimeout(() => {
+          Element.prototype.scrollIntoView = originalScrollIntoView;
+          isNavigatingBack = false;
+        }, 1000);
+      }
+
+      document.addEventListener("astro:page-load", function () {
+        if (
+          window.location.pathname === "/" ||
+          window.location.pathname === "/index.html"
+        ) {
+          preventAutoScroll();
+          restoreScrollPosition();
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        if (
+          (window.location.pathname === "/" ||
+            window.location.pathname === "/index.html") &&
+          !hasRestored
+        ) {
+          preventAutoScroll();
+          restoreScrollPosition();
+        }
+      });
+
+      window.addEventListener("load", function () {
+        if (
+          (window.location.pathname === "/" ||
+            window.location.pathname === "/index.html") &&
+          !hasRestored
+        ) {
+          preventAutoScroll();
+          restoreScrollPosition();
+        }
+      });
+    </script>
   </body>
 </html>
 
@@ -50,15 +237,16 @@ const { bgClass = "" } = Astro.props;
     font-family: "Graviola Soft Regular";
     margin: 0;
     width: 100%;
-    height: 100%;
+    visibility: visible !important;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    
   }
-  html.loading body {
-    visibility: hidden;
-  }
-  
 
-  
+  html.restoring-scroll {
+    scroll-behavior: auto !important;
+  }
+
+  html.restoring-scroll * {
+    scroll-behavior: auto !important;
+  }
 </style>

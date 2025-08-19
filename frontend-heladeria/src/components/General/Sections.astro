@@ -1,6 +1,6 @@
 ---
-const {scroll = "scroll-mt-25"} = Astro.props
+const { scroll = "scroll-mt-20" } = Astro.props
 ---
-<section class={scroll} class={Astro.props.class} id={Astro.props.id}>
-    <slot/>
+<section id={Astro.props.id} class={`${scroll} ${Astro.props.class ?? ""}`}>
+  <slot/>
 </section>

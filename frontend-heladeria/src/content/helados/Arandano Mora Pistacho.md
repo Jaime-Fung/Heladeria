@@ -2,20 +2,23 @@
 nombre: Arándano Mora Pistacho
 descripcion: Yogurt descremado con cultivo • Con fruta natural • Pasteurizado y homogenizado
 categoria: Frutas
-precio: 2500
-disponible: true
+precio: "1.750"
 thumbnail: /uploads/ARANDANO-MORA-PISTACHO.jpg
 img: /uploads/ImagenesFicha/ARANDANO-MORA-PISTACHO.png
 opinionProfesional: Es un sabor refrescante con buen balance de acidez y dulzura.
+disponible: true
 InformacionNutricional:
-  tamanoPorcion: 90g
   porcionPorEnvase: 1
-  energiaTotal: 300 KJ/ 70 kcal
-  calorias: 60 calorias
-  grasas: 1.5 g
-  azucar: 0 g
-  proteinas: 6g
-  sodio: 45 mg
-  colesterol: <5 mg
-  carbohidratos: 6 g
+  carbohidratos: 8
+  grasasSaturadas: 0.2
+  calorias: 60
+  sodio: 40
+  grasas: 0.5
+  colesterol: 5
+  proteinas: 5
+  tamanoPorcion: 90
+  fibraDietetica: 2
+  azucar: 0
+  grasasTrans: 0
+  energiaTotal: 300
 ---

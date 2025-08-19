@@ -1,21 +1,25 @@
 ---
 nombre: Chocomenta
-descripcion: Yogurt descremado con cultivo • Con cacao orgánico • Pasteurizado y homogenizado
+descripcion: Yogurt descremado con cultivo • Con cacao orgánico • Pasteurizado y
+  homogenizado
 categoria: Frutas
-precio: 2500
-disponible: true
+precio: "1.750"
 thumbnail: /uploads/CHOCOMENTA.jpg
 img: /uploads/ImagenesFicha/CHOCOMENTA.png
 opinionProfesional: Es un sabor refrescante con buen balance de acidez y dulzura.
+disponible: true
 InformacionNutricional:
-  tamanoPorcion: 90g
   porcionPorEnvase: 1
-  energiaTotal: 350 KJ/ 80 kcal
-  calorias: 80 calorias
-  grasas: 1 g
-  azucar: 0 g
-  proteinas: 5g
-  sodio: 45 mg
-  colesterol: <5 mg
-  carbohidratos: 12 g
+  carbohidratos: 8
+  grasasSaturadas: 0.2
+  calorias: 80
+  sodio: 40
+  grasas: 0.5
+  colesterol: 5
+  proteinas: 5
+  tamanoPorcion: 90
+  fibraDietetica: 2
+  azucar: 0
+  grasasTrans: 0
+  energiaTotal: 350
 ---

@@ -3,13 +3,13 @@ import Layout from "../layouts/Layout.astro";
 import HeroSection from "../components/Landing Page/HeroSection.astro";
 import SobreNosotros from "../components/Landing Page/Sobre-Nosotros.astro";
 import "../styles/global.css";
+
 import Contacto from "../components/Landing Page/Contacto.astro";
 import Catalogo from "../components/Landing Page/Catalogo.astro";
 import Sections from "../components/General/Sections.astro";
+import FAQs from "../components/Ubicacion_y_FAQ/FAQs.astro";
 import MapaUbicacion from "../components/Ubicacion_y_FAQ/MapaUbicacion";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <!--- Acá se coloca desde el "Hero" hasta la imagen de "¡Felicidad sin Remordimiento!" -->
@@ -22,17 +22,19 @@ import MapaUbicacion from "../components/Ubicacion_y_FAQ/MapaUbicacion";
     <SobreNosotros />
   </Sections>
 
-  <Sections id="catalogo">
+  <Sections id="catalogoo">
     <Catalogo />
   </Sections>
 
-  <Sections id="mapa">
+  <Sections id="mapa" scroll="scroll-mt-15">
     <MapaUbicacion client:only="react" />
- </Sections>
+  </Sections>
+
+  <Sections id="FAQ" scroll="scroll-mt-15">
+    <FAQs />
+  </Sections>
 
   <Sections id="contacto">
     <Contacto />
   </Sections>
-
-  
 </Layout>

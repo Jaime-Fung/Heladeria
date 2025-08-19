@@ -315,30 +315,29 @@ export default function MapaUbicacion() {
   ];
 
   return (
-    <section className="w-full bg-[#F8EFE3]">
+    <section className="w-full bg-[#F9FAFB]">
       <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
-        <h2 className="text-2xl md:text-3xl font-semibold text-[#1d1d1b]">
+        <h2 className="text-2xl md:text-3xl font-extrabold text-teal-500">
           Ubicaciones
         </h2>
-        <p className="mt-3 text-[#1d1d1b]/80 text-base">
-          Nos puedes encontrar en:
-        </p>
+        <p className="mt-3 text-gray-700 text-base">Nos puedes encontrar en:</p>
 
         <div className="mt-6 grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-6 md:gap-8">
-          <div className="relative rounded-xl overflow-hidden w-full h-[300px] md:h-[450px] bg-white">
+          <div className="relative z-10 rounded-xl overflow-hidden w-full h-[300px] md:h-[450px] bg-white border border-gray-300 shadow-xl">
             <div ref={mapContainerRef} id="map" className="w-full h-full" />
           </div>
 
           <div className="flex flex-col space-y-6">
             <div>
-              <p className="block text-[#1d1d1b] font-semibold mb-2">
-                Selecciona ubicación
+              <p className="block text-gray-800 font-semibold mb-2">
+                Selecciona una ubicación:
               </p>
               <CustomSelect options={selectOptions} onChange={handleChange} />
             </div>
           </div>
         </div>
       </div>
+      <hr className="w-6xl border-t-1 border-gray-300 mx-auto" />
     </section>
   );
 }

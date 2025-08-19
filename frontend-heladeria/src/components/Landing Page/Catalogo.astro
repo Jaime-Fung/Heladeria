@@ -8,7 +8,7 @@ const helados = await getCollection("helados");
     Mira Nuestro Catálogo
   </h2>
   <p class="text-center text-lg sm:text-xl font-medium max-w-2xl mx-auto mt-4 text-gray-700">
-    Descubrí nuestra línea de helados saludables, elaborados con frutas reales y
+    Descubre nuestra línea de helados saludables, elaborados con frutas reales y
     libres de conservantes.
   </p>
 
@@ -28,9 +28,9 @@ const helados = await getCollection("helados");
           ? "md:col-span-3 sm:col-span-2 flex justify-center"
           : "";
         const articleClass = isCenteredLast
-          ? "bg-white p-4 scroll-mt-28 rounded-xl shadow hover:shadow-lg transition flex h-full w-full max-w-[240px]"
-          : "bg-white p-4 scroll-mt-28 rounded-xl shadow hover:shadow-lg transition flex h-full";
-
+          ? "bg-white p-4 scroll-mt-28 rounded-xl shadow hover:shadow-lg transition text-center h-full w-full max-w-[240px]"
+          : "bg-white p-4 scroll-mt-28 rounded-xl shadow hover:shadow-lg transition h-full";
+ 
         return (
           <div class={wrapperClass}>
             <article class={articleClass} id={`catalogo-${slug}`}>
@@ -71,7 +71,7 @@ const helados = await getCollection("helados");
   </div>
 
   <div class="flex flex-col items-center mt-7 gap-2.5">
-    <p class="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p class="text-gray-700">Si quieres descubrir más sobre nuestros deliciosos helados, no dudes en contactarnos. ¡Estamos para ayudarte!</p>
     <a
       href="/#contacto"
       class="rounded-2xl px-8 py-1.5 bg-[#FF8A91] hover:bg-[#F28DFF] text-white transition"
