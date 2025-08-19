@@ -1,7 +1,3 @@
----
-
----
-
 <section class="w-full bg-[#F8EFE3]">
   <div class="mx-auto max-w-6xl px-4 py-10 md:py-14">
     <h2 class="text-2xl md:text-3xl font-semibold text-[#1d1d1b]">
@@ -11,17 +7,36 @@
       ¡Escribe tu correo y tu pregunta!
     </p>
 
-    <div class="mt-6 grid grid-cols-1 md:grid-cols-[1fr_auto_1.25fr] gap-6 md:gap-8">
+    <div
+      class="mt-6 grid grid-cols-1 md:grid-cols-[1fr_auto_1.25fr] gap-6 md:gap-8"
+    >
       <!-- Columna izquierda: Form -->
-      <form class="rounded-xl">
+      <form
+        id="simpleForm"
+        action="https://formsubmit.co/vladros9871@gmail.com"
+        method="POST"
+        class="rounded-xl"
+      >
+        <!-- Configuración FormSubmit -->
+        <input type="hidden" name="_subject" value="🍦 Pregunta frecuente" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="basic" />
+
         <div class="space-y-4">
           <input
             type="email"
+            name="correo"
             placeholder="ejemplo@gmail.com"
+            required
+            pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com)$"
+            title="Ingresa un correo válido de Gmail, Yahoo o Outlook"
             class="w-full rounded-lg border border-[#D9D5CC] bg-white px-4 py-3 text-[#1d1d1b] placeholder-[#9AA09A] outline-none focus:border-[#8C162A] transition"
           />
           <textarea
-            rows={7}
+            name="mensaje"
+            rows="7"
+            required
+            minlength="10"
             placeholder="Texto ejemplo"
             class="w-full rounded-lg border border-[#D9D5CC] bg-white px-4 py-3 text-[#1d1d1b] placeholder-[#9AA09A] outline-none focus:border-[#8C162A] transition resize-none"
           ></textarea>
@@ -32,11 +47,20 @@
           >
             Enviar
           </button>
+
+          <!-- ✅ Mensaje de confirmación -->
+          <p
+            id="simpleMsg"
+            class="hidden text-green-600 text-sm font-medium mt-2"
+          >
+            ✅ Gracias por tu mensaje. Te responderemos pronto.
+          </p>
         </div>
       </form>
 
       <!-- Separador vertical -->
-      <div class="hidden md:block w-px bg-[#D9D5CC] mx-auto" aria-hidden="true"></div>
+      <div class="hidden md:block w-px bg-[#D9D5CC] mx-auto" aria-hidden="true">
+      </div>
 
       <!-- Columna derecha: FAQs -->
       <div class="flex flex-col">
@@ -49,9 +73,14 @@
               <span class="tracking-wide">¿.................?</span>
               <svg
                 class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 text-[#1d1d1b]"
-                viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
               >
-                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd" />
+                <path
+                  fill-rule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
+                  clip-rule="evenodd"></path>
               </svg>
             </summary>
             <div class="px-4 pt-3 pb-4 text-[#1d1d1b]/80">
@@ -67,9 +96,14 @@
               <span class="tracking-wide">¿.................?</span>
               <svg
                 class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 text-[#1d1d1b]"
-                viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
               >
-                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd" />
+                <path
+                  fill-rule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
+                  clip-rule="evenodd"></path>
               </svg>
             </summary>
             <div class="px-4 pt-3 pb-4 text-[#1d1d1b]/80">
@@ -85,9 +119,14 @@
               <span class="tracking-wide">¿.................?</span>
               <svg
                 class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 text-[#1d1d1b]"
-                viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
               >
-                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd" />
+                <path
+                  fill-rule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
+                  clip-rule="evenodd"></path>
               </svg>
             </summary>
             <div class="px-4 pt-3 pb-4 text-[#1d1d1b]/80">
@@ -103,9 +142,14 @@
               <span class="tracking-wide">¿..................?</span>
               <svg
                 class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 text-[#1d1d1b]"
-                viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
               >
-                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd" />
+                <path
+                  fill-rule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
+                  clip-rule="evenodd"></path>
               </svg>
             </summary>
             <div class="px-4 pt-3 pb-4 text-[#1d1d1b]/80">
@@ -124,3 +168,49 @@
     </div>
   </div>
 </section>
+<script>
+  const form = document.getElementById("simpleForm") as HTMLFormElement | null;
+  const mensaje = document.getElementById("simpleMsg");
+
+  if (form) {
+    const emailInput = form.querySelector('input[name="correo"]');
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // Evita recarga
+
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com)$/;
+
+      // Validación del correo
+      if (
+        !emailInput ||
+        !emailRegex.test((emailInput as HTMLInputElement).value)
+      ) {
+        alert("Por favor, ingresa un correo válido de Gmail, Yahoo o Outlook.");
+        if (emailInput) (emailInput as HTMLInputElement).focus();
+        return;
+      }
+
+      // Envío del formulario
+      const data = new FormData(form);
+      fetch(form.action, {
+        method: form.method,
+        body: data,
+      })
+        .then((response) => {
+          if (response.ok) {
+            if (mensaje) {
+              mensaje.classList.remove("hidden");
+              setTimeout(() => mensaje.classList.add("hidden"), 5000);
+            }
+            form.reset();
+          } else {
+            alert("Ocurrió un error, intenta de nuevo.");
+          }
+        })
+        .catch(() => {
+          alert("Ocurrió un error, intenta de nuevo.");
+        });
+    });
+  }
+</script>
+
