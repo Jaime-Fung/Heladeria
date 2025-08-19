@@ -1,66 +1,37 @@
-<section class="w-full bg-[#F8EFE3]">
+<section class="w-full bg-[#F9FAFB]">
   <div class="mx-auto max-w-6xl px-4 py-10 md:py-14">
-    <h2 class="text-2xl md:text-3xl font-semibold text-[#1d1d1b]">
+    <h2 class="text-2xl md:text-3xl font-extrabold text-teal-500">
       Preguntas Frecuentes
     </h2>
-    <p class="mt-3 text-[#1d1d1b]/80 text-base">
+    <p class="mt-3 text-gray-700 text-base">
       ¡Escribe tu correo y tu pregunta!
     </p>
 
-    <div
-      class="mt-6 grid grid-cols-1 md:grid-cols-[1fr_auto_1.25fr] gap-6 md:gap-8"
-    >
-      <!-- Columna izquierda: Form -->
-      <form
-        id="simpleForm"
-        action="https://formsubmit.co/vladros9871@gmail.com"
-        method="POST"
-        class="rounded-xl"
-      >
-        <!-- Configuración FormSubmit -->
-        <input type="hidden" name="_subject" value="🍦 Pregunta frecuente" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_template" value="basic" />
-
+    <div class="mt-6 grid grid-cols-1 md:grid-cols-[1fr_auto_1.25fr] gap-6 md:gap-8">
+      <!-- Columna izquierda: Formulario -->
+      <form class="rounded-xl">
         <div class="space-y-4">
           <input
             type="email"
-            name="correo"
             placeholder="ejemplo@gmail.com"
-            required
-            pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com)$"
-            title="Ingresa un correo válido de Gmail, Yahoo o Outlook"
-            class="w-full rounded-lg border border-[#D9D5CC] bg-white px-4 py-3 text-[#1d1d1b] placeholder-[#9AA09A] outline-none focus:border-[#8C162A] transition"
+            class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-800 placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-300 transition"
           />
           <textarea
-            name="mensaje"
-            rows="7"
-            required
-            minlength="10"
-            placeholder="Texto ejemplo"
-            class="w-full rounded-lg border border-[#D9D5CC] bg-white px-4 py-3 text-[#1d1d1b] placeholder-[#9AA09A] outline-none focus:border-[#8C162A] transition resize-none"
+            rows={7}
+            placeholder="Pregunta"
+            class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-800 placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-300 transition resize-none"
           ></textarea>
 
           <button
             type="submit"
-            class="w-full rounded-lg bg-[#E9E3DA] px-4 py-3 text-[#1d1d1b] font-semibold hover:bg-[#e3dccf] transition"
-          >
-            Enviar
+            class="cursor-pointer w-full rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 px-4 py-3 text-white font-semibold hover:opacity-95 transition"
+          >Enviar
           </button>
-
-          <!-- ✅ Mensaje de confirmación -->
-          <p
-            id="simpleMsg"
-            class="hidden text-green-600 text-sm font-medium mt-2"
-          >
-            ✅ Gracias por tu mensaje. Te responderemos pronto.
-          </p>
         </div>
       </form>
 
       <!-- Separador vertical -->
-      <div class="hidden md:block w-px bg-[#D9D5CC] mx-auto" aria-hidden="true">
-      </div>
+      <div class="hidden md:block w-px bg-gray-300 mx-auto" aria-hidden="true"></div>
 
       <!-- Columna derecha: FAQs -->
       <div class="flex flex-col">
@@ -68,148 +39,104 @@
           <!-- Ítem 1 -->
           <details class="group">
             <summary
-              class="list-none flex items-center justify-between rounded-lg border border-[#D9D5CC] bg-white px-4 py-3 text-[#1d1d1b] cursor-pointer"
+              class="list-none flex items-center justify-between rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-800 cursor-pointer"
             >
-              <span class="tracking-wide">¿.................?</span>
+              <span class="tracking-wide">¿Qué edulcorante se usa?</span>
               <svg
-                class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 text-[#1d1d1b]"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
+                class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 text-gray-800"
+                viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
               >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                  clip-rule="evenodd"></path>
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd" />
               </svg>
             </summary>
-            <div class="px-4 pt-3 pb-4 text-[#1d1d1b]/80">
-              Aquí va la respuesta a la pregunta frecuente.
+            <div class="px-4 pt-3 pb-4 text-gray-700">
+              Usamos cantidades mínimas de stevia de ata pureza 100% natural, ya que pasteurizamos las frutas para potenciar su dulzura.
             </div>
           </details>
 
           <!-- Ítem 2 -->
           <details class="group">
             <summary
-              class="list-none flex items-center justify-between rounded-lg border border-[#D9D5CC] bg-white px-4 py-3 text-[#1d1d1b] cursor-pointer"
+              class="list-none flex items-center justify-between rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-800 cursor-pointer"
             >
-              <span class="tracking-wide">¿.................?</span>
+              <span class="tracking-wide">¿Qué tipo de yogurt utilizan para fabricar los helados?</span>
               <svg
-                class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 text-[#1d1d1b]"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
+                class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 text-gray-800"
+                viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
               >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                  clip-rule="evenodd"></path>
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd" />
               </svg>
             </summary>
-            <div class="px-4 pt-3 pb-4 text-[#1d1d1b]/80">
-              Respuesta ejemplo.
+            <div class="px-4 pt-3 pb-4 text-gray-700">
+              Confeccionamos nuestro propio yogurt con altos estándares de producción, usamos leche descremada, sepas de cultivos y probióticos de calidad.
             </div>
           </details>
 
           <!-- Ítem 3 -->
           <details class="group">
             <summary
-              class="list-none flex items-center justify-between rounded-lg border border-[#D9D5CC] bg-white px-4 py-3 text-[#1d1d1b] cursor-pointer"
+              class="list-none flex items-center justify-between rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-800 cursor-pointer"
             >
-              <span class="tracking-wide">¿.................?</span>
+              <span class="tracking-wide">¿Los helados Sazú los puede consumir una persona diabética?</span>
               <svg
-                class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 text-[#1d1d1b]"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
+                class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 text-gray-800"
+                viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
               >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                  clip-rule="evenodd"></path>
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd" />
               </svg>
             </summary>
-            <div class="px-4 pt-3 pb-4 text-[#1d1d1b]/80">
-              Respuesta ejemplo.
+            <div class="px-4 pt-3 pb-4 text-gray-700">
+              Sí, ya que no contienen azúcar agregada.
             </div>
           </details>
 
           <!-- Ítem 4 -->
           <details class="group">
             <summary
-              class="list-none flex items-center justify-between rounded-lg border border-[#D9D5CC] bg-white px-4 py-3 text-[#1d1d1b] cursor-pointer"
+              class="list-none flex items-center justify-between rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-800 cursor-pointer"
             >
-              <span class="tracking-wide">¿..................?</span>
+              <span class="tracking-wide">¿Se puede sustituir una merienda por un helado Sazú?</span>
               <svg
-                class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 text-[#1d1d1b]"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
+                class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 text-gray-800"
+                viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
               >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                  clip-rule="evenodd"></path>
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd" />
               </svg>
             </summary>
-            <div class="px-4 pt-3 pb-4 text-[#1d1d1b]/80">
-              Respuesta ejemplo.
+            <div class="px-4 pt-3 pb-4 text-gray-700">
+              Un helado Sazú equivale a una merienda nutritiva completa. Se puede intercambiar por una proteína magra, medio lácteo y sólo contiene medio carbohidrato.
             </div>
           </details>
+
+          <!-- Ítem 5 -->
+          <details class="group">
+            <summary
+              class="list-none flex items-center justify-between rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-800 cursor-pointer"
+            >
+              <span class="tracking-wide">¿Los helados Sazú contienen lactosa?</span>
+              <svg
+                class="h-5 w-5 shrink-0 transition-transform group-open:rotate-180 text-gray-800"
+                viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+              >
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clip-rule="evenodd" />
+              </svg>
+            </summary>
+            <div class="px-4 pt-3 pb-4 text-gray-700">
+              No. Sazú está confeccionado con yogurt y en proceso y fabricación del mismo se destruye la lactosa, además contienen probióticos 
+              qué favorecen las funciones de la microbiota intestinal.
+            </div>
+          </details>
+
         </div>
 
+        <!--
         <button
           type="button"
-          class="mt-6 w-full rounded-lg border border-[#D9D5CC] bg-white px-4 py-3 text-[#1d1d1b] font-semibold hover:bg-[#F3EEE6] transition"
+          class="mt-6 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-800 font-semibold hover:bg-gray-50 transition"
         >
           Ver más preguntas frecuentes
-        </button>
+        </button> -->
       </div>
     </div>
   </div>
 </section>
-<script>
-  const form = document.getElementById("simpleForm") as HTMLFormElement | null;
-  const mensaje = document.getElementById("simpleMsg");
-
-  if (form) {
-    const emailInput = form.querySelector('input[name="correo"]');
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault(); // Evita recarga
-
-      const emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com)$/;
-
-      // Validación del correo
-      if (
-        !emailInput ||
-        !emailRegex.test((emailInput as HTMLInputElement).value)
-      ) {
-        alert("Por favor, ingresa un correo válido de Gmail, Yahoo o Outlook.");
-        if (emailInput) (emailInput as HTMLInputElement).focus();
-        return;
-      }
-
-      // Envío del formulario
-      const data = new FormData(form);
-      fetch(form.action, {
-        method: form.method,
-        body: data,
-      })
-        .then((response) => {
-          if (response.ok) {
-            if (mensaje) {
-              mensaje.classList.remove("hidden");
-              setTimeout(() => mensaje.classList.add("hidden"), 5000);
-            }
-            form.reset();
-          } else {
-            alert("Ocurrió un error, intenta de nuevo.");
-          }
-        })
-        .catch(() => {
-          alert("Ocurrió un error, intenta de nuevo.");
-        });
-    });
-  }
-</script>
